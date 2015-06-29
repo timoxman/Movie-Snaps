@@ -1,0 +1,9 @@
+<% if @locations.any? %>
+  <% @locations.each do |location| %>
+    <h2><%= location.name %></h2>
+  <% end %>
+<% else %>
+  <h1>No locations yet</h1>
+<% end %>
+
+<a href="#">Add a location</a>
