@@ -39,6 +39,13 @@ gem 'geocoder'
 #allows us to add images
 gem 'paperclip'
 #Allows pagination
+gem 'will_paginate', '~> 3.0.6'
+#allows inclusion of underscore.js which provides a variety of useful functions for use in application
+gem 'underscore-rails'
+#allows creation of a google map in conjunction with rails
+gem 'gmaps4rails'
+#allows simple data entry forms: hub.com/plataformatec/simple_form
+gem 'simple_form'
 
 
 group :test do
