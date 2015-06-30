@@ -1,3 +1,10 @@
+<div class="mapBox">
+  <div id="mapDestination"></div><br>
+  <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
+  <button id="submitDestination" onclick="codeAddress()">Submit Destination</button>
+  <button id="add-marker" onclick="placeMarker(map.getCenter())">Add Marker</button>
+    <button id="confirm-marker" onclick="confirmLocation(allMarkers[0])">Confirm Marker</button>
+</div>
 <% if @locations.any? %>
   <% @locations.each do |location| %>
     <%= link_to location.name, location_path(location) %>

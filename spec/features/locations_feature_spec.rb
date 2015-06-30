@@ -10,7 +10,7 @@ feature 'locations' do
     end
   end
 
-  context 'locations have been added' do
+  xcontext 'locations have been added' do
     before do
       Location.create(name: 'Lewisham Fire Station')
     end
@@ -22,7 +22,7 @@ feature 'locations' do
     end
   end
 
-  context 'creating locations' do
+  xcontext 'creating locations' do
     scenario 'prompts user to fill out a form, then displays the new location (L03)' do
       visit '/locations'
       click_link 'Add a location'
@@ -33,7 +33,7 @@ feature 'locations' do
     end
   end
 
- context 'viewing locations' do
+ xcontext 'viewing locations' do
 
   let!(:lfs){Location.create(name:'Lewisham Fire Station')}
 

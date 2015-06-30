@@ -1,3 +1,11 @@
-// Place all the styles related to the locations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.mapBox {
+    float: left;
+    margin-left: 50px;
+    text-align: center;
+}
+
+#mapDestination {
+    width: 900px;
+    height: 500px;
+    border: 2px solid black;
+}
