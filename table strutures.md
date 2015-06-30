@@ -17,7 +17,7 @@ longtiude
 User_ID  (destinations are created by a user)
 
 
-VISITS
+VISITS - done cap
 ------
 ID
 Description
@@ -47,7 +47,6 @@ PHOTOS
 ID
 caption
 link to media (image source)
-User_ID  (User upoads a )
 Visit_ID (A visit can have many photos)
 
 
@@ -61,6 +60,6 @@ User_ID
 COMMENTS
 --------
 ID
-Comment
+Remark
 user_ID
 photo_ID

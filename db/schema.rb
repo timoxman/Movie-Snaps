@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630115621) do
+ActiveRecord::Schema.define(version: 20150630130259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "photo_id"
+    t.integer  "user_id"
+  end
+
+  add_index "comments", ["photo_id"], name: "index_comments_on_photo_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "photo_id"
+    t.integer  "user_id"
+  end
+
+  add_index "likes", ["photo_id"], name: "index_likes_on_photo_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +54,15 @@ ActiveRecord::Schema.define(version: 20150630115621) do
     t.string "imdbID"
     t.string "name"
   end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "visit_id"
+  end
+
+  add_index "photos", ["visit_id"], name: "index_photos_on_visit_id", using: :btree
 
   create_table "scenes", force: :cascade do |t|
     t.integer  "movie_id"
@@ -79,7 +109,12 @@ ActiveRecord::Schema.define(version: 20150630115621) do
   add_index "visits", ["scene_id"], name: "index_visits_on_scene_id", using: :btree
   add_index "visits", ["user_id"], name: "index_visits_on_user_id", using: :btree
 
+  add_foreign_key "comments", "photos"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "photos"
+  add_foreign_key "likes", "users"
   add_foreign_key "locations", "users"
+  add_foreign_key "photos", "visits"
   add_foreign_key "scenes", "locations"
   add_foreign_key "scenes", "movies"
   add_foreign_key "visits", "scenes"

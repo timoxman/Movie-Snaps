@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :locations
   has_many :visits
-  has_many :scenes
+  has_many :likes
+  has_many :comments
+
 
 end
