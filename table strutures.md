@@ -26,7 +26,7 @@ Scene_ID     (Visit a scene)
 User_ID       (user creates a visit)
 
 
-SCENES
+SCENES - done
 ------
 ID
 Location_ID
