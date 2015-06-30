@@ -3,7 +3,7 @@
 Movie Snaps
 This is the final project at Makers of Andy, Daryl, Ashleigh, Stefan, Jennifer and Tim.
 
-Movie Snaps is an app you can use to record visits you make to movie set locations. You can create new locations and then when you visit these locatons record your visit, upload pictures and videos of you visiting the movie location. You can like and comment on other peoples visits to locations.
+Movie Snaps is an app you can use to record visits you make to movie set locations. You can create new locations and then when you visit these locatons record your visit, upload pictures of you visiting the movie location. You can like and comment on other peoples visits to locations.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -15,18 +15,30 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+    Rails should be installed via the cmd: gem install rails
+    To get this application up and running, pull the repo from Github. Add a file called .env to your route directory. (This file is not in the github repo because it's in the gitignore file)
+    To this new file add two lines:
+      FACEBOOK_APP_ID=
+      FACEBOOK_APP_SECRET=
+      Complete the 2 lines with the app ID and App secret which are added in the slack channel. (no spaces between = and ID's)
 
 * Database creation
+    bin/rake db:create
+    or bin/rake db:migrate (if you have a previous version of the app)
 
 * Database initialization
 
 * How to run the test suite
+    $ rspec
+
+* To See test system
+    bin/rails s
+    go to http://localhost:3000/
 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
+    tba
 
 
 Please feel free to use a different markup language if you do not plan to run
