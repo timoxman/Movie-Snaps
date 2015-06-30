@@ -5,12 +5,15 @@ class LocationsController < ApplicationController
   end
 
   def new
-    @location = Location.new
+    lat = params[:posa]
+    lng = params[:posf]
+    address = params[:address]
+    new_location = Location.new(latitude: lat, longitude: lng, address: address, user_id: current_user.id)
+    new_location.save
+    redirect_to '/'
   end
 
   def create
-    Location.create(location_params)
-    redirect_to '/locations'
   end
 
   # define which params we are going to allow us to pass to controller, without this security flaw.

@@ -6,16 +6,14 @@ var browserSupportFlag =  new Boolean();
 var initialLocation;
 
 function initialize() {
-  var latlng = new google.maps.LatLng(51.517307, -0.073403);
   var myOptions2 = {
       zoom: 15,
-      center: latlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
   // if(navigator.geolocation) {
+  //   map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
   //   browserSupportFlag = true;
-  //   console.log('here')
   //   navigator.geolocation.getCurrentPosition(function(position) {
   //     initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
   //     map.setCenter(initialLocation);
@@ -23,12 +21,14 @@ function initialize() {
   // }
   // // Browser doesn't support Geolocation
   // else {
+    var latlng = new google.maps.LatLng(51.517307, -0.073403);
     map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
+    map.setCenter(latlng);
     map.setOptions({ draggableCursor: 'crosshair' });
+  // }
     google.maps.event.addListener(map, 'click', function(event) {
       placeMarker(event.latLng);
     });
-
     var input = document.getElementById('enterDestination');
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
@@ -36,7 +36,6 @@ function initialize() {
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
       var place = autocomplete.getPlace();
     });
-  // }
 }
 
 function getAddress() {
@@ -97,7 +96,6 @@ function placeMarker(location) {
   google.maps.event.addListener(marker, 'mouseout', function() {
     this.setAnimation(null);
   });
-  console.log(marker.position)
 }
 
 function removeMarker() {
@@ -107,14 +105,17 @@ function removeMarker() {
 
 function confirmLocation(marker) {
   if (allMarkers.length != 0) {
-  var movieLocation = [marker.position.A, marker.position.F, result]
-  $.ajax({ url: '/confirm.html',
-    type: 'POST',
-    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-    data: {"reply" : movieLocation},
-    success: function(response) {
-      console.log("ok")
-    }
-  });
+  window.open("/locations/new?posa=" + marker.position.A + "&posf=" + marker.position.F + "&address=" + result, "_self")
+  // var movieLocation = [marker.position.A, marker.position.F, result]
+  // $.ajax({ url: '/confirm.html',
+  //   type: 'POST',
+  //   beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+  //   data: {"reply" : movieLocation},
+  //   success: function(response) {
+  //     console.log("ok")
+  //   }
+  // });
+  } else {
+    document.getElementById("notify").innerHTML = 'Click on the map to add a marker'
   }
 }
