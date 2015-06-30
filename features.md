@@ -9,6 +9,7 @@ Create new location (establish a location)
 * Tag Film Location
 * You tube tag
 * API - OMDB
+* upload photo - screenshot from film(s)
 
 Search Locations
 * By Film
@@ -26,3 +27,6 @@ Visit Location (when its already been established)
 Review a Visit
 * Like
 * comment on picture
+
+* sanjify element
+* dashboard of metrics from site

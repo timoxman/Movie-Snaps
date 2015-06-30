@@ -10,7 +10,7 @@ feature 'locations' do
     end
   end
 
-  context 'restaurants have been added' do
+  context 'locations have been added' do
     before do
       Location.create(name: 'Lewisham Fire Station')
     end
@@ -18,7 +18,7 @@ feature 'locations' do
     scenario 'display locations (L02)' do
       visit '/locations'
       expect(page).to have_content('Lewisham Fire Station')
-      expect(page).not_to have_content('No restaurants yet')
+      expect(page).not_to have_content('No locations yet')
     end
   end
 

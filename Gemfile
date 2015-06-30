@@ -53,6 +53,7 @@ group :test do
   gem 'capybara'
   #testing coverage
   gem 'coveralls', require: false
+  gem 'shoulda'
 end
 
 group :development, :test do
