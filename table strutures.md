@@ -1,4 +1,4 @@
-USERS
+USERS - Done
 -----
 ID
 username
@@ -7,7 +7,7 @@ avatar(facebook)
 email
 
 
-DESTINATIONS
+LOCATIONS - Done
 ------------
 ID
 google street address
