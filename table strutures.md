@@ -29,12 +29,12 @@ User_ID       (user creates a visit)
 SCENES
 ------
 ID
-Desination_ID
+Location_ID
 Movie_ID
 link to media (image source)
 
 
-MOVIE
+MOVIE - done
 -----
 ID
 imdbID
