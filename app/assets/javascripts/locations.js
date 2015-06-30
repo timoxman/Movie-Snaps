@@ -11,21 +11,21 @@ function initialize() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-  // if(navigator.geolocation) {
-  //   map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
-  //   browserSupportFlag = true;
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //     initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-  //     map.setCenter(initialLocation);
-  //   });
-  // }
-  // // Browser doesn't support Geolocation
-  // else {
+  if(navigator.geolocation) {
+    map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      map.setCenter(initialLocation);
+    });
+  }
+  // Browser doesn't support Geolocation
+  else {
     var latlng = new google.maps.LatLng(51.517307, -0.073403);
     map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
     map.setCenter(latlng);
     map.setOptions({ draggableCursor: 'crosshair' });
-  // }
+  }
     google.maps.event.addListener(map, 'click', function(event) {
       placeMarker(event.latLng);
     });

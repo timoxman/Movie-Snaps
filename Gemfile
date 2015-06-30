@@ -60,6 +60,7 @@ group :test do
   #allow testing of Javascript (Capybara's default web driver hiccups)
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 group :development, :test do
