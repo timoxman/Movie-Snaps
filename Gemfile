@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+#allow us to create a .env file to store environment variables outside of the bash profile
 gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -46,6 +47,7 @@ gem 'underscore-rails'
 gem 'gmaps4rails'
 #allows simple data entry forms: hub.com/plataformatec/simple_form
 gem 'simple_form'
+#allow facebook login
 gem 'omniauth-facebook'
 
 
@@ -55,6 +57,9 @@ group :test do
   #testing coverage
   gem 'coveralls', require: false
   gem 'shoulda'
+  #allow testing of Javascript (Capybara's default web driver hiccups)
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development, :test do

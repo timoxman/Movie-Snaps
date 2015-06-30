@@ -1,4 +1,4 @@
-USERS - Done
+ USERS - Done
 -----
 ID
 username
@@ -17,7 +17,7 @@ longtiude
 User_ID  (destinations are created by a user)
 
 
-VISITS - done cap
+VISITS - done
 ------
 ID
 Description
@@ -42,7 +42,7 @@ Name
 
 
 
-PHOTOS
+PHOTOS - done
 ------
 ID
 caption
@@ -50,14 +50,14 @@ link to media (image source)
 Visit_ID (A visit can have many photos)
 
 
-LIKES
+LIKES - done
 -----
 ID
 Photo_ID
 User_ID
 
 
-COMMENTS
+COMMENTS -done
 --------
 ID
 Remark
