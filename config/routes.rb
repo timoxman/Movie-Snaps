@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get 'locations' => 'locations#index'
+  # get ''
   root 'locations#index'
+  get 'locations/api' => 'locations#api'
+  post 'locations/api' => 'locations#api'
   resources :movies
 
 # Wondering if will need to wrap api around movies and users, etc... too?

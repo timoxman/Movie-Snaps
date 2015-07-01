@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json'
 #allow us to create a .env file to store environment variables outside of the bash profile
 gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -61,6 +62,7 @@ group :test do
   #allow testing of Javascript (Capybara's default web driver hiccups)
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 group :development, :test do
