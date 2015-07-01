@@ -4,8 +4,7 @@
     <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
     <button id="submitDestination" onclick="codeAddress()">Go</button>
       <button id="add-marker" onclick="placeMarker(map.getCenter())">Add Marker</button>
-      <button id="confirm-marker" onclick="confirmLocation(allMarkers[0])">Add location</button>
-
+      <button id="confirm-marker" onclick="confirmLocation(newMarker[0])">Add location</button>
       <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="document.getElementById('submitMovie').click()"/>
     <button id="submitMovie" onclick="acquireMovies()">Submit Movie</button>
   </div>

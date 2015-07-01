@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json'
 #allow us to create a .env file to store environment variables outside of the bash profile
 gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

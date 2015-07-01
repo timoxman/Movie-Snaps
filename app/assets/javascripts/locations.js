@@ -1,9 +1,11 @@
 var geocoder;
 var map;
+var newMarker = [];
 var allMarkers = [];
 var result;
 var browserSupportFlag =  new Boolean();
 var initialLocation;
+var test;
 
 function initialize() {
   var myOptions2 = {
@@ -36,12 +38,33 @@ function initialize() {
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
       var place = autocomplete.getPlace();
     });
+    getMarkers();
+}
+
+function getMarkers() {
+  var url = '/locations/api'
+  $.getJSON(url, function (data) {
+    allMarkers = data
+    console.log(allMarkers)
+  })
+    .done(function() {
+      allMarkers.forEach(function(marker) {
+        console.log(marker)
+        var coords = new google.maps.LatLng(marker.latitude, marker.longitude)
+          new google.maps.Marker({
+          position: coords,
+          icon:'http://www.piercingpurpose.com/files/clapper.png',
+          animation: google.maps.Animation.DROP,
+          map: map
+        });
+      });
+    })
 }
 
 function getAddress() {
   var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='
-  var lat = allMarkers[0].position.A
-  var lng = allMarkers[0].position.F
+  var lat = newMarker[0].position.A
+  var lng = newMarker[0].position.F
   $.getJSON(url + lat + "," + lng + '&sensor=true', function (data) {
     result = data.results[0].formatted_address;
     document.getElementById("enterDestination").value = result;
@@ -65,12 +88,12 @@ function codeAddress() {
 }
 
 function removeMarker() {
-  marker = allMarkers.pop();
+  marker = newMarker.pop();
   marker.setMap(null);
 };
 
 function placeMarker(location) {
-  if(allMarkers.length > 0) {
+  if(newMarker.length > 0) {
     removeMarker();
   }
   var marker = new google.maps.Marker({
@@ -85,7 +108,7 @@ function placeMarker(location) {
     maxWidth: 200
   });
   infowindow.open(map,marker);
-  allMarkers.push(marker)
+  newMarker.push(marker)
   getAddress();
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map,marker);
@@ -99,22 +122,13 @@ function placeMarker(location) {
 }
 
 function removeMarker() {
-  marker = allMarkers.pop();
+  marker = newMarker.pop();
   marker.setMap(null);
 }
 
 function confirmLocation(marker) {
-  if (allMarkers.length != 0) {
-  window.open("/locations/new?posa=" + marker.position.A + "&posf=" + marker.position.F + "&address=" + result, "_self")
-  // var movieLocation = [marker.position.A, marker.position.F, result]
-  // $.ajax({ url: '/confirm.html',
-  //   type: 'POST',
-  //   beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-  //   data: {"reply" : movieLocation},
-  //   success: function(response) {
-  //     console.log("ok")
-  //   }
-  // });
+  if (newMarker.length != 0) {
+    window.open("/locations/new?posa=" + marker.position.A + "&posf=" + marker.position.F + "&address=" + result, "_self")
   } else {
     document.getElementById("notify").innerHTML = 'Click on the map to add a marker'
   }

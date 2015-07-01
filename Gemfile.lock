@@ -286,6 +286,7 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
+  json
   omniauth-facebook
   paperclip
   pg
