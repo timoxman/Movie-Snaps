@@ -25,4 +25,9 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
 
+  def api
+    @locations = Location.all
+    render json: @locations.to_json
+  end
+
 end
