@@ -5,6 +5,24 @@ var result;
 
 $(document).ready(function() {
 
+  loadMap();
+  autoCompleteGoogleMaps();
+  getMarkers();
+
+  $('#submitDestination').click(function(){
+    codeAddress();
+  });
+
+  $('#add-marker').click(function(){
+    placeMarker(map.getCenter());
+  });
+
+  $('#confirm-marker').click(function(){
+    confirmLocation(newMarker[0]);
+  });
+});
+
+function loadMap() {
   var browserSupportFlag =  new Boolean();
   var initialLocation;
   var myOptions2 = {
@@ -30,28 +48,16 @@ $(document).ready(function() {
   google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
   });
+}
+
+function autoCompleteGoogleMaps() {
   var input = document.getElementById('enterDestination');
   var autocomplete = new google.maps.places.Autocomplete(input);
   autocomplete.bindTo('bounds', map);
-
   google.maps.event.addListener(autocomplete, 'place_changed', function () {
     var place = autocomplete.getPlace();
   });
-  getMarkers();
-
-  $('#submitDestination').click(function(){
-    codeAddress();
-  });
-
-  $('#add-marker').click(function(){
-    placeMarker(map.getCenter());
-  });
-
-  $('#confirm-marker').click(function(){
-    confirmLocation(newMarker[0]);
-  });
-});
-
+}
 
 function getMarkers() {
   var url = '/locations/api'
