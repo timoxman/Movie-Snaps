@@ -25,6 +25,15 @@ class Api::LocationsController < ApplicationController
     end
   end
 
+  def destroy
+    @location = Location.find(params[:id])
+    @location.destroy
+    render json: {
+      status: 200,
+      message: "Successfully deleted location"
+    }.to_json
+  end
+
   private
   def location_params
     params.require("location").permit("name", "description", "latitude", "longitude", "address")
