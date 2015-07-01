@@ -4,20 +4,27 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get 'locations' => 'locations#index'
+  # get ''
   root 'locations#index'
+  get 'locations/api' => 'locations#api'
+  post 'locations/api' => 'locations#api'
   resources :movies
 
-  resources :locations do
-    resources :scenes do
-      resources :visits do
-        resources :photos, shallow: true do
-          resources :likes
-          resources :comments
-        end
+# Wondering if will need to wrap api around movies and users, etc... too?
+namespace :api do
+  resources :locations
+end
+
+resources :locations do
+  resources :scenes do
+    resources :visits do
+      resources :photos, shallow: true do
+        resources :likes
+        resources :comments
       end
     end
   end
+end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

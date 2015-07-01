@@ -3,7 +3,70 @@
 Movie Snaps
 This is the final project at Makers of Andy, Daryl, Ashleigh, Stefan, Jennifer and Tim.
 
-Movie Snaps is an app you can use to record visits you make to movie set locations. You can create new locations and then when you visit these locatons record your visit, upload pictures and videos of you visiting the movie location. You can like and comment on other peoples visits to locations.
+Movie Snaps is an app you can use to record visits you make to movie set locations. You can create new locations and then when you visit these locatons record your visit, upload pictures of you visiting the movie location. You can like and comment on other peoples visits to locations.
+
+User Stories
+------------
+```
+1. As a film buff wgeb I am in Toyko
+so that I can visit famous film locations
+I woulld like to see a map of where they are.
+
+2. As a film officianado, who likes indie films
+so I can share my favorite film locations
+I woul like to add a clip baord marker to the map
+
+3. As a film who loves taking selfies
+so I can post photos to marked film locations
+I want to be able to upload them to the app/website
+specifying film/scene, caption/quote, screen image, screens shot
+
+4. As a nostalgic
+so I can review all my visits to movie locations
+I would like to see a page listing them.
+
+5. As a competative selfie taker
+so I can compare my reenactment photos
+I would like to see a list of other user photos
+
+6. As an obsessive social media user,
+So I can support my selfie loving friends
+I would like to "like" their fab film selfies
+
+8. As an obsessive social media user,
+So I can support my selfie loving friends
+I would like to "comment" or how awsome their pics are.
+
+9. As a fan of a particular film scenes
+So I can view photos from that film scenes
+I would like to filter photos by film
+
+10. As a lover of a specific film scene
+so I can view photos from that scene
+I would like to filter photos by scene.
+
+11. As a movie snaps admin
+so I can protect my users adn monitor content
+I would like users to be signed in to upload pictures and contribute
+
+12. As a movie snap admin
+so that I can entice new users
+I would like the homepage to havesome user comment/photos.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -15,18 +78,30 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+    Rails should be installed via the cmd: gem install rails
+    To get this application up and running, pull the repo from Github. Add a file called .env to your route directory. (This file is not in the github repo because it's in the gitignore file)
+    To this new file add two lines:
+      FACEBOOK_APP_ID=
+      FACEBOOK_APP_SECRET=
+      Complete the 2 lines with the app ID and App secret which are added in the slack channel. (no spaces between = and ID's)
 
 * Database creation
+    bin/rake db:create
+    or bin/rake db:migrate (if you have a previous version of the app)
 
 * Database initialization
 
 * How to run the test suite
+    $ rspec
+
+* To See test system
+    bin/rails s
+    go to http://localhost:3000/
 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
+    tba
 
 
 Please feel free to use a different markup language if you do not plan to run
