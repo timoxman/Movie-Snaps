@@ -1,24 +1,14 @@
 def set_omniauth(opts = {})
-  default = {:provider => :facebook,
-             :uuid     => "1234",
-             :facebook => {
-                            :email => "foobar@example.com"
-                          }
-            }
 
-  credentials = default.merge(opts)
-  provider = credentials[:provider]
-  user_hash = credentials[provider]
 
   OmniAuth.config.test_mode = true
 
-  OmniAuth.config.mock_auth[provider] = {:
-    'uid' => credentials[:uuid],
-    "extra" => {
-    "user_hash" => {
-      "email" => user_hash[:email]
+  OmniAuth.config.mock_auth[provider] = {
+    'provider' => :facebook,
+    'uid' => "1234",
+    "info" => {
+      "email" => "foobar@example.com"
       }
-    }
   }
 end
 
