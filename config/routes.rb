@@ -8,16 +8,21 @@ Rails.application.routes.draw do
   root 'locations#index'
   resources :movies
 
-  resources :locations do
-    resources :scenes do
-      resources :visits do
-        resources :photos, shallow: true do
-          resources :likes
-          resources :comments
-        end
+# Wondering if will need to wrap api around movies and users, etc... too?
+namespace :api do
+  resources :locations
+end
+
+resources :locations do
+  resources :scenes do
+    resources :visits do
+      resources :photos, shallow: true do
+        resources :likes
+        resources :comments
       end
     end
   end
+end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
