@@ -34,9 +34,26 @@ class Api::LocationsController < ApplicationController
     }.to_json
   end
 
+  def update
+    @location = Location.find(params[:id])
+    if @location.update(location_params)
+      render json: {
+        status: 200,
+        message: "Successfully saved location",
+        location: @location
+      }.to_json
+    else
+      render json: {
+        status: 500,
+        message: "Uh oh!",
+        location: @location
+      }.to_json
+    end
+  end
+
   private
   def location_params
-    params.require("location").permit("name", "description", "latitude", "longitude", "address")
+    params.permit("name", "description", "latitude", "longitude", "address")
   end
 end
 
