@@ -127,9 +127,29 @@ function removeMarker() {
 }
 
 function confirmLocation(marker) {
+  var film = document.getElementById('enterMovie').value;
   if (newMarker.length != 0) {
-    window.open("/locations/new?posa=" + marker.position.A + "&posf=" + marker.position.F + "&address=" + result, "_self")
+    window.open("/locations/new?posa=" + marker.position.A + "&posf=" + marker.position.F + "&address=" + result + "&film=" + film, "_self")
   } else {
     document.getElementById("notify").innerHTML = 'Click on the map to add a marker'
   }
+}
+
+function acquireMovies() {
+  var url = 'http://www.omdbapi.com/?s='
+  var movieValue = document.getElementById("enterMovie").value
+  $.getJSON(url + movieValue + '*', function (data) {
+    var movieArray = data['Search'];
+    var availableMovies = [];
+
+    if (movieArray) {
+      movieArray.forEach(function(movie) {
+        availableMovies.push(movie['Title'] + ' (' + movie['Year'] + ')');
+      });
+
+      $("#enterMovie").autocomplete({
+        source: availableMovies
+      });
+    }
+  });
 }

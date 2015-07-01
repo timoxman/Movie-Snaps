@@ -8,8 +8,10 @@ class LocationsController < ApplicationController
     lat = params[:posa]
     lng = params[:posf]
     address = params[:address]
-    new_location = Location.new(latitude: lat, longitude: lng, address: address, user_id: current_user.id)
-    new_location.save
+    new_location = Location.create(latitude: lat, longitude: lng, address: address, user_id: current_user.id)
+    film = params[:film]
+    m = Movie.create(name: film)
+    Scene.first_or_create(movie_id: m.id, location_id: new_location.id)
     redirect_to '/'
   end
 
