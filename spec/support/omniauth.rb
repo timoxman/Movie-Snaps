@@ -1,24 +1,13 @@
-def set_omniauth(opts = {})
-
-
+def set_omniauth
   OmniAuth.config.test_mode = true
-
-  OmniAuth.config.mock_auth[provider] = {
-    'provider' => :facebook,
-    'uid' => "1234",
-    "info" => {
-      "email" => "foobar@example.com"
-      }
+  OmniAuth.config.mock_auth[:facebook] = {
+    'provider'  => 'facebook',
+    'uid'       => 12345,
+    'info' => {
+    'email' => 'email@email.com',
+    'name'       => 'John Doe',
+    'image'       => 'http://robohash.org/treemo'
+    # any other attributes you want to stub out for testing
+    }
   }
-end
-
-def set_invalid_omniauth(opts = {})
-
-  credentials = { :provider => :facebook,
-                  :invalid  => :invalid_crendentials
-                 }.merge(opts)
-
-  OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[credentials[:provider]] = credentials[:invalid]
-
 end
