@@ -1,15 +1,20 @@
-<% if @locations.any? %>
-  <% @locations.each do |location| %>
-    <%= link_to location.name, location_path(location) %>
+<body onload="initialize()">
+  <div class="mapBox">
+    <div id="mapDestination"></div><br>
+    <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
+    <button id="submitDestination" onclick="codeAddress()">Go</button>
+      <button id="add-marker" onclick="placeMarker(map.getCenter())">Add Marker</button>
+      <button id="confirm-marker" onclick="confirmLocation(newMarker[0])">Add location</button>
+      <button id="get-marker" onclick="getMarkers()">Get Markers</button>
+  </div>
+  <div id='notify'>
+  </div>
+  <% if @locations.any? %>
+    <% @locations.each do |location| %>
+      <%= link_to location.name, location_path(location) %>
+      <br>
+    <% end %>
+  <% else %>
+    <h1>No locations yet</h1>
   <% end %>
-<% else %>
-  <h1>No locations yet</h1>
-<% end %>
-<br>
-<%= link_to "Add a location", new_location_path %>
-<% if current_user %>
-  Welcome <%= current_user.name %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<% end %>
+</body>
