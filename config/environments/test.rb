@@ -1,13 +1,17 @@
 Rails.application.configure do
-  OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-      provider: 'facebook',
-      uid: '123545',
-      info: {
-        email: 'test@test.com'
-      }
-      # etc.
-    })
+
+  # Rails.application.env_config["devise.mapping"] = Devise.mappings[:user] # If using Devise
+  # Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
+
+  # OmniAuth.config.test_mode = true
+  # OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+  #     provider: 'facebook',
+  #     uid: '123545',
+  #     info: {
+  #       email: 'test@test.com'
+  #     }
+  #     # etc.
+  #   })
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
