@@ -1,0 +1,18 @@
+Welcome to Movie Snaps
+<br>
+Click <%= link_to "here", locations_path %> to upload your photos!
+<br>
+<% if @photos %>
+  Most recent uploads:
+  <br>
+  <% @photos.each do |p| %>
+    <%= image_tag p.image.url, :size => "200x200" %>
+    <br>
+    <%= p.caption %> <i>Uploaded on </i> <%= p.created_at %>
+    <br>
+    From the movie <%= p.visit.scene.movie.name %>
+    <br>
+  <% end %>
+<% else %>
+  No photos have been uploaded!
+<% end %>
