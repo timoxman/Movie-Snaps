@@ -1,13 +1,30 @@
-var geocoder;
 var map;
 var newMarker = [];
 var allMarkers = [];
 var result;
-var browserSupportFlag =  new Boolean();
-var initialLocation;
-var test;
 
-function initialize() {
+$(document).ready(function() {
+
+  loadMap();
+  autoCompleteGoogleMaps();
+  getMarkers();
+
+  $('#submitDestination').click(function(){
+    codeAddress();
+  });
+
+  $('#add-marker').click(function(){
+    placeMarker(map.getCenter());
+  });
+
+  $('#confirm-marker').click(function(){
+    confirmLocation(newMarker[0]);
+  });
+});
+
+function loadMap() {
+  var browserSupportFlag =  new Boolean();
+  var initialLocation;
   var myOptions2 = {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -28,32 +45,31 @@ function initialize() {
     map.setCenter(latlng);
     map.setOptions({ draggableCursor: 'crosshair' });
   }
-    google.maps.event.addListener(map, 'click', function(event) {
-      placeMarker(event.latLng);
-    });
-    var input = document.getElementById('enterDestination');
-    var autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.bindTo('bounds', map);
+  google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  });
+}
 
-    google.maps.event.addListener(autocomplete, 'place_changed', function () {
-      var place = autocomplete.getPlace();
-    });
-    getMarkers();
+function autoCompleteGoogleMaps() {
+  var input = document.getElementById('enterDestination');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.bindTo('bounds', map);
+  google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    var place = autocomplete.getPlace();
+  });
 }
 
 function getMarkers() {
   var url = '/locations/api'
   $.getJSON(url, function (data) {
     allMarkers = data
-    console.log(allMarkers)
   })
     .done(function() {
       allMarkers.forEach(function(marker) {
-        console.log(marker)
         var coords = new google.maps.LatLng(marker.latitude, marker.longitude)
           new google.maps.Marker({
           position: coords,
-          icon:'http://www.piercingpurpose.com/files/clapper.png',
+          icon:'https://www.piercingpurpose.com/files/clapper.png',
           animation: google.maps.Animation.DROP,
           map: map
         });
@@ -72,7 +88,7 @@ function getAddress() {
 }
 
 function codeAddress() {
-  geocoder = new google.maps.Geocoder();
+  var geocoder = new google.maps.Geocoder();
   var sAddress = document.getElementById("enterDestination").value;
   geocoder.geocode( { 'address': sAddress}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -98,7 +114,7 @@ function placeMarker(location) {
   }
   var marker = new google.maps.Marker({
     position: location,
-    icon:'http://www.piercingpurpose.com/files/clapper.png',
+    icon:'https://www.piercingpurpose.com/files/clapper.png',
     animation: google.maps.Animation.DROP,
     map: map
   });
@@ -136,7 +152,7 @@ function confirmLocation(marker) {
 }
 
 function acquireMovies() {
-  var url = 'http://www.omdbapi.com/?s='
+  var url = 'https://www.omdbapi.com/?s='
   var movieValue = document.getElementById("enterMovie").value
   $.getJSON(url + movieValue + '*', function (data) {
     var movieArray = data['Search'];

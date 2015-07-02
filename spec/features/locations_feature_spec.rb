@@ -2,10 +2,11 @@ require 'rails_helper'
 
 feature 'A user wants to add the location for a film' do
 
-  xscenario 'can enter the address and be saved to the database', js: true do
+  scenario 'can enter the address and be saved to the database', js: true do
     visit '/'
     fill_in 'enterDestination', with: 'Makers Academy, London'
     click_button 'Go'
+    sleep 1
     expect { click_button 'Add location' }.to change { Location.count }.by 1
   end
 

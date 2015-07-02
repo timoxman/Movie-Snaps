@@ -5,6 +5,13 @@ This is the final project at Makers of Andy, Daryl, Ashleigh, Stefan, Jennifer a
 
 Movie Snaps is an app you can use to record visits you make to movie set locations. You can create new locations and then when you visit these locatons record your visit, upload pictures of you visiting the movie location. You can like and comment on other peoples visits to locations.
 
+Technologies used:
+------------------
+Ruby on Rails
+Javascript, jQuery
+Active Record
+Tested with Rspec, Capybara, Poltergeist on Selenium Driver
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
