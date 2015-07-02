@@ -1,0 +1,31 @@
+<h1> temporarily this is a seperate screen </h1>
+Current Scenes
+<% if @scenes.any? %>
+  <% @scenes.each do |scene| %>
+    movie poster, name, location
+    <%= scene.id %>
+    <% if current_user %>
+      <%= link_to "Add a visit", new_location_scene_visit_path(scene.id) %>
+    <% end %>
+  <% end %>
+<% else %>
+  <h1>No visits yet</h1>
+<% end %>
+<br>
+
+
+Curent Visits
+<% if @visits.any? %>
+  <% @visits.each do |visit| %>
+    <%= link_to visit.name, location_path(visit) %>
+  <% end %>
+<% else %>
+  <h1>No visits yet</h1>
+<% end %>
+<br>
+
+
+<% if current_user %>
+  If no scene exists want to create a movie, location and scene as well as a visit
+  <%= link_to "Add a visit", new_location_scene_visit_path(0) %>
+<% end %>
