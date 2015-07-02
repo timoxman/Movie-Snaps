@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'locations/api' => 'locations#api'
   post 'locations/api' => 'locations#api'
   resources :movies
+  resources :users
 
   resources :locations do
     resources :scenes do

@@ -6,6 +6,7 @@ feature 'A user wants to add the location for a film' do
     visit '/'
     fill_in 'enterDestination', with: 'Makers Academy, London'
     click_button 'Go'
+    sleep 1
     expect { click_button 'Add location' }.to change { Location.count }.by 1
   end
 
