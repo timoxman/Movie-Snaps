@@ -1,3 +1,15 @@
 User page of <%= @user.name %>
 
-<img src="<%= @user.image %>" title="<%= @user.name %>"/>
+<img id="user_img" src="<%= @user.image %>" title="<%= @user.name %>"/>
+
+<ul>
+  <% @visits.each do |visit| %>
+    <li>
+      Date visited: <%= visit.date_visited %></br>
+      Location: <%= visit.scene.location.address %></br>
+      Movie: <%= visit.scene.movie.name %></br>
+      Visit description: <%= visit.description %>
+    </li>
+    </br>
+  <% end %>
+</ul>
