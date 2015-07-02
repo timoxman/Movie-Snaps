@@ -11,7 +11,7 @@
   </div>
   <% if @locations.any? %>
     <% @locations.each do |location| %>
-      <%= link_to location.name, location_path(location) %>
+      <%= link_to location.address, location_scenes_path(location) %>
       <br>
     <% end %>
   <% else %>
