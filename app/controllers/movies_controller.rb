@@ -1,10 +1,10 @@
 class MoviesController < ApplicationController
 
-  def new
+  def create
     film_name = params[:name]
-    location = Location.find_by(address: params[:location])
+    location = params[:location]
     film = Movie.create(name: film_name)
-    scene = Scene.create(movie_id: film.id, location_id: location.id)
-    redirect_to '/'
+    scene = Scene.create(movie_id: film.id, location_id: location)
+    redirect_to new_location_scene_visit_path(location, scene.id)
   end
 end

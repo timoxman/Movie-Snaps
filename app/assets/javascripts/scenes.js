@@ -1,13 +1,14 @@
-$(document).ready(function() {
-  $("#btnSubmit").click(function () {
-    var film = $('#enterMovie').val()
-    if (film) {
-      window.open("/movies/new?name=" + film, "_self")
-    } else {
-      $('body').append("Please enter a film")
-    }
-  });
-});
+// $(document).ready(function() {
+//   console.log('hello')
+//   var formURL = '/movies';
+//   var form = $('<form action="' + formURL + '" method="post">' +
+//     '<input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>' +
+//     '<input id="btnSubmit" type="submit" value="Add movie" onclick="addMovie()">' + '</form>');
+//   console.log(form)
+//   $('#add-movie').append(form);
+//   form.submit()
+
+// });
 
 function addMovie() {
   var film = $('#enterMovie').val()
