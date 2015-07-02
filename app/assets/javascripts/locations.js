@@ -69,7 +69,7 @@ function getMarkers() {
         var coords = new google.maps.LatLng(marker.latitude, marker.longitude)
           new google.maps.Marker({
           position: coords,
-          icon:'http://www.piercingpurpose.com/files/clapper.png',
+          icon:'https://www.piercingpurpose.com/files/clapper.png',
           animation: google.maps.Animation.DROP,
           map: map
         });
@@ -114,7 +114,7 @@ function placeMarker(location) {
   }
   var marker = new google.maps.Marker({
     position: location,
-    icon:'http://www.piercingpurpose.com/files/clapper.png',
+    icon:'https://www.piercingpurpose.com/files/clapper.png',
     animation: google.maps.Animation.DROP,
     map: map
   });
@@ -152,7 +152,7 @@ function confirmLocation(marker) {
 }
 
 function acquireMovies() {
-  var url = 'http://www.omdbapi.com/?s='
+  var url = 'https://www.omdbapi.com/?s='
   var movieValue = document.getElementById("enterMovie").value
   $.getJSON(url + movieValue + '*', function (data) {
     var movieArray = data['Search'];
