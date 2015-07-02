@@ -16,9 +16,8 @@ class VisitsController < ApplicationController
   end
 
   def create
-    Visit.create(visit_params.merge({user:current_user}).merge({scene_id: params[:scene_id]}))
-    # redirect_to '/visits'
-    redirect_to new_location_scene_visit_path(params[:location_id],params[:scene_id])
+    @visit = Visit.create(visit_params.merge({user:current_user}).merge({scene_id: params[:scene_id]}))
+    redirect_to new_location_scene_visit_photo_path(params[:location_id],params[:scene_id], @visit)
   end
 
   # define which params we are going to allow us to pass to controller, without this security flaw.

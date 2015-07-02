@@ -8,6 +8,7 @@ class LocationsController < ApplicationController
     lat = params[:posa]
     lng = params[:posf]
     address = params[:address]
+    #why in new not create and why not need location_params
     location = Location.create(latitude: lat, longitude: lng, address: address, user_id: current_user.id)
     film = params[:film]
     movie = Movie.where("name = ?",film).first_or_create(name: film)
