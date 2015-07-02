@@ -1,12 +1,20 @@
+<header>
+  <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
+  <button id="submitDestination">Visit</button>
+  <button id="add-marker">Place Marker</button>
+  <br><br>
+  <form action='/locations' method='post'>
+    <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>
+    <button id="confirm-marker">Confirm location</button>
+  </form>
+</header>
 <body>
+  <br>
   <div class="mapBox">
-    <div id="mapDestination"></div><br>
-    <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
-    <button id="submitDestination">Go</button>
-      <button id="add-marker">Add Marker</button>
-      <button id="confirm-marker">Add location</button>
-      <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>
+    <div id="mapDestination">
   </div>
+</div>
+<br>
   <div id='notify'>
   </div>
   <% if @locations.any? %>
@@ -17,4 +25,7 @@
   <% else %>
     <h1>No locations yet</h1>
   <% end %>
+  <br>
+
+
 </body>
