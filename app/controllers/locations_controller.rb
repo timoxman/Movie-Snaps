@@ -8,11 +8,11 @@ class LocationsController < ApplicationController
     lat = params[:posa]
     lng = params[:posf]
     address = params[:address]
-    new_location = Location.create(latitude: lat, longitude: lng, address: address, user_id: current_user.id)
+    location = Location.create(latitude: lat, longitude: lng, address: address, user_id: current_user.id)
     film = params[:film]
-    m = Movie.create(name: film)
-    Scene.first_or_create(movie_id: m.id, location_id: new_location.id)
-    redirect_to '/'
+    movie = Movie.where("name = ?",film).first_or_create(name: film)
+    scene = Scene.where("movie_id = ? AND location_id = ?",movie.id,location.id).first_or_create(movie_id: movie.id, location_id: location.id)
+    redirect_to new_location_scene_visit_path(location.id,scene.id)
   end
 
   def create
