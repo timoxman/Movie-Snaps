@@ -1,0 +1,7 @@
+Click the scene you have just visited
+<br>
+<% @scenes.each do |scene| %>
+  <%= link_to scene.movie.name, new_location_scene_visit_path(@location, scene) %>
+  <br>
+<% end %>
+Or <%= link_to "click here", new_location_scene_path(@location) %> to add a new movie
