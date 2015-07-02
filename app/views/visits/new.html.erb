@@ -1,0 +1,8 @@
+<br>
+Currently this is a separate page to be combined later
+<br>
+<%= simple_form_for [@location, @scene, @visit] do |f| %>
+  <%= f.input :description, label: 'Tells us about when you saw the movie location' %>
+  <%= f.input :date_visited, label: 'Date visited', as: :date, order: [:day, :month, :year] %>
+  <%= f.button :submit %>
+<% end %>
