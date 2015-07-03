@@ -119,7 +119,7 @@ function placeMarker(location) {
     map: map
   });
   var infowindow = new google.maps.InfoWindow({
-    content: 'This move scene was shot here ',
+    content: 'This movie scene was shot here ',
     maxWidth: 200
   });
   infowindow.open(map,marker);

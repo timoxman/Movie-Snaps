@@ -3,7 +3,7 @@
 <h3><%= @location.address %></h3>
 <br>
 <%= simple_form_for [@location, @scene, @visit] do |f| %>
-  <%= f.input :description, label: 'Tell us what scene you were recreating:' %>
+  <%= f.input :description, label: 'Tell us something about your visit:' %>
   <br>
   <%= f.input :date_visited, label: 'Date visited', as: :date, order: [:day, :month, :year] %>
   <br>
