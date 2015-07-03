@@ -6,6 +6,7 @@ $(document).ready(function() {
     $(this).find('.latitude').hide();
 
     var movieTitleYear = $(this).find('.movieTitleYear').text();
+    console.log(movieTitleYear)
     var movieTitle = movieExtractTitle(movieTitleYear);
     var movieYear = movieExtractYear(movieTitleYear);
     getPoster(movieTitle, movieYear, index);

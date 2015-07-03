@@ -13,7 +13,7 @@
           Movie: <%= link_to visit.scene.movie.name, movie_path(visit.scene.movie) %></br>
           Visit description: <%= visit.description %>
           <div class="mapBox">
-            <div class="mapDestination" id="mapDestination-<%= visit.id %>" value='<%= visit.id %>'>
+            <div class="mapDestination" id="mapDestination-<%= visit.id %>">
             </div>
           </div>
           <% visit.photos.each do |photo| %>
