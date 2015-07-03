@@ -2,17 +2,29 @@ require 'rails_helper'
 
 feature 'A user wants to add the location for a film' do
 
-  scenario 'can enter the address and be saved to the database', js: true do
+  before(:each) do
+    set_omniauth
     visit '/'
+    click_link 'Sign in with Facebook'
+    click_link 'here'
+  end
+
+  scenario 'they have the option to enter a movie name and location address' do
+    expect(page).to have_css 'input', :count => 2
+  end
+
+  scenario 'they enter address and the film to save it to the database', js: true do
     fill_in 'enterDestination', with: 'Makers Academy, London'
-    click_button 'Go'
+    click_button 'Visit'
     sleep 1
-    expect { click_button 'Add location' }.to change { Location.count }.by 1
+    click_button 'Place Marker'
+    fill_in 'enterMovie', with: 'Shrek'
+    expect { click_button 'Confirm Location' }.to change { Location.count }.by 1
   end
 
   scenario 'user must click on the map to create a marker', js: true do
-    visit '/'
-    click_button 'Add location'
+    visit '/locations'
+    click_button 'Confirm Location'
     expect(page).to have_content 'Click on the map to add a marker'
   end
 
@@ -20,13 +32,13 @@ feature 'A user wants to add the location for a film' do
     scenario 'should display a prompt to add a location (L01)' do
       visit '/locations'
       expect(page).to have_content 'No locations yet'
-      expect(page).to have_button 'Add location'
+      expect(page).to have_button 'Place Marker'
     end
   end
 
   context 'locations have been added' do
     before do
-      Location.create(name: 'Lewisham Fire Station')
+      Location.create(address: 'Lewisham Fire Station')
     end
 
     scenario 'display locations (L02)' do
@@ -39,13 +51,13 @@ feature 'A user wants to add the location for a film' do
 
   context 'viewing locations' do
 
-    let!(:lfs){Location.create(name:'Lewisham Fire Station')}
+    let!(:lfs){Location.create(address:'Lewisham Fire Station')}
 
-    scenario 'lets a user view a location (L04)' do
+    scenario 'lets a user view movies associated with a location (L04)' do
      visit '/locations'
      click_link 'Lewisham Fire Station'
-     expect(page).to have_content 'Lewisham Fire Station'
-     expect(current_path).to eq "/locations/#{lfs.id}"
+     expect(page).to have_content 'Was it one of these films?'
+     expect(current_path).to eq "/locations/#{lfs.id}/scenes"
     end
 
   end

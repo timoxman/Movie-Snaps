@@ -64,17 +64,17 @@ function getMarkers() {
   $.getJSON(url, function (data) {
     allMarkers = data
   })
-    .done(function() {
-      allMarkers.forEach(function(marker) {
-        var coords = new google.maps.LatLng(marker.latitude, marker.longitude)
-          new google.maps.Marker({
-          position: coords,
-          icon:'/images/clapper.png',
-          animation: google.maps.Animation.DROP,
-          map: map
-        });
+  .done(function() {
+    allMarkers.forEach(function(marker) {
+      var coords = new google.maps.LatLng(marker.latitude, marker.longitude)
+        new google.maps.Marker({
+        position: coords,
+        icon:'/images/clapper.png',
+        animation: google.maps.Animation.DROP,
+        map: map
       });
-    })
+    });
+  })
 }
 
 function getAddress() {
@@ -119,7 +119,7 @@ function placeMarker(location) {
     map: map
   });
   var infowindow = new google.maps.InfoWindow({
-    content: 'This move scene was shot here ',
+    content: 'This movie scene was shot here ',
     maxWidth: 200
   });
   infowindow.open(map,marker);

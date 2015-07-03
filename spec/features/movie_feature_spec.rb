@@ -12,7 +12,7 @@ end
 feature 'A user wants to add a location' do
 
   scenario 'and can enter the movie and have it autocompleted', js: true do
-    visit '/'
+    visit '/locations'
     fill_autocomplete('enterMovie', with: 'Shrek')
   end
 
