@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :movies
   resources :users
+  get 'users/movies_api/:id' => 'users#movies_api'
+  post 'users/movies_api/:id' => 'users#movies_api'
+  get 'users/locations_api/:id' => 'users#locations_api'
+  post 'users/locations_api/:id' => 'users#locations_api'
 
   resources :locations do
     resources :scenes do
