@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # get ''
-  root 'locations#index'
+  root 'welcome#index'
   get 'locations/api' => 'locations#api'
-  post 'locations/api' => 'locations#api'
+
   resources :movies
   resources :users
   get 'users/movies_api/:id' => 'users#movies_api'
