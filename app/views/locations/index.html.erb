@@ -16,8 +16,9 @@
   <div id='notify'>
   </div>
   <% if @locations.any? %>
+    <h1>Current Locations</h1>
     <% @locations.each do |location| %>
-      <%= link_to location.address, location_scenes_path(location) %>
+      <li><%= link_to location.address, location_scenes_path(location) %></li>
       <br>
     <% end %>
   <% else %>
