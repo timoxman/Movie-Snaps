@@ -9,16 +9,36 @@
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 </head>
 <body>
-<header>
+<section id="wrapper">
+  <header id="topnav">
+    <!-- navigation goes here  -->
+    <nav id="nav">
+        <ul id="navigation">
+          <li><a href="#"><span class="subtitle">Get in touch</span>
+            <br/>
+            Contact</a></li>
+          <li><a href="#"><span class="subtitle">New Users</span>
+            <br/>
+            Users</a></li>
+          <li><a href="#"><span class="subtitle">More Locations</span>
+            <br/>
+            Locations</a></li>
+          <li><a href="#"><span class="subtitle">Start</span>
+            <br/>
+            Home</a></li>
+        </ul>
+    </nav>
+  </header>
   <% if current_user %>
     Welcome <%= current_user.name %>
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
   <% end %>
-</header>
+
+
 
 <%= yield %>
-
+</section>
 </body>
 </html>

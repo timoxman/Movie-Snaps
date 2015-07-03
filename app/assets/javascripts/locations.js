@@ -78,7 +78,7 @@ function getMarkers() {
 }
 
 function getAddress() {
-  var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='
+  var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='
   var lat = newMarker[0].position.A
   var lng = newMarker[0].position.F
   $.getJSON(url + lat + "," + lng + '&sensor=true', function (data) {
