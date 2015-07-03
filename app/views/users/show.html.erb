@@ -1,3 +1,31 @@
-User page of <%= @user.name %>
+<section id="userProfile">
+<h2>User page of <%= @user.name %></h2>
 
-<img src="<%= @user.image %>" title="<%= @user.name %>"/>
+
+<img id="userProfile" src="<%= @user.image %>" alt="<%= @user.name %>"/>
+
+
+  <ul>
+    <% @user.visits.each do |visit| %>
+    <li><%= visit.description %><span style="color:red"> Date visited </span><%= visit.date_visited %></li>
+    <% end %>
+  </ul>
+
+
+
+  <ul>
+    <% @user.locations.each do |location| %>
+    <li><span style="color:red"> Location </span><%= location.address %></li>
+    <% end %>
+  </ul>
+
+  <ul>
+    <% @user.visited_scenes.each do |scene| %>
+    <li><span style="color:red"> Name </span><%= scene.movie.name %></li>
+    <% end %>
+  </ul>
+
+
+
+
+</section>
