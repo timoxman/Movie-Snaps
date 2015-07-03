@@ -12,7 +12,8 @@ $(document).ready(function() {
 
     var longitude = $(this).find('.longitude').text();
     var latitude = $(this).find('.latitude').text();
-    loadMap(latitude, longitude, index);
+    var mapDivId = $(this).find('.mapDestination').attr('id');
+    loadMap(latitude, longitude, mapDivId);
   });
 
 });
@@ -37,15 +38,30 @@ function getPoster(movieTitle, movieYear, index) {
   })
 }
 
-function loadMap(latitude, longitude, index) {
+function loadMap(latitude, longitude, mapDivId) {
   var myOptions2 = {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
   var latlng = new google.maps.LatLng(latitude, longitude);
-  var id = 'mapDestination-' + (index + 1)
-  map = new google.maps.Map(document.getElementById(id), myOptions2);
+  map = new google.maps.Map(document.getElementById(mapDivId), myOptions2);
   map.setCenter(latlng);
   map.setOptions({ draggableCursor: 'crosshair' });
+  placeMarker(map.getCenter());
 };
+
+function placeMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    icon:'/images/clapper.png',
+    animation: google.maps.Animation.DROP,
+    map: map
+  });
+  google.maps.event.addListener(marker, 'mouseover', function() {
+    this.setAnimation(google.maps.Animation.BOUNCE);
+  });
+  google.maps.event.addListener(marker, 'mouseout', function() {
+    this.setAnimation(null);
+  });
+}
