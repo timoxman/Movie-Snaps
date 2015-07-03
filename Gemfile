@@ -50,6 +50,8 @@ gem 'gmaps4rails'
 gem 'simple_form'
 #allow facebook login
 gem 'omniauth-facebook'
+#jquery ui
+gem 'jquery-ui-rails'
 
 
 group :test do

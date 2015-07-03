@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :visits
   has_many :likes
   has_many :comments
+  has_many :visited_scenes, through: :visits, source: :scene
 
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first_or_create do |user|

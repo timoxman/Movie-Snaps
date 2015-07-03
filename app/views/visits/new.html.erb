@@ -1,15 +1,24 @@
+<h1><%= @movie %> </h1>
 <br>
-Currently this is a separate page to be combined later
+<h3><%= @location.address %></h3>
 <br>
 <%= simple_form_for [@location, @scene, @visit] do |f| %>
-  <%= f.input :description, label: 'Tells us about when you saw the movie location' %>
+  <%= f.input :description, label: 'Tell us something about your visit:' %>
+  <br>
   <%= f.input :date_visited, label: 'Date visited', as: :date, order: [:day, :month, :year] %>
+  <br>
   <%= f.button :submit %>
 <% end %>
 <br>
-Current visits
+<h3>Previous uploaded scenes at this location:</h3>
 <br>
+<!-- Not sure if this is working properly, or if the photos are lined up correctly, until more are uploaded -->
+<% count = 0 %>
 <% @current_visits.each do |visit| %>
-  <%= visit.description %> <%= visit.date_visited %>
+  <li><%= visit.description %> <%= visit.date_visited %></li>
   <br>
+  <% if visit.photos.length > 0 %>
+  <img src='<%= visit.photos[count].image_file_name %>' height='200' width='200' %>
+  <% count += 1 %>
+  <% end %>
 <% end %>
