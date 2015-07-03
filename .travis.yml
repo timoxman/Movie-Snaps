@@ -4,3 +4,12 @@ script:
   - bundle exec bin/rake db:create
   - bundle exec bin/rake db:migrate
   - bundle exec rspec spec
+
+before_install:
+  - gem install selenium-webdriver
+
+before_script:
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=99:0"
+  - "wget http://selenium-release.storage.googleapis.com/2.43/selenium-server-standalone-2.43.1.jar"
+  - "java -jar selenium-server-standalone-2.43.1.jar > /dev/null &"
