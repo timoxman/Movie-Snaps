@@ -8,7 +8,7 @@ $(document).ready(function() {
     var latitude = $(this).find('.latitude').text();
     var movieTitle = movieExtractTitle(movieTitleYear);
     var movieYear = movieExtractYear(movieTitleYear);
-    var posterUrl = getPoster(movieTitle, movieYear, index);
+    getPoster(movieTitle, movieYear, index);
   });
 });
 
