@@ -9,6 +9,10 @@ feature 'A user wants to add the location for a film' do
     click_link 'here'
   end
 
+  scenario 'they have the option to enter a movie name and location address' do
+    expect(page).to have_css 'input', :count => 2
+  end
+
   scenario 'they enter address and the film to save it to the database', js: true do
     fill_in 'enterDestination', with: 'Makers Academy, London'
     click_button 'Visit'
