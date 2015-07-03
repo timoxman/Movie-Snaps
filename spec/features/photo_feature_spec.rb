@@ -12,7 +12,7 @@ feature 'Photos' do
 # test that caption and movie name is on page
 # check date uploaded - by checking same in database as on page?
 
-  before do
+  before(:each) do
     # byebug
     User.create! :name => 'John Doe', :email => 'john1@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
     Location.create!(user_id:1,name:"", description:"Da Vinci Code", latitude:48.860000000000000000,longitude:2.341111100000034600,address:"Louvre Pyramid, 75001, Paris, France")

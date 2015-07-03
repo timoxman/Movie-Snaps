@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'A user wants to add the location for a film' do
 
-  before do
+  before(:each) do
     set_omniauth
     visit '/'
     click_link 'Sign in with Facebook'
