@@ -4,11 +4,9 @@
   <title>MovieSnaps</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-  <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
 <section id="wrapper">
