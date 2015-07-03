@@ -9,80 +9,19 @@
 
 
 
-# CAN'T ADD USERS 
-# - go to facebook for developers site and take a look at all the test users we have set up
-# - so will add test users through site to dev db
-# - add user_ids to all below that require user_id
+# BEFORE SEEDING!!
+# - go to facebook for developers site and take a look at all the test users we have set up (note their emails)
+# - to add the users to the dev db, log them in on fb by coping their emails (told you the password)
+# - log each of them into the site (localhost or heroku)
+# - they should be in the db now
+# - rake db:seed to get the rest of the tables filled in
 
-
-
-# THINKING OF THIS FOR PROFILE PAGE
-  # <% @visits.each do |visit| %>
-  #   <% @photos.each do |photo| %>
-  #     <% if photo.visit_id == visit.id %>
-  #       <% if visit.user_id == @firstuser.id %>
-  #         <img src="<%= photo.image_file_name %>" width=200px height:auto max-height=300px>
-  #         Visit ID <%= photo.visit_id %>
-  #       <% end %>
-  #     <% end %>
-  #   <% end %>
-  # <% end %>
-
-
-
-# Visit.create([
-# 				{description:"The Pyramid, Le Louvre", scene_id:1,user_id:1}
-# 	])
-
-# Visit:
-# id |   description    | date_visited | scene_id | user_id
-
-
-
-
-
-# Photo.create([	
-# 				{caption:"Outside Le Louvre!",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Da%20Vinci%20Code%20-%20The%20Pyramid%20Louvre%20-%20Fan%20Photo_zpsgixesmtr.jpg",visit_id:},
-# 				{caption:"The Blue Door #nottinghill",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Notting%20Hill%20-%20The%20Blue%20Door%20280%20Westbourne%20Park%20Rd%20-%20William%20Thackers%20Flat%20-%20Fan%20Photo_zpsy1aggfjc.jpg",visit_id:},
-# 				{caption:"WOP BAM BOOM! Outside Rydell High #grease",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Grease%20-%20Venice%20High%20School%20-%20Rydell%20High%20in%20Grease%20-%20Fan%20Photo_zpswsj5gobx.jpg",visit_id:},
-# 				{caption:"#pontdebirhakeim #inception",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Inception%20-%20Pont%20De%20Bir-Hakeim%20Paris%20-%20Where%20Ariadne%20recreates%20a%20dream%20version%20-%20Fan%20Photo_zpsksnhio8k.jpg",visit_id:}
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:,image_file_name:,visit_id:},
-# 				{caption:"Anyone fancy some Breakfast at Tiffany's?",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Breakfast%20at%20Tiffanys%20-%20fan%20photo_zps0eqhxc4j.jpeg",visit_id:},
-# 				{caption:"When Harry dropped off Sally",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/When%20Harry%20Met%20Sally%20-%20dropping%20off%20-%20fan%20photo_zpsk3h7y8wu.jpeg",visit_id:},
-# 				{caption:"Stood outside Zoolander's apartment",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Zoolander%20-%20fan%20photo_zps23yztgm1.jpeg",visit_id:},
-# 				{caption:"#lockstocktwosmokingbarrels #hideout",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Lock%20Stock%20and%20Two%20Smoking%20Barrels%20-%20Park%20Street%20-%20Fan%20Photo_zpsamduo0zk.jpg",visit_id:},
-# 				{caption:"Where Ethan sat in Mission Impossible",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Mission%20Impossible%20-%20Anchor%20Tavern%20London%20-%20Ethan%20unwinds%20after%20chase%20-%20Fan%20Photo_zpszo4yjmx2.jpg",visit_id:},
-# 				{caption:"Outside MI6 #skyfall",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Skyfall%20-%20Vauxhall%20Cross%20Westminster%20Bridge%20-%20M%20watches%20the%20attack%20on%20MI6%20HQ%20-%20Fan%20Photo_zpsskrvmogs.jpg",visit_id:},
-# 				{caption:"Snatch - Doug the Head's local pub",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Snatch%20-%20Ye%20Olde%20Pub%20-%20Fan%20Photo_zpsuzrud9sg.jpg",visit_id:}
-# 	])
-
-# Photo table:
-# id | caption | created_at | updated_at | visit_id | image_file_name | image_content_type | image_file_size | image_updated_at 
-
-
-
-
-
-
-
-
-
+User.create! :name => 'John Doe', :email => 'john1@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+User.create! :name => 'John Doe', :email => 'john2@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+User.create! :name => 'John Doe', :email => 'john3@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+User.create! :name => 'John Doe', :email => 'john4@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+User.create! :name => 'John Doe', :email => 'john5@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+User.create! :name => 'John Doe', :email => 'john6@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
 
 # TO BE SEEDED AGAIN... AS FINAL SEED
 Movie.create([
@@ -130,21 +69,7 @@ Movie.create([
 				{name:"Mission Impossible",imdbID:"tt0117060"}
 	])
 
-
-
-
-
-
-
-
-# Movie:
-# id | imdbID | name 
-
-
-
-
-
-Location.create([ 
+Location.create([
 				{user_id:1,name:"", description:"Da Vinci Code", latitude:48.860000000000000000,longitude:2.341111100000034600,address:"Louvre Pyramid, 75001, Paris, France"},
 				{user_id:2,name:"", description:"The Graduate", latitude:34.108903100000000000,longitude:-117.767457900000010000,address:"3205 D St, La Verne, CA 91750, United States"},
 				{user_id:3,name:"", description:"Sex and the City", latitude:40.7353013,longitude:-74.0049664,address:"66 Perry Street and Bleecker Street, Manhattan"},
@@ -196,14 +121,6 @@ Location.create([
 				{user_id:1,name:"", description:"Snatch", latitude:51.51843909999999,longitude:-0.1074270000000297,address:"Ye Olde Mitre Tavern, Hatton Garden, London, EC1"},
 				{user_id:2,name:"", description:"Mission Impossible", latitude:51.506802000000000000,longitude:-0.093197599999939480,address:"Anchor Tavern, Bankside, London, SE1"}
 	])
-
-# # Location:
-# # id | name | description | latitude | longitude | address | created_at | updated_at | user_id 
-
-
-
-
-
 Scene.create([
 				{movie_id:1,location_id:1,image_file_name:"http://bit.ly/1JBfXCZ"},
 				{movie_id:9,location_id:2,image_file_name:"http://bit.ly/1FV4d9t"},
@@ -214,7 +131,7 @@ Scene.create([
 				{movie_id:15,location_id:7,image_file_name:"http://bit.ly/1GQTUVq"},
 				{movie_id:23,location_id:8,image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Stills/The%20Avengers%20-%20screen%20still_zpsieusxjko.jpeg"},
 				{movie_id:25,location_id:9,image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Stills/Live%20and%20Let%20Die%20-%20screen%20still_zpsizml5ccl.jpeg"},
-				{movie_id:24,location_id:10,image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Stills/Zoolander%20-%20screen%20still_zpsmx6g4oru.jpeg"},				
+				{movie_id:24,location_id:10,image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Stills/Zoolander%20-%20screen%20still_zpsmx6g4oru.jpeg"},
 				{movie_id:26,location_id:11,image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Stills/Wolf%20of%20Wall%20Street%20-%20screen%20still_zpstzmswk3d.jpeg"},
 				{movie_id:26,location_id:12,image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Stills/Wolf%20of%20Wall%20Street%20-%20cafe%20-%20screen%20still_zpsb21l2xhp.jpeg"},
 				{movie_id:27,location_id:13,image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Stills/When%20Harry%20Met%20Sally%20-%20dropping%20off%20-%20screen%20still_zps5hturcxr.jpeg"},
@@ -256,20 +173,8 @@ Scene.create([
 				{movie_id:22,location_id:49,image_file_name:"http://bit.ly/1IRx2Wq"},
 				{movie_id:42,location_id:50,image_file_name:"http://bit.ly/1LX1Hoe"}
 	])
-
-# Scenes:
-# id | movie_id | location_id | image_file_name | image_content_type | image_file_size | image_updated_at 
-
-# The Da Vinci Code
-# 	The Pyramid, Louvre, Paris
-# 		Robert Langdon is summoned to the murder scene
-
-
-
-
-
 Visit.create([
-				{scene_id:1,user_id:1},
+				{scene_id:1,user_id:1, description: 'This was filmed here'},
 				{scene_id:2,user_id:2},
 				{scene_id:3,user_id:3},
 				{scene_id:4,user_id:4},
@@ -321,6 +226,81 @@ Visit.create([
 				{scene_id:50,user_id:2}
 	])
 
+Photo.create([
+				{caption:"Outside Le Louvre!",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Da%20Vinci%20Code%20-%20The%20Pyramid%20Louvre%20-%20Fan%20Photo_zpsgixesmtr.jpg",visit_id:1},
+				{caption:"The Blue Door #nottinghill",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Notting%20Hill%20-%20The%20Blue%20Door%20280%20Westbourne%20Park%20Rd%20-%20William%20Thackers%20Flat%20-%20Fan%20Photo_zpsy1aggfjc.jpg",visit_id:44},
+				{caption:"WOP BAM BOOM! Outside Rydell High #grease",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Grease%20-%20Venice%20High%20School%20-%20Rydell%20High%20in%20Grease%20-%20Fan%20Photo_zpswsj5gobx.jpg",visit_id:47},
+				{caption:"#pontdebirhakeim #inception",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Inception%20-%20Pont%20De%20Bir-Hakeim%20Paris%20-%20Where%20Ariadne%20recreates%20a%20dream%20version%20-%20Fan%20Photo_zpsksnhio8k.jpg",visit_id:48},
+				{caption:"Lost in Translation",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Lost%20in%20Translation%20-%20fan%20photo_zpslmydhrbh.jpeg",visit_id:43},
+				{caption:"Say hello to my little friend!",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Scarface%20-%20chainsaw%20-%20fan%20photo_zpsznv1neu5.png",visit_id:24},
+				{caption:"Outside Carrie Bradshaw's apartment",image_file_name:"https://www.flordemariafashion.com/wp-content/uploads/2014/05/IMG_92212.jpg",visit_id:3},
+				{caption:"Beach from the Notebook",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Notebook%20-%20beach%20-%20fan%20photo_zpssotomz3v.jpeg",visit_id:37},
+				{caption:"The house in the Notebook",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Notebook%20-%20Noahs%20House%20-%20fan%20photo_zpschrzdjag.jpeg",visit_id:36},
+				{caption:"#avengers",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/The%20Avengers%20-%20fan%20photo_zpsu74utoyv.jpeg",visit_id:8},
+				{caption:"Gotham, take control! Take control of your city. This... this is the instrument of your liberation!",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Dark%20Knight%20rises%20-%20bridge%20-%20fan%20photo_zpsxlkfx2pp.jpeg",visit_id:6},
+				{caption:"GODFATHER CORLEONE COMPOUND",image_file_name:"http://i.dailymail.co.uk/i/pix/2014/11/13/1415878241017_wps_4_They_re_waiting_for_an_of.jpg",visit_id:34},
+				{caption:"#thegodfather #church",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Godfather%20-%20church%20-%20fan%20photo_zps5g1gofv4.jpeg",visit_id:35},
+				{caption:"The house that was in the Royal Tenenbaums",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/The%20Royal%20Tenenbaums%20-%20fan%20photo_zpsfahfehh0.jpeg",visit_id:16},
+				{caption:"Just outside Wayne Manor!",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Dark%20Knight%20rises%20-%20wayne%20manor%20-%20fan%20photo_zpsrg40phop.jpeg",visit_id:7},
+				{caption:"You show me a pay stub for $72,000, I quit my job right now and work for you.",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Wolf%20of%20Wall%20Street%20-%20meeting%20Donnie%20-%20fan%20photo_zps4bndkuz3.jpeg",visit_id:12},
+				{caption:"#wolfofwallstreet",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Wolf%20of%20Wall%20Street%20-%20bay%20boat%20-%20fan%20photo_zps12iuqyja.jpeg",visit_id:11},
+				{caption:"Anyone fancy some Breakfast at Tiffany's?",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Breakfast%20at%20Tiffanys%20-%20fan%20photo_zps0eqhxc4j.jpeg",visit_id:31},
+				{caption:"When Harry dropped off Sally",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/When%20Harry%20Met%20Sally%20-%20dropping%20off%20-%20fan%20photo_zpsk3h7y8wu.jpeg",visit_id:13},
+				{caption:"Stood outside Zoolander's apartment",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Zoolander%20-%20fan%20photo_zps23yztgm1.jpeg",visit_id:10},
+				{caption:"#lockstocktwosmokingbarrels #hideout",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Lock%20Stock%20and%20Two%20Smoking%20Barrels%20-%20Park%20Street%20-%20Fan%20Photo_zpsamduo0zk.jpg",visit_id:45},
+				{caption:"Where Ethan sat in Mission Impossible",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Mission%20Impossible%20-%20Anchor%20Tavern%20London%20-%20Ethan%20unwinds%20after%20chase%20-%20Fan%20Photo_zpszo4yjmx2.jpg",visit_id:50},
+				{caption:"Outside MI6 #skyfall",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Skyfall%20-%20Vauxhall%20Cross%20Westminster%20Bridge%20-%20M%20watches%20the%20attack%20on%20MI6%20HQ%20-%20Fan%20Photo_zpsskrvmogs.jpg",visit_id:46},
+				{caption:"Snatch - Doug the Head's local pub",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Snatch%20-%20Ye%20Olde%20Pub%20-%20Fan%20Photo_zpsuzrud9sg.jpg",visit_id:49}
+	])
+
+# Photo table:
+# id | caption | created_at | updated_at | visit_id | image_file_name | image_content_type | image_file_size | image_updated_at
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Movie:
+# id | imdbID | name
+
+
+
+
+
+
+# # Location:
+# # id | name | description | latitude | longitude | address | created_at | updated_at | user_id
+
+
+
+
+
+
+# Scenes:
+# id | movie_id | location_id | image_file_name | image_content_type | image_file_size | image_updated_at
+
+# The Da Vinci Code
+# 	The Pyramid, Louvre, Paris
+# 		Robert Langdon is summoned to the murder scene
+
+
+
+
+
+
 
 # Visit:
-# id | description | date_visited | scene_id | user_id 
+# id | description | date_visited | scene_id | user_id
