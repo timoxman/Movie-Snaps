@@ -4,4 +4,6 @@ class Visit < ActiveRecord::Base
   belongs_to :scene
   belongs_to :user
 
+  property: :date_visited
+
 end
