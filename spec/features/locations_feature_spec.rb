@@ -2,11 +2,15 @@ require 'rails_helper'
 
 feature 'A user wants to add the location for a film' do
 
-  before do
+  before(:each) do
     set_omniauth
     visit '/'
     click_link 'Sign in with Facebook'
     click_link 'here'
+  end
+
+  scenario 'they have the option to enter a movie name and location address' do
+    expect(page).to have_css 'input', :count => 2
   end
 
   scenario 'they enter address and the film to save it to the database', js: true do

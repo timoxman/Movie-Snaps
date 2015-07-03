@@ -12,7 +12,6 @@ feature 'User is on the home page' do
       expect(page).to have_content 'Welcome'
       expect(page).to have_content 'Sign out'
       expect(page).not_to have_content 'Sign in with Facebook'
-      p User.all
     end
 
     scenario 'has signed in and wants to sign back out' do
