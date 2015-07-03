@@ -6,3 +6,10 @@ Currently this is a separate page to be combined later
   <%= f.input :date_visited, label: 'Date visited', as: :date, order: [:day, :month, :year] %>
   <%= f.button :submit %>
 <% end %>
+<br>
+Current visits
+<br>
+<% @current_visits.each do |visit| %>
+  <%= visit.description %> <%= visit.date_visited %>
+  <br>
+<% end %>

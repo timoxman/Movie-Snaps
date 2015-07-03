@@ -69,7 +69,7 @@ function getMarkers() {
         var coords = new google.maps.LatLng(marker.latitude, marker.longitude)
           new google.maps.Marker({
           position: coords,
-          icon:'https://www.piercingpurpose.com/files/clapper.png',
+          icon:'/images/clapper.png',
           animation: google.maps.Animation.DROP,
           map: map
         });
@@ -78,7 +78,7 @@ function getMarkers() {
 }
 
 function getAddress() {
-  var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='
+  var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='
   var lat = newMarker[0].position.A
   var lng = newMarker[0].position.F
   $.getJSON(url + lat + "," + lng + '&sensor=true', function (data) {
@@ -114,13 +114,12 @@ function placeMarker(location) {
   }
   var marker = new google.maps.Marker({
     position: location,
-    icon:'https://www.piercingpurpose.com/files/clapper.png',
+    icon:'/images/clapper.png',
     animation: google.maps.Animation.DROP,
     map: map
   });
   var infowindow = new google.maps.InfoWindow({
-    content: 'This move scene was shot here ' +
-    '<img src="http://www.flickeringmyth.com/wp-content/uploads/2015/04/James-Bond.jpeg">Longitude: ',
+    content: 'This move scene was shot here ',
     maxWidth: 200
   });
   infowindow.open(map,marker);

@@ -8,6 +8,7 @@ class VisitsController < ApplicationController
   def new
     @location = Location.find(params[:location_id])
     @scene = Scene.find(params[:scene_id])
+    @current_visits = Visit.where("scene_id = ?", params[:scene_id]).all
     @visit = Visit.new
     # raise params[:scene_id]
     if params[:scene_id] == 0
