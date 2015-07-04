@@ -3,9 +3,6 @@ $(document).ready(function() {
   var movieTitleYear = $('#title').text();
   var movieTitle = movieExtractTitle(movieTitleYear);
   var movieYear = movieExtractYear(movieTitleYear);
-  console.log(movieTitleYear);
-  console.log(movieTitle);
-  console.log(movieYear);
   getPoster(movieTitle, movieYear);
 
   $('#scenes').children('ul').children('li').each(function(index) {

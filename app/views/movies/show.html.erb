@@ -8,8 +8,10 @@
     <% if @movie.scenes.any? %>
       Scenes:
       <ul>
-        <% @movie.scenes.each do |scene| %>
+        <% @movie.scenes.reverse.each do |scene| %>
           <li>
+            <%= link_to scene.location.address, location_path(scene.location) %>
+            </br>
             <%= image_tag scene.image_file_name %>
             <div class="mapBox">
               <div class="mapDestination" id="mapDestination-<%= scene.id %>">
@@ -17,23 +19,50 @@
             </div>
             <div class="longitude"><%= scene.location.longitude %></div>
             <div class="latitude"><%= scene.location.latitude %></div>
+            </br>
             <% if scene.visits.any? %>
               Visitors:
               <ul>
-                <% scene.visits.each do |visit| %>
+                <% scene.visits.order('date_visited desc').each do |visit| %>
                   <li>
-                    <%= visit.user.name %>
+                    <%= image_tag visit.user.image %>
+                    <%= link_to visit.user.name, user_path(visit.user) %>
+                    <% if visit.date_visited %> visited on <%= visit.date_visited.strftime('%e %B %Y') %><% end %>
+                    <% if visit.description %> ("<%= visit.description %>")<% end %></br>
+                    <% if visit.photos.any? %>
+                      <ul>
+                        <% visit.photos.each do |photo| %>
+                          <%= image_tag photo.image_file_name %>
+                          <%= photo.caption %>
+                          (Likes: <%= photo.likes.count %>)
+                          <% if photo.comments.any? %>
+                            <ul>
+                              <% photo.comments.order('created_at desc').each do |comment| %>
+                                <%= image_tag comment.user.image %>
+                                <%= link_to comment.user.name, user_path(comment.user) %>:
+                                <%= comment.remark %>
+                                (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
+                                </br>
+                              <% end %>
+                            </ul>
+                          <% end %>
+                          </br>
+                        <% end %>
+                      </ul>
+                    <% else %>
+                      No photos relating to this visit available
+                    <% end %>
                   </li>
                 <% end %>
               </ul>
             <% else %>
-              No visits relating to this scene yet
+              No visits relating to this scene available
             <% end %>
           </li>
         <% end %>
       </ul>
     <% else %>
-      No scenes for this movie yet
+      No scenes for this movie available
     <% end %>
   </div>
 
