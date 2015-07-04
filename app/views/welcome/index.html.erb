@@ -12,14 +12,14 @@ Click <%= link_to "here", '/locations' %> to upload your photos!
     <br>
     From the movie <%= p.visit.scene.movie.name %>
     <br>
-    <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %></span>
+    <% if current_user %>
+      <%= link_to "Like", photo_likes_path(p), class: 'likes-link' %>
+      <%= link_to "Comment", new_photo_comment_path(p) %>
+    <% end %>
+    <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>
     <% p.comments.each do |c| %>
       <li><%= c.remark %><i> <%= c.user.name %> </i></li>
       <br>
-    <% end %>
-    <% if current_user %>
-      <%= link_to "Like", photo_likes_path(p), class: 'like-link' %>
-      <%= link_to "Comment", new_photo_comment_path(p) %>
     <% end %>
     <br>
   <% end %>

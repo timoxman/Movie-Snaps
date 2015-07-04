@@ -11,8 +11,8 @@ feature 'A user on the homepage' do
     scenario 'can like another users photo', js: true do
       visit '/'
       click_link 'Like'
-      expect(Like.count).to eq 1
       expect(page).to have_content '1 like'
+      expect(Like.count).to eq 1
     end
 
   end
