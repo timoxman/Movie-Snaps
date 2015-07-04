@@ -9,11 +9,8 @@ feature 'A user on the homepage' do
     end
 
     scenario 'can comment on other users photo', js: true do
-      click_link 'Comment'
-      expect(page).to have_content 'Leave a comment'
       fill_in 'comment_remark', with: 'Nice photo!'
       expect { click_button 'Comment' }.to change { Comment.count }.by 1
-      expect(current_path).to eq root_path
       expect(page).to have_content 'Nice photo! John Doe'
     end
 
