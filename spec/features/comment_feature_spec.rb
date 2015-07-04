@@ -12,8 +12,7 @@ feature 'A user on the homepage' do
       click_link 'Comment'
       expect(page).to have_content 'Leave a comment'
       fill_in 'comment_remark', with: 'Nice photo!'
-      click_button 'Comment'
-      expect(Comment.count).to eq 1
+      expect { click_button 'Comment' }.to change { Comment.count }.by 1
       expect(current_path).to eq root_path
       expect(page).to have_content 'Nice photo! John Doe'
     end
