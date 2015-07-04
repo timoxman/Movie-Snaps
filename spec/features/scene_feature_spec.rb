@@ -3,10 +3,10 @@ require 'rails_helper'
 feature 'User clicks on a previously added location' do
 
   before(:each) do
-    User.create! :name => 'John Doe', :email => 'john1@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
-    Location.create!(user_id:1,name:"", description:"Da Vinci Code", latitude:48.860000000000000000,longitude:2.341111100000034600,address:"Louvre Pyramid, 75001, Paris, France")
-    Movie.create!(name:"The Da Vinci Code",imdbID:"tt0382625")
-    Scene.create!(movie_id:1,location_id:1,image_file_name:"http://bit.ly/1JBfXCZ")
+    user = User.create(:name => 'John Doe', :email => 'john1@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+    movie = Movie.create(name:"The Da Vinci Code",imdbID:"tt0382625")
+    location = Location.create(user_id: user.id,name:"", description:"Da Vinci Code", latitude:48.860000000000000000,longitude:2.341111100000034600,address:"Louvre Pyramid, 75001, Paris, France")
+    Scene.create(movie_id: movie.id,location_id: location.id, image_file_name:"http://bit.ly/1JBfXCZ")
     visit locations_path
     click_link 'Louvre Pyramid, 75001, Paris, France'
   end
