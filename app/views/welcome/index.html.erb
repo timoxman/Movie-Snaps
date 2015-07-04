@@ -11,6 +11,7 @@ Click <%= link_to "here", '/locations' %> to upload your photos!
     <%= p.caption %> <i>Uploaded on </i> <%= p.created_at %>
     <br>
     From the movie <%= p.visit.scene.movie.name %>
+    <%= link_to "Comment", new_photo_comment_path(p) %>
     <br>
   <% end %>
 <% else %>

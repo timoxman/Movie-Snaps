@@ -11,9 +11,7 @@ end
 feature 'A user wants to add a location' do
 
   before(:each) do
-    set_omniauth
-    visit '/'
-    click_link 'Sign in with Facebook'
+    create_visit
     click_link 'here'
   end
 
@@ -32,7 +30,6 @@ feature 'A user wants to add a location' do
     end
 
     scenario 'can enter a duplicate movie, and it will not be saved' do
-      Movie.create!(name:"The Da Vinci Code",imdbID:"tt0382625")
       fill_in 'enterDestination', with: 'Makers Academy, London'
       click_button 'Visit'
       click_button 'Place Marker'
@@ -43,10 +40,6 @@ feature 'A user wants to add a location' do
 
   context 'in an existing location' do
     scenario 'can add a new movie', js: true do
-      user = User.create(:name => 'John Doe', :email => 'john1@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
-      movie = Movie.create(name:"The Da Vinci Code",imdbID:"tt0382625")
-      location = Location.create(user_id: user.id,name:"", description:"Da Vinci Code", latitude:48.860000000000000000,longitude:2.341111100000034600,address:"Louvre Pyramid, 75001, Paris, France")
-      Scene.create(movie_id: movie.id,location_id: location.id, image_file_name:"http://bit.ly/1JBfXCZ")
       click_link 'Louvre Pyramid, 75001, Paris, France'
       click_link 'click here'
       fill_autocomplete('enterMovie', with: 'Shrek')

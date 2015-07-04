@@ -1,0 +1,6 @@
+Leave a comment:
+<br>
+<%= form_for [@photo, @comment] do |f| %>
+  <%= f.text_area :remark %>
+  <%= f.submit 'Comment' %>
+<% end %>
