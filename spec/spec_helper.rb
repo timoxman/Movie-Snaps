@@ -19,7 +19,7 @@ Coveralls.wear!
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-
+  config.include Rails.application.routes.url_helpers if defined? Rails
   config.before(:each) do
     OmniAuth.config.mock_auth[:facebook] = nil
   end

@@ -43,8 +43,8 @@ function loadMap() {
     var latlng = new google.maps.LatLng(51.517307, -0.073403);
     map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
     map.setCenter(latlng);
-    map.setOptions({ draggableCursor: 'crosshair' });
   }
+  map.setOptions({ draggableCursor: 'crosshair' });
   google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
   });
@@ -64,17 +64,17 @@ function getMarkers() {
   $.getJSON(url, function (data) {
     allMarkers = data
   })
-    .done(function() {
-      allMarkers.forEach(function(marker) {
-        var coords = new google.maps.LatLng(marker.latitude, marker.longitude)
-          new google.maps.Marker({
-          position: coords,
-          icon:'/images/clapper.png',
-          animation: google.maps.Animation.DROP,
-          map: map
-        });
+  .done(function() {
+    allMarkers.forEach(function(marker) {
+      var coords = new google.maps.LatLng(marker.latitude, marker.longitude)
+        new google.maps.Marker({
+        position: coords,
+        icon:'/images/clapper.png',
+        animation: google.maps.Animation.DROP,
+        map: map
       });
-    })
+    });
+  })
 }
 
 function getAddress() {

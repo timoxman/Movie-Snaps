@@ -1,6 +1,3 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 #userProfile {
   width: 980px;
   margin: 0 auto;
@@ -8,4 +5,15 @@
   img {
     width: 10%;
   }
+}
+
+.mapBox {
+    float: left;
+    text-align: center;
+}
+
+.mapDestination {
+    width: 140px;
+    height: 140px;
+    border: 2px solid black;
 }
