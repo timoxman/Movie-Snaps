@@ -1,7 +1,10 @@
-.mapBox {
-    float: left;
-    margin-left: 50px;
-    text-align: center;
+#locationProfile {
+  width: 980px;
+  margin: 0 auto;
+  padding: 1em;
+  img {
+    width: 10%;
+  }
 }
 
 #mapDestination {
