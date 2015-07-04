@@ -12,7 +12,7 @@
           <li>
             <%= link_to scene.location.address, location_path(scene.location) %>
             </br>
-            <%= image_tag scene.image_file_name %>
+            Scene photo:<%= image_tag scene.image_file_name %>
             <div class="mapBox">
               <div class="mapDestination" id="mapDestination-<%= scene.id %>">
               </div>
