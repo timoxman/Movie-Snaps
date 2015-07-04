@@ -9,7 +9,10 @@
       <ul>
         <% @visits.each do |visit| %>
           <li>
-            Date visited: <%= visit.date_visited %></br>
+            <% if visit.date_visited %>
+              Visited on <%= visit.date_visited.strftime('%e %B %Y') %>
+              </br>
+            <% end %>
             Location: <%= link_to visit.scene.location.address, location_path(visit.scene.location) %></br>
             Movie: <%= link_to visit.scene.movie.name, movie_path(visit.scene.movie) %></br>
             Visit description: <%= visit.description %>

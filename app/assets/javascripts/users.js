@@ -8,6 +8,8 @@ $(document).ready(function() {
     var movieTitleYear = $(this).find('.movieTitleYear').text();
     var movieTitle = movieExtractTitle(movieTitleYear);
     var movieYear = movieExtractYear(movieTitleYear);
+    console.log(movieTitle);
+    console.log(movieYear);
     getPoster(movieTitle, movieYear, index);
 
     var longitude = $(this).find('.longitude').text();
@@ -23,7 +25,7 @@ function movieExtractTitle(movieTitleYear){
 }
 
 function movieExtractYear(movieTitleYear){
-  return movieTitleYear.replace(/([0-9a-zA-Z ()]*)([0-9]{4})\)$/, '$2');
+  return movieTitleYear.replace(/([0-9a-zA-Z ()\D]*)([0-9]{4})\)$/, '$2');
 }
 
 function getPoster(movieTitle, movieYear, index) {

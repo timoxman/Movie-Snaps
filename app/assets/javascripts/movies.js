@@ -21,7 +21,7 @@ function movieExtractTitle(movieTitleYear){
 }
 
 function movieExtractYear(movieTitleYear){
-  return movieTitleYear.replace(/([0-9a-zA-Z ()]*)([0-9]{4})\)$/, '$2');
+  return movieTitleYear.replace(/([0-9a-zA-Z ()\D]*)([0-9]{4})\)$/, '$2');
 }
 
 function getPoster(movieTitle, movieYear) {
