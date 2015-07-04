@@ -1,0 +1,40 @@
+<section id="movieProfile">
+
+  <div id='title'><h2><%= @movie.name %></h2></div>
+
+  <div id='movie_img'></div>
+
+  <div id="scenes">
+    <% if @movie.scenes.any? %>
+      Scenes:
+      <ul>
+        <% @movie.scenes.each do |scene| %>
+          <li>
+            <%= image_tag scene.image_file_name %>
+            <div class="mapBox">
+              <div class="mapDestination" id="mapDestination-<%= scene.id %>">
+              </div>
+            </div>
+            <div class="longitude"><%= scene.location.longitude %></div>
+            <div class="latitude"><%= scene.location.latitude %></div>
+            <% if scene.visits.any? %>
+              Visitors:
+              <ul>
+                <% scene.visits.each do |visit| %>
+                  <li>
+                    <%= visit.user.name %>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              No visits relating to this scene yet
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      No scenes for this movie yet
+    <% end %>
+  </div>
+
+</section>
