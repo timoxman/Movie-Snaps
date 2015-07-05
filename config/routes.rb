@@ -8,23 +8,45 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'locations/api' => 'locations#api'
 
-  resources :movies
-  resources :users
   get 'users/movies_api/:id' => 'users#movies_api'
   post 'users/movies_api/:id' => 'users#movies_api'
   get 'users/locations_api/:id' => 'users#locations_api'
   post 'users/locations_api/:id' => 'users#locations_api'
 
-  resources :locations do
-    resources :scenes do
-      resources :visits do
-        resources :photos, shallow: true do
-          resources :likes
-          resources :comments
-        end
-      end
-    end
+  # resources :movies
+  # resources :users
+
+  # resources :locations do
+  #   resources :scenes do
+  #     resources :visits do
+  #       resources :photos, shallow: true do
+  #         resources :likes
+  #         resources :comments
+  #       end
+  #     end
+  #   end
+  # end
+
+resources :users
+
+resources :locations do
+  resources :scenes
+end
+
+resources :movies do
+  resources :scenes
+end
+
+resources :scenes do
+  resources :visits
+end
+
+resources :visits, shallow: true do
+  resources :photos do
+    resources :likes
+    resources :comments
   end
+end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

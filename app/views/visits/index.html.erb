@@ -5,7 +5,7 @@ Current Scenes
     movie poster, name, location
     <%= scene.id %>
     <% if current_user %>
-      <%= link_to "Add a visit", new_location_scene_visit_path(scene.id) %>
+      <%= link_to "Add a visit", new_location_scene_visit_path(scene.location_id, scene.id) %>
     <% end %>
   <% end %>
 <% else %>
@@ -17,7 +17,8 @@ Current Scenes
 Curent Visits
 <% if @visits.any? %>
   <% @visits.each do |visit| %>
-    <%= link_to visit.name, location_path(visit) %>
+    <% location = Scene.where("scene.id = ?",visit.scene_id).location_id %>
+    <%= link_to visit.description, location_scene_visit(location,visit.scene_id,visit) %>
   <% end %>
 <% else %>
   <h1>No visits yet</h1>
