@@ -1,17 +1,22 @@
-$(".locations.show").ready(function() {
-  $(this).find('#longitude').hide();
-  $(this).find('#latitude').hide();
-  var longitude = $(this).find('#longitude').text();
-  var latitude = $(this).find('#latitude').text();
-  loadMapProfile(latitude, longitude);
+$(document).ready(function() {
 
-  $('#scenes').children('ul').children('li').each(function(index) {
-    $(this).find('.movieTitleYear').hide();
-    var movieTitleYear = $(this).find('.movieTitleYear').text();
-    var movieTitle = movieExtractTitle(movieTitleYear);
-    var movieYear = movieExtractYear(movieTitleYear);
-    getPoster(movieTitle, movieYear, index);
-  });
+  if ($('#locationShow').length) {
+    $(".locations.show").ready(function() {
+      $(this).find('#longitude').hide();
+      $(this).find('#latitude').hide();
+      var longitude = $(this).find('#longitude').text();
+      var latitude = $(this).find('#latitude').text();
+      loadMapProfile(latitude, longitude);
+
+      $('#scenes').children('ul').children('li').each(function(index) {
+        $(this).find('.movieTitleYear').hide();
+        var movieTitleYear = $(this).find('.movieTitleYear').text();
+        var movieTitle = movieExtractTitle(movieTitleYear);
+        var movieYear = movieExtractYear(movieTitleYear);
+        getPoster(movieTitle, movieYear, index);
+      });
+    });
+  }
 });
 
 function loadMapProfile(latitude, longitude) {
