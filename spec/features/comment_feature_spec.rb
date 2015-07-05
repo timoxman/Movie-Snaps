@@ -9,8 +9,9 @@ feature 'A user on the homepage' do
     end
 
     scenario 'can comment on other users photo', js: true do
+      click_button 'Comment'
       fill_in 'comment_remark', with: 'Nice photo!'
-      expect { click_button 'Comment' }.to change { Comment.count }.by 1
+      expect { click_button 'Submit' }.to change { Comment.count }.by 1
       expect(page).to have_content 'Nice photo! John Doe'
     end
 

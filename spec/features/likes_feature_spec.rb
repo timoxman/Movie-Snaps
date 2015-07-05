@@ -19,7 +19,6 @@ feature 'A user on the homepage' do
       visit '/'
       click_link 'Like'
       expect(page).not_to have_link 'Like'
-      expect(page).to have_content 'You liked this'
     end
 
   end
