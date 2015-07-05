@@ -2,7 +2,7 @@ require 'rails_helper'
 
 def fill_autocomplete(field, options = {})
   fill_in field, with: options[:with]
-  sleep 1
+  sleep 5
   page.execute_script %Q{ $('##{field}').trigger('keydown') }
   selector = %Q{ul.ui-autocomplete li.ui-menu-item a:contains("#{options[:select]}")}
   page.should have_selector('ul.ui-autocomplete li.ui-menu-item')
