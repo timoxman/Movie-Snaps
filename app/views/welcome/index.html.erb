@@ -3,14 +3,37 @@ Welcome to Movie Snaps
 Click <%= link_to "here", '/locations' %> to upload your photos!
 <br>
 <% if @photos %>
-  Most recent uploads:
-  <br>
+  Most recent uploads: <br>
   <% @photos.each do |p| %>
+    <!-- <div id="dialog" title="Add a comment" style="hidden"> -->
+    <!-- </div> -->
     <img src='<%= p.image_file_name %>' height='200' width='200' %>
     <br>
     <%= p.caption %> <i>Uploaded on </i> <%= p.created_at %>
     <br>
     From the movie <%= p.visit.scene.movie.name %>
+    <br>
+    <% if current_user %>
+      <% liked = false %>
+      <% p.likes.each do |l| %>
+        <% if current_user.id == l.user_id %>
+          <% liked = true %>
+          <% break %>
+        <% end %>
+      <% end %>
+      <% if liked == false %>
+        <%= link_to "Like", photo_likes_path(p), class: 'likes-link' %>
+      <% end %>
+      <%= form_for [p, @comment] do |f| %>
+        <%= f.text_area :remark %>
+        <%= f.submit 'Comment' %>
+      <% end %>
+    <% end %>
+    <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>
+    <% p.comments.each do |c| %>
+      <li><%= c.remark %><i> <%= c.user.name %> </i></li>
+      <br>
+    <% end %>
     <br>
   <% end %>
 <% else %>

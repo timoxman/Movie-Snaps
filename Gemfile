@@ -52,6 +52,8 @@ gem 'simple_form'
 gem 'omniauth-facebook'
 #jquery ui
 gem 'jquery-ui-rails'
+# for time validations in database
+gem 'validates_timeliness', '~> 3.0'
 
 
 group :test do
