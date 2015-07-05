@@ -1,40 +1,98 @@
+<script src='https://cdn.rawgit.com/Pagawa/PgwSlideshow/master/pgwslideshow.min.js'></script>
+<link rel='stylesheet' href='https://cdn.rawgit.com/Pagawa/PgwSlideshow/master/pgwslideshow.min.css'>
 Welcome to Movie Snaps
 <br>
 Click <%= link_to "here", '/locations' %> to upload your photos!
 <br>
 <% if @photos %>
   Most recent uploads: <br>
-  <% @photos.each do |p| %>
-    <img src='<%= p.image_file_name %>' height='200' width='200' %>
-    <br>
-    <%= p.caption %> <i>Uploaded on </i> <%= p.created_at %>
-    <br>
-    From the movie <%= p.visit.scene.movie.name %>
-    <br>
-    <% if current_user %>
-      <% liked = false %>
-      <% p.likes.each do |l| %>
-        <% if current_user.id == l.user_id %>
-          <% liked = true %>
-          <% break %>
+  <div class='slides'>
+    <ul class='pgwSlideshow'>
+      <% @recents.each do |p| %>
+        <li><img src='<%= p.image_file_name %>' alt='<%= p.visit.scene.movie.name %>' data-description='<%= p.caption  %>'></li>
+      <% end %>
+    </ul>
+  </div>
+  All uploads: <br>
+
+  <div id="visits">
+    <% if @visits.any? %>
+      <ul>
+        <% @visits.each do |visit| %>
+          <li>
+            Location: <%= link_to visit.scene.location.address, location_path(visit.scene.location) %>
+            </br>
+            Movie: <%= link_to visit.scene.movie.name, movie_path(visit.scene.movie) %>
+            </br>
+            Visitor: <%= image_tag visit.user.image %> <%= link_to visit.user.name, user_path(visit.user) %><% if visit.date_visited %> on <%= visit.date_visited.strftime('%e %B %Y') %><% end %>
+            </br>
+            Visit description: <%= visit.description %>
+            </br>
+            <div class="mapBox">
+              <div class="mapDestination" id="mapDestination-<%= visit.id %>">
+              </div>
+            </div>
+            Movie poster:
+            <div class="moviePosterBox">
+            </div>
+            Scene photo:
+            </br>
+            <%= image_tag visit.scene.image_file_name %>
+            </br>
+            <% if visit.photos.any? %>
+              <ul>
+                User photos: <% visit.photos.each do |photo| %>
+                  <li>
+                    <%= image_tag photo.image_file_name %>
+                    <%= photo.caption %>
+                    <% if photo.comments.any? %>
+                      <ul>
+                        <% photo.comments.order('created_at desc').each do |comment| %>
+                          <%= image_tag comment.user.image %>
+                          <%= link_to comment.user.name, user_path(comment.user) %>:
+                          <%= comment.remark %>
+                          (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
+                          </br>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                    </br>
+                  </li>
+                  <% if current_user %>
+                    <% liked = false %>
+                    <% photo.likes.each do |l| %>
+                      <% if current_user.id == l.user_id %>
+                        <% liked = true %>
+                        <% break %>
+                      <% end %>
+                    <% end %>
+                    <% if liked == false %>
+                      <%= link_to "Like", photo_likes_path(photo), class: 'likes-link' %>
+                    <% end %>
+                  <span class='likes_count'> <%= photo.likes.count %> </span> <%= 'like'.pluralize photo.likes.count %>
+                    <button class='comment-link'>Comment</button>
+                    <div class='comment-form'><%= form_for [photo, @comment] do |f| %>
+                      <%= f.text_area :remark %>
+                      <%= f.submit 'Submit' %>
+                    <% end %></div>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% else %>
+              No photos relating to this visit available
+            <% end %>
+            <div class="movieTitleYear"><%= visit.scene.movie.name %></div>
+            <div class="longitude"><%= visit.scene.location.longitude %></div>
+            <div class="latitude"><%= visit.scene.location.latitude %></div>
+          </li>
+          </br>
         <% end %>
-      <% end %>
-      <% if liked == false %>
-        <%= link_to "Like", photo_likes_path(p), class: 'likes-link' %>
-      <% end %>
-    <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>
-      <button class='comment-link'>Comment</button>
-      <div class='comment-form'><%= form_for [p, @comment] do |f| %>
-        <%= f.text_area :remark %>
-        <%= f.submit 'Submit' %>
-      <% end %></div>
+      </ul>
+    <% else %>
+      No visits yet
     <% end %>
-    <% p.comments.each do |c| %>
-      <li><%= c.remark %><i> <%= c.user.name %> </i></li>
-      <br>
-    <% end %>
-    <br>
-  <% end %>
+  </div>
+
 <% else %>
   No photos have been uploaded!
 <% end %>

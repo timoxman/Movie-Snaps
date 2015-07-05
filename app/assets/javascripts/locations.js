@@ -5,9 +5,24 @@ var result;
 
 $(document).ready(function() {
 
+  $('#enterMovie').hide();
+  $('#confirm-marker').hide();
+
   loadMap();
   autoCompleteGoogleMaps();
   getMarkers();
+
+  $('#mapDestination').click(function(){
+    $('#enterMovie').show('slow');
+    $('#confirm-marker').show('slow');
+  });
+
+  $('#add-marker').click(function(){
+    if ($('#enterDestination').val()) {
+      $('#enterMovie').show('slow');
+      $('#confirm-marker').show('slow');
+    }
+  });
 
   $('#submitDestination').click(function(){
     codeAddress();
@@ -23,28 +38,22 @@ $(document).ready(function() {
 });
 
 function loadMap() {
-  var browserSupportFlag =  new Boolean();
-  var initialLocation;
   var myOptions2 = {
       zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      draggableCursor: 'crosshair'
   };
-
   if(navigator.geolocation) {
     map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
-    browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
-      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      var initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       map.setCenter(initialLocation);
     });
-  }
-  // Browser doesn't support Geolocation
-  else {
+  } else { // Browser doesn't support Geolocation
     var latlng = new google.maps.LatLng(51.517307, -0.073403);
     map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
     map.setCenter(latlng);
   }
-  map.setOptions({ draggableCursor: 'crosshair' });
   google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
   });
@@ -114,7 +123,7 @@ function placeMarker(location) {
     map: map
   });
   var infowindow = new google.maps.InfoWindow({
-    content: 'This movie scene was shot here ',
+    content: 'Add your movie scene here ',
     maxWidth: 200
   });
   infowindow.open(map,marker);
