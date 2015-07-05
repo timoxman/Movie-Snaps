@@ -15,12 +15,12 @@ feature 'User is accesses the site' do
     expect(page).not_to have_content 'No photos have been uploaded!'
   end
 
-  scenario 'and sees recently uploaded photos with movie name and caption' , js: true do
+  scenario 'and sees recently uploaded photo list and carousel' , js: true do
     create_visit
     photo = Photo.first
     expect(page).not_to have_content 'No photos have been uploaded!'
     expect(page).to have_content photo.caption
-    expect(page).to have_css('img', :count => 1)
+    expect(page).to have_css('img', :count => 2)
   end
 
   scenario 'and wants to begin uploading photos' do
