@@ -43,8 +43,8 @@ function loadMap() {
     var latlng = new google.maps.LatLng(51.517307, -0.073403);
     map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
     map.setCenter(latlng);
-    map.setOptions({ draggableCursor: 'crosshair' });
   }
+  map.setOptions({ draggableCursor: 'crosshair' });
   google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
   });
