@@ -4,7 +4,6 @@ describe Visit do
 
   it { is_expected.to belong_to :user }
   it { is_expected.to belong_to :scene }
-  it { subject.errors[:description].should include 'Hello' }
 
   # NEED TO FEATURE TEST THAT THIS PAGE GIVES ERROR IF WRONG DATE GIVEN
   it 'a visit can only be added for all days before and including today\'s date' do

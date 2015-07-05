@@ -1,42 +1,19 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ashleigh/Projects/Movie-Snaps/spec/models/visit_spec.rb": [
+      "/Users/ashleigh/Projects/Movie-Snaps/spec/models/photo_spec.rb": [
         1,
         null,
         1,
         null,
         2,
         2,
-        2,
-        null,
         null,
         1,
         1,
         1,
         1,
         1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
         null,
         null,
         null
@@ -928,7 +905,7 @@
         null,
         null,
         1,
-        6,
+        3,
         null,
         null,
         1,
@@ -936,11 +913,11 @@
         null,
         null,
         1,
-        6,
+        3,
         null,
         null,
         1,
-        6,
+        3,
         null,
         null,
         null
@@ -985,6 +962,18 @@
         0,
         null
       ],
+      "/Users/ashleigh/Projects/Movie-Snaps/app/models/photo.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/ashleigh/Projects/Movie-Snaps/app/models/visit.rb": [
         1,
         null,
@@ -992,22 +981,20 @@
         1,
         1,
         null,
-        8,
         1,
-        null,
+        1,
         null,
         null
       ],
-      "/Users/ashleigh/Projects/Movie-Snaps/app/models/scene.rb": [
+      "/Users/ashleigh/Projects/Movie-Snaps/app/models/like.rb": [
         1,
         null,
-        1,
         1,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1436104989
+    "timestamp": 1436108980
   }
 }
