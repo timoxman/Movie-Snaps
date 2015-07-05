@@ -1,14 +1,22 @@
 $(document).ready(function() {
 
+  $('.pgwSlideshow').pgwSlideshow({
+    autoSlide: true,
+    maxHeight: 500,
+    displayList: false,
+    transitionEffect: 'fading'
+  });
+
   $('.comment-form').hide();
 
   $('.comment-link').click(function() {
-    $(this).next().show('slow');
+    $('.comment-form').hide(1000);
+    $(this).next('.comment-form').slideToggle(1000);
   })
 
   $('.likes-link').on('click', function(event){
     event.preventDefault();
-    $(this).hide();
+    $(this).hide(1000);
     var likeCount = $(this).next('.likes_count');
 
     $.post(this.href, function(response){
