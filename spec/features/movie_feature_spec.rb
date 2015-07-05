@@ -8,14 +8,21 @@ def fill_autocomplete(field, options = {})
   page.execute_script %Q{ $('#{selector}').trigger('mouseenter').click() }
 end
 
-feature 'A user wants to add a location' do
+feature 'A user wants to add a movie' do
 
   before(:each) do
     create_visit
     click_link 'here'
   end
 
+  scenario 'but cannot enter a movie before a location', js: true do
+    expect(page).not_to have_button 'Confirm Location'
+  end
+
   scenario 'and can enter the movie and have it autocompleted', js: true do
+    fill_in 'enterDestination', with: 'Makers Academy, London'
+    click_button 'Visit'
+    click_button 'Place Marker'
     fill_autocomplete('enterMovie', with: 'Shrek')
     expect(page).to have_selector('ul.ui-autocomplete li.ui-menu-item')
   end
