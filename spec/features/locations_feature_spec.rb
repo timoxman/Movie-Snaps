@@ -3,14 +3,13 @@ require 'rails_helper'
 feature 'A user wants to add the location for a film' do
 
   before(:each) do
-    set_omniauth
     visit '/'
-    click_link 'Sign in with Facebook'
+    create_logged_in_user
     click_link 'here'
   end
 
-  scenario 'they have the option to enter a movie name and location address' do
-    expect(page).to have_css 'input', :count => 2
+  scenario 'they have the option to enter a location address first' do
+    expect(page).to have_button 'Place Marker'
   end
 
   scenario 'they enter address and the film to save it to the database', js: true do
@@ -24,8 +23,7 @@ feature 'A user wants to add the location for a film' do
 
   scenario 'user must click on the map to create a marker', js: true do
     visit '/locations'
-    click_button 'Confirm Location'
-    expect(page).to have_content 'Click on the map to add a marker'
+    expect(page).not_to have_button 'Confirm Location'
   end
 
   context 'no locations have been added' do

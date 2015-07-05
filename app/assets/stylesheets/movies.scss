@@ -1,3 +1,23 @@
-// Place all the styles related to the movies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#movieProfile {
+  width: 980px;
+  margin: 0 auto;
+  padding: 1em;
+  img {
+    width: 10%;
+  }
+}
+
+.mapDestination {
+  width: 140px;
+  height: 140px;
+  border: 2px solid black;
+}
+
+#scenes ul li ul li {
+  margin-bottom: 0px;
+  margin-left: 200px;
+}
+
+#scenes ul li {
+  margin-bottom: 50px;
+}

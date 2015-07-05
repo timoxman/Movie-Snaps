@@ -13,14 +13,7 @@ feature 'Photos' do
 # check date uploaded - by checking same in database as on page?
 
   before(:each) do
-    # byebug
-    User.create! :name => 'John Doe', :email => 'john1@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
-    Location.create!(user_id:1,name:"", description:"Da Vinci Code", latitude:48.860000000000000000,longitude:2.341111100000034600,address:"Louvre Pyramid, 75001, Paris, France")
-    Movie.create!(name:"The Da Vinci Code",imdbID:"tt0382625")
-    Scene.create!(movie_id:1,location_id:1,image_file_name:"http://bit.ly/1JBfXCZ")
-    set_omniauth
-    visit root_path
-    click_link 'Sign in with Facebook'
+    create_visit
     click_link 'here'
     click_link "Louvre Pyramid, 75001, Paris, France"
     click_link "The Da Vinci Code"
@@ -33,7 +26,7 @@ feature 'Photos' do
     attach_file 'photo_image', './public/images/bond.jpg'
     expect { click_button 'Create Photo' }.to change { Photo.count }.by 1
     expect(current_path).to eq root_path
-    expect(page).to have_css 'img', :count => 1
+    expect(page).to have_css 'img'
   end
 
   scenario '' do

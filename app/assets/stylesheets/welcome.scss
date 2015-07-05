@@ -1,3 +1,30 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.slides {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.slides ul {
+  list-style: inside none disc;
+  margin: 0;
+  padding: 0;
+}
+
+#visits {
+  width: 980px;
+  margin: 0 auto;
+  padding: 1em;
+  img {
+    width: 10%;
+  }
+}
+
+.mapBox {
+    float: left;
+    text-align: center;
+}
+
+.mapDestination {
+    width: 140px;
+    height: 140px;
+    border: 2px solid black;
+}
