@@ -17,8 +17,4 @@ feature 'User clicks on a previously added location' do
     expect(page).to have_content 'Tell us something about your visit'
   end
 
-  scenario 'has the option to add a new movie', js: true do
-    click_link 'click here'
-    expect(page).to have_content 'Add your movie for Louvre Pyramid, 75001, Paris, France'
-  end
 end

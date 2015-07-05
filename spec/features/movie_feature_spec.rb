@@ -41,7 +41,6 @@ feature 'A user wants to add a location' do
   context 'in an existing location' do
     scenario 'can add a new movie', js: true do
       click_link 'Louvre Pyramid, 75001, Paris, France'
-      click_link 'click here'
       fill_autocomplete('enterMovie', with: 'Shrek')
       expect { click_button 'Add movie' }.to change { Movie.count }.by 1
     end
