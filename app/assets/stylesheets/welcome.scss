@@ -8,3 +8,23 @@
   margin: 0;
   padding: 0;
 }
+
+#visits {
+  width: 980px;
+  margin: 0 auto;
+  padding: 1em;
+  img {
+    width: 10%;
+  }
+}
+
+.mapBox {
+    float: left;
+    text-align: center;
+}
+
+.mapDestination {
+    width: 140px;
+    height: 140px;
+    border: 2px solid black;
+}
