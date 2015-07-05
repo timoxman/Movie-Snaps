@@ -3,7 +3,7 @@ $(document).ready(function() {
   $('.comment-form').hide();
 
   $('.comment-link').click(function() {
-    $(this).next().show('slow');
+    $(this).next('.comment-form').slideToggle(1000);
   })
 
   $('.likes-link').on('click', function(event){
