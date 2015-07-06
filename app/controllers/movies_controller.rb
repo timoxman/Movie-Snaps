@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     location = params[:location]
     film = Movie.create(name: film_name)
     scene = Scene.create(movie_id: film.id, location_id: location)
-    redirect_to new_location_scene_visit_path(location, scene.id)
+    redirect_to new_scene_visit_path(scene.id)
   end
 
   def show
