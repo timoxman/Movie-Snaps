@@ -6,10 +6,18 @@ describe Photo do
   it { is_expected.to have_many :likes }
 
   it 'expects an image to be uploaded as a jpg, jpeg or png' do
-  	Photo.create(image_file_name:"somedoc.doc")
-  	expect(Photo.count).to eq 0
-  	Photo.create(image_file_name:"somephoto.jpg")
-  	expect(Photo.count).to eq 1
+  	image = File.new("#{Rails.root}/spec/models/somepic.jpg")
+    expect(FactoryGirl.build(:pin, image: image)).to be_valid
+
+
+
+  	# Photo.create(image_file_name:"somedoc.doc")
+  	# expect(Photo.count).to eq 0
+  	# Photo.create(image_file_name:"somephoto.jpg")
+  	# expect(Photo.count).to eq 1
+  end
+
+  xit '' do
   end
 
 end
