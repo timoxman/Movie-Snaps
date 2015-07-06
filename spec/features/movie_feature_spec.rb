@@ -57,13 +57,12 @@ feature 'A user wants to add a movie' do
 end
 
 feature 'A user views an individual movie page' do
-  before(:all) do
-    create_visit
-  end
 
-  before(:each) do
-    visit '/movies/1'
-  end
+    before do
+      create_visit
+      movie = Movie.last
+      visit "/movies/#{movie.id}"
+    end
 
     xscenario "can click on movie and see the movie page" do
     end
