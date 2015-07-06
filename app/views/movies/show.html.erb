@@ -1,33 +1,25 @@
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "locations_show.js" %>
-<% end %>
-<div id='locationShow'></div>
-<section id="locationProfile">
+<section id="movieProfile">
 
-  <div id='title'>
-    <h2>
-      <%= @location.address %>
-    </h2>
-  </div>
-  <div id="longitude"><%= @location.longitude %></div>
-  <div id="latitude"><%= @location.latitude %></div>
+  <div id='title'><h2><%= @movie.name %></h2></div>
 
-  <div class="mapBox">
-    <div id="mapDestination">
-  </div>
+  <div id='movie_img'></div>
 
   <div id="scenes">
-    <% if @location.scenes.any? %>
+    <% if @movie.scenes.any? %>
       Scenes:
       <ul>
-        <% @location.scenes.reverse.each do |scene| %>
+        <% @movie.scenes.reverse.each do |scene| %>
           <li>
-            Movie: <%= link_to scene.movie.name, movie_path(scene.movie) %></br>
-            Movie poster:
-            <div class="moviePosterBox">
-            </div>
-            <div class="movieTitleYear"><%= scene.movie.name %></div>
+            <%= link_to scene.location.address, location_path(scene.location) %>
+            </br>
             Scene photo:<%= image_tag scene.image_file_name %>
+            <div class="mapBox">
+              <div class="mapDestination" id="mapDestination-<%= scene.id %>">
+              </div>
+            </div>
+            <div class="longitude"><%= scene.location.longitude %></div>
+            <div class="latitude"><%= scene.location.latitude %></div>
+            </br>
             <% if scene.visits.any? %>
               Visitors:
               <ul>
@@ -70,7 +62,7 @@
         <% end %>
       </ul>
     <% else %>
-      No scenes for this location available
+      No scenes for this movie available
     <% end %>
   </div>
 

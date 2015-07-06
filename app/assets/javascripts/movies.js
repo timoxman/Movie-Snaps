@@ -1,16 +1,13 @@
 $(document).ready(function() {
 
-  $('#visits').children('ul').children('li').each(function(index) {
-    $(this).find('.movieTitleYear').hide();
+  var movieTitleYear = $('#title').text();
+  var movieTitle = movieExtractTitle(movieTitleYear);
+  var movieYear = movieExtractYear(movieTitleYear);
+  getPoster(movieTitle, movieYear);
+
+  $('#scenes').children('ul').children('li').each(function(index) {
     $(this).find('.longitude').hide();
     $(this).find('.latitude').hide();
-
-    var movieTitleYear = $(this).find('.movieTitleYear').text();
-    console.log(movieTitleYear)
-    var movieTitle = movieExtractTitle(movieTitleYear);
-    var movieYear = movieExtractYear(movieTitleYear);
-    getPoster(movieTitle, movieYear, index);
-
     var longitude = $(this).find('.longitude').text();
     var latitude = $(this).find('.latitude').text();
     var mapDivId = $(this).find('.mapDestination').attr('id');
@@ -24,18 +21,17 @@ function movieExtractTitle(movieTitleYear){
 }
 
 function movieExtractYear(movieTitleYear){
-  return movieTitleYear.replace(/([0-9a-zA-Z ()]*)([0-9]{4})\)$/, '$2');
+  return movieTitleYear.replace(/([0-9a-zA-Z ()\D]*)([0-9]{4})\)$/, '$2');
 }
 
-function getPoster(movieTitle, movieYear, index) {
+function getPoster(movieTitle, movieYear) {
   var url = 'https://www.omdbapi.com/?t=' + movieTitle + '&y=' + movieYear;
   var poster;
   $.getJSON(url, function(data) {
-    poster = '<img src=' + data['Poster'] + '/>';
+    poster = '<img src="' + data['Poster'] + '" title="' + movieTitle + movieYear + '"/>';
   })
   .done(function() {
-    var listItem = $('#visits').children('ul').children('li')[index];
-    $(listItem).append(poster);
+    $('#movie_img').html(poster);
   })
 }
 

@@ -1,4 +1,3 @@
-
 <section id="welcomeFeatured" class="clearfix">
     <div class="welcomeSlider" id="welcomeSlider">
       <div id="slides">
@@ -45,7 +44,22 @@
               <figure>
                 <img src='<%= p.image_file_name %>' height='200' width='198' %>
               </figure>
-
+              <!-- <% if current_user %>
+                <% liked = false %>
+                <% p.likes.each do |l| %>
+                  <% if current_user.id == l.user_id %>
+                    <% liked = true %>
+                    <% break %>
+                  <% end %>
+                <% end %>
+                <% if liked == false %>
+                  <%= link_to "♡", photo_likes_path(p), class: 'likes-link' %>
+                <% else %>
+                  ❤
+                <% end %>
+              <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>
+              <br>
+              <% end %> -->
 
 
               <h6><i>Uploaded on </i> <%= p.created_at %></h6>
@@ -64,6 +78,8 @@
     <% end %>
 
 </section> <!-- welcomeMainContent  -->
+
+
 
 <aside class="viewall">
   <a href="/locations" class="button">View All Locations</a>

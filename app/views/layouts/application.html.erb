@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>MovieSnaps</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= yield :javascript_includes %>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 </head>
 <body>
@@ -39,7 +41,6 @@
                 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
               <% end %>
         </div>
-
 
       <%= yield %>
       <!-- <footer class="foot clearfix">
