@@ -17,18 +17,15 @@ feature 'Photos' do
     click_link 'here'
     click_link "Louvre Pyramid, 75001, Paris, France"
     click_link "The Da Vinci Code"
-    fill_in 'visit_description', with: 'Ate a croissant'
-    click_button 'Create Visit'
   end
 
   scenario 'User can add a photo through the  site', js: true do
-    fill_in 'caption', with: 'Me, my croissant and Le Louvre'
-    attach_file 'photo_image', './public/images/bond.jpg'
-    expect { click_button 'Create Photo' }.to change { Photo.count }.by 1
+    fill_in 'visit_visit_description', with: 'Ate a croissant'
+    fill_in 'visit_photo_caption', with: 'Me, my croissant and Le Louvre'
+    attach_file 'visit_photo_image', './public/images/bond.jpg'
+    expect { click_button 'Submit' }.to change { Photo.count }.by 1
     expect(current_path).to eq root_path
     expect(page).to have_css 'img'
   end
 
-  scenario '' do
-  end
 end

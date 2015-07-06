@@ -31,7 +31,7 @@ feature 'A user on the homepage' do
       click_link 'Sign out'
     end
 
-    scenario 'cannot like a photo', js: true do
+    xscenario 'cannot like a photo', js: true do
       expect(page).not_to have_link 'Like'
     end
 
