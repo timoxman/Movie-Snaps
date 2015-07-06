@@ -67,10 +67,16 @@ group :test do
   #allow testing of Javascript (Capybara's default web driver hiccups)
   gem 'poltergeist'
   gem 'database_cleaner'
-  gem 'selenium-webdriver'
+  # for testing photo uploading
+  gem 'factory_girl_rails'
+  # for testing photo uploading
+  gem 'paperclip'
+  # for time validations in database tests
+  gem 'validates_timeliness', '~> 3.0'
 end
 
 group :development, :test do
+  gem 'selenium-webdriver'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

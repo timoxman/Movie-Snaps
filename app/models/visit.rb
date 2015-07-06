@@ -4,4 +4,7 @@ class Visit < ActiveRecord::Base
   belongs_to :scene
   belongs_to :user
 
+  validates_date :date_visited, :on_or_before => lambda { Date.current }
+  validates_length_of :description, :maximum => 40, :minimum => 1, :message => "Uh oh! You have over 40 characters!"
+
 end

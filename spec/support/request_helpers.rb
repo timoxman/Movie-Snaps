@@ -2,7 +2,6 @@ require 'spec_helper'
 include Warden::Test::Helpers
 
 def create_logged_in_user
-  # byebug
   user = User.create! :name => 'John Doe', :email => 'john1@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
   login(user)
   user
