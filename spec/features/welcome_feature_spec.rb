@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-feature 'User is accesses the site' do
+feature 'User visits the site' do
 
   before(:each) do
     visit root_path
   end
 
   scenario 'and sees the welcome page' do
-    expect(page).to have_content 'Welcome to Movie Snaps'
+    expect(page).to have_content 'Adventure is out there!'
   end
 
   scenario 'sees a message if no photos have been uploaded' do
@@ -20,7 +20,6 @@ feature 'User is accesses the site' do
     photo = Photo.first
     expect(page).not_to have_content 'No photos have been uploaded!'
     expect(page).to have_content photo.caption
-    expect(page).to have_css('img', :count => 1)
   end
 
   scenario 'and wants to begin uploading photos' do
