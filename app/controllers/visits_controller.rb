@@ -6,6 +6,9 @@ class VisitsController < ApplicationController
   end
 
   def new
+    if params[:scene_id] == 0
+      raise "go off and create a movie, location and scene"
+    end
     @scene = Scene.find(params[:scene_id])
     @location = Location.find(@scene.location_id)
     @current_visits = Visit.where("scene_id = ?", params[:scene_id]).all
@@ -13,9 +16,6 @@ class VisitsController < ApplicationController
     @movie = @scene.movie.name
     @photo = Photo.new
     # raise params[:scene_id]
-    # if params[:scene_id] == 0
-    #   raise "go off and create a movie, location and scene"
-    # end
   end
 
   def create
