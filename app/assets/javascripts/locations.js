@@ -40,6 +40,7 @@ $(document).ready(function() {
   }
 });
 
+
 function loadMap() {
   var myOptions2 = {
       zoom: 15,
