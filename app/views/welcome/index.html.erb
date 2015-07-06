@@ -1,98 +1,150 @@
-<script src='https://cdn.rawgit.com/Pagawa/PgwSlideshow/master/pgwslideshow.min.js'></script>
-<link rel='stylesheet' href='https://cdn.rawgit.com/Pagawa/PgwSlideshow/master/pgwslideshow.min.css'>
-Welcome to Movie Snaps
-<br>
-Click <%= link_to "here", '/locations' %> to upload your photos!
-<br>
-<% if @photos %>
-  Most recent uploads: <br>
-  <div class='slides'>
-    <ul class='pgwSlideshow'>
-      <% @recents.each do |p| %>
-        <li><img src='<%= p.image_file_name %>' alt='<%= p.visit.scene.movie.name %>' data-description='<%= p.caption  %>'></li>
-      <% end %>
-    </ul>
-  </div>
-  All uploads: <br>
+<section id="welcomeFeatured" class="clearfix">
+    <div class="welcomeSlider" id="welcomeSlider">
+      <div id="slides">
+          <article>
+            <a href="#" target="_blank">
+              <img src="#" style="display:none;">
+              <span style="display:none;">Iron Man</span>
+            </a>
+          </article>
+          <div class="slider-title">
+            Iron Man
+          </div>
+          <div id="slider-arrows">
+            <a href="#" id="prev-slider" class="prev"></a>
+            <a href="#" id="next-slider" class="next"></a>
+          </div>
+      </div> <!-- slides  -->
+    </div> <!-- welcomeSlider -->
+</section> <!-- welcomeFeatured -->
 
-  <div id="visits">
-    <% if @visits.any? %>
-      <ul>
-        <% @visits.each do |visit| %>
-          <li>
-            Location: <%= link_to visit.scene.location.address, location_path(visit.scene.location) %>
-            </br>
-            Movie: <%= link_to visit.scene.movie.name, movie_path(visit.scene.movie) %>
-            </br>
-            Visitor: <%= image_tag visit.user.image %> <%= link_to visit.user.name, user_path(visit.user) %><% if visit.date_visited %> on <%= visit.date_visited.strftime('%e %B %Y') %><% end %>
-            </br>
-            Visit description: <%= visit.description %>
-            </br>
-            <div class="mapBox">
-              <div class="mapDestination" id="mapDestination-<%= visit.id %>">
-              </div>
-            </div>
-            Movie poster:
-            <div class="moviePosterBox">
-            </div>
-            Scene photo:
-            </br>
-            <%= image_tag visit.scene.image_file_name %>
-            </br>
-            <% if visit.photos.any? %>
-              <ul>
-                User photos: <% visit.photos.each do |photo| %>
-                  <li>
-                    <%= image_tag photo.image_file_name %>
-                    <%= photo.caption %>
-                    <% if photo.comments.any? %>
-                      <ul>
-                        <% photo.comments.order('created_at desc').each do |comment| %>
-                          <%= image_tag comment.user.image %>
-                          <%= link_to comment.user.name, user_path(comment.user) %>:
-                          <%= comment.remark %>
-                          (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
-                          </br>
-                        <% end %>
-                      </ul>
-                    <% end %>
-                    </br>
-                  </li>
-                  <% if current_user %>
-                    <% liked = false %>
-                    <% photo.likes.each do |l| %>
-                      <% if current_user.id == l.user_id %>
-                        <% liked = true %>
-                        <% break %>
-                      <% end %>
-                    <% end %>
-                    <% if liked == false %>
-                      <%= link_to "Like", photo_likes_path(photo), class: 'likes-link' %>
-                    <% end %>
-                  <span class='likes_count'> <%= photo.likes.count %> </span> <%= 'like'.pluralize photo.likes.count %>
-                    <button class='comment-link'>Comment</button>
-                    <div class='comment-form'><%= form_for [photo, @comment] do |f| %>
-                      <%= f.text_area :remark %>
-                      <%= f.submit 'Submit' %>
-                    <% end %></div>
+<aside id="welcomeAside" class="clearfix">
+    <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
+        who love blah blah and more blah blah blah</h2> -->
+        <h2 class="welcomeMessage">“Adventure is out there!” Up (2009)</h2>
+        <h2 class="welcomeMessage">“The most beautiful thing in the world is, of course, the world itself.” Cast Away (2000)</h2>
+        <h2 class="welcomeMessage">“Remember, what happens in Vegas stays in Vegas. Except for herpes. That shit’ll come back with you.” The Hangover (2009)</h2>
+
+
+
+</aside><!-- welcomeAside  -->
+
+<section class="welcomeMainContent clearfix">
+  <header>
+    <h3 class="recent-title">Click <%= link_to "here", '/locations' %>
+      to upload your photos! or checkout our most recent uploads</h3>
+    <h3 class="recent-title">Click <%= link_to "here for Dashboard", dashboards_path() %>
+      to see stats on the site (not right place for link I know) </h3>
+  </header>
+
+  <% if @photos %>
+          <% @photos.each do |p| %>
+          <article>
+
+            <a class="box" href="#" title="<%= p.caption %>">
+              <h4><%= p.caption %></h4>
+              <figure>
+                <img src='<%= p.image_file_name %>' height='200' width='198' %>
+              </figure>
+              <!-- <% if current_user %>
+                <% liked = false %>
+                <% p.likes.each do |l| %>
+                  <% if current_user.id == l.user_id %>
+                    <% liked = true %>
+                    <% break %>
                   <% end %>
                 <% end %>
-              </ul>
-            <% else %>
-              No photos relating to this visit available
-            <% end %>
-            <div class="movieTitleYear"><%= visit.scene.movie.name %></div>
-            <div class="longitude"><%= visit.scene.location.longitude %></div>
-            <div class="latitude"><%= visit.scene.location.latitude %></div>
-          </li>
-          </br>
-        <% end %>
-      </ul>
-    <% else %>
-      No visits yet
-    <% end %>
-  </div>
+                <% if liked == false %>
+                  <%= link_to "♡", photo_likes_path(p), class: 'likes-link' %>
+                <% else %>
+                  ❤
+                <% end %>
+              <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>
+              <br>
+              <% end %> -->
 
-<% else %>
-  No photos have been uploaded!
-<% end %>
+
+              <h6><i>Uploaded on </i> <%= p.created_at %></h6>
+
+              <p>From the movie <%= p.visit.scene.movie.name %></p>
+
+              </a>
+            </article>
+          <% end %>
+
+
+
+
+    <% else %>
+      No photos have been uploaded!
+    <% end %>
+
+</section> <!-- welcomeMainContent  -->
+
+
+
+<aside class="viewall">
+  <a href="/locations" class="button">View All Locations</a>
+</aside>
+
+
+<section class="welcomeMainContent clearfix">
+  <header class="line">
+    <h3 class="recent-title">More Movie-Snaps stuff</h3>
+  </header>
+
+          <article>
+
+            <a class="box" href="#" title="something">
+              <h4>New Users</h4>
+              <figure>
+                <img src='#' height='200' width='198' %>
+              </figure>
+              <h6><i>Uploaded on </i> </h6>
+
+              <p>Go to page from here</p>
+
+              </a>
+            </article>
+            <article>
+
+              <a class="box" href="#" title="something">
+                <h4>New Scenes</h4>
+                <figure>
+                  <img src='#' height='200' width='198' %>
+                </figure>
+                <h6><i>Uploaded on </i> </h6>
+
+                <p>Go to page from here</p>
+
+                </a>
+              </article>
+              <article>
+
+                <a class="box" href="#" title="something">
+                  <h4>New Movies</h4>
+                  <figure>
+                    <img src='#' height='200' width='198' %>
+                  </figure>
+                  <h6><i>Uploaded on </i> </h6>
+
+                  <p>Go to page from here</p>
+
+                  </a>
+                </article>
+                <article>
+
+                  <a class="box" href="#" title="something">
+                    <h4>Get in touch</h4>
+                    <figure>
+                      <img src='#' height='200' width='198' %>
+                    </figure>
+                    <h6><i>Uploaded on </i> </h6>
+
+                    <p>Go to page from here</p>
+
+                    </a>
+                  </article>
+
+
+</section> <!-- welcomeMainContent  -->

@@ -5,37 +5,41 @@ var result;
 
 $(document).ready(function() {
 
-  $('#enterMovie').hide();
-  $('#confirm-marker').hide();
+  if ($('#locations').length) {
 
-  loadMap();
-  autoCompleteGoogleMaps();
-  getMarkers();
+    $('#enterMovie').hide();
+    $('#confirm-marker').hide();
 
-  $('#mapDestination').click(function(){
-    $('#enterMovie').show('slow');
-    $('#confirm-marker').show('slow');
-  });
+    loadMap();
+    autoCompleteGoogleMaps();
+    getMarkers();
 
-  $('#add-marker').click(function(){
-    if ($('#enterDestination').val()) {
+    $('#mapDestination').click(function(){
       $('#enterMovie').show('slow');
       $('#confirm-marker').show('slow');
-    }
-  });
+    });
 
-  $('#submitDestination').click(function(){
-    codeAddress();
-  });
+    $('#add-marker').click(function(){
+      if ($('#enterDestination').val()) {
+        $('#enterMovie').show('slow');
+        $('#confirm-marker').show('slow');
+      }
+    });
 
-  $('#add-marker').click(function(){
-    placeMarker(map.getCenter());
-  });
+    $('#submitDestination').click(function(){
+      codeAddress();
+    });
 
-  $('#confirm-marker').click(function(){
-    confirmLocation(newMarker[0]);
-  });
+    $('#add-marker').click(function(){
+      placeMarker(map.getCenter());
+    });
+
+    $('#confirm-marker').click(function(){
+      confirmLocation(newMarker[0]);
+    });
+  }
 });
+
 
 function loadMap() {
   var myOptions2 = {

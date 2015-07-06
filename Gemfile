@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+#Allows you to parse json within your Ruby code.
 gem 'json'
 #allow us to create a .env file to store environment variables outside of the bash profile
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -50,8 +51,11 @@ gem 'gmaps4rails'
 gem 'simple_form'
 #allow facebook login
 gem 'omniauth-facebook'
-#jquery ui
+#jquery ui - what does this do?
 gem 'jquery-ui-rails'
+#Allows you to produce charts and graphs on your apps.
+gem "chartkick"
+
 
 
 group :test do
