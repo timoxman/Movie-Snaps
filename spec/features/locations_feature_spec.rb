@@ -36,7 +36,7 @@ feature 'A user wants to add the location for a film' do
 
   context 'locations have been added' do
     before do
-      Location.create(address: 'Lewisham Fire Station')
+      Location.create(latitude:0, longitude:0,address: 'Lewisham Fire Station')
     end
 
     scenario 'display locations (L02)' do
@@ -49,7 +49,7 @@ feature 'A user wants to add the location for a film' do
 
   context 'viewing locations' do
 
-    let!(:lfs){Location.create(address:'Lewisham Fire Station')}
+    let!(:lfs){Location.create(latitude:0, longitude:0,address:'Lewisham Fire Station')}
 
     scenario 'lets a user view movies associated with a location (L04)' do
      visit '/locations'
