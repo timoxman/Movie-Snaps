@@ -1,12 +1,5 @@
 $(document).ready(function() {
 
-  $('.pgwSlideshow').pgwSlideshow({
-    autoSlide: true,
-    maxHeight: 500,
-    displayList: false,
-    transitionEffect: 'fading'
-  });
-
   $('.comment-form').hide();
 
   $('.comment-link').click(function() {
