@@ -51,7 +51,7 @@ feature 'A user wants to visit a film location' do
   context 'creating visits ' do
 
     let!(:lfs){location.create(address:'Lewisham Fire Station')}
-    let!(:v1){Visit.create(description:'On a nice sunny day I visited Lewisham Fire Station'')}
+    let!(:v1){Visit.create(description:'On a nice sunny day I visited Lewisham Fire Station')}
 
 
     scenario 'lets a user create a visit (V04)' do

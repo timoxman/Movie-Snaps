@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   #   end
   # end
 
+get 'dashboards' => 'dashboards#index'
 resources :users
 
 resources :locations do
