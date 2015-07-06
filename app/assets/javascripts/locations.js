@@ -116,11 +116,6 @@ function codeAddress() {
   });
 }
 
-function removeMarker() {
-  marker = newMarker.pop();
-  marker.setMap(null);
-};
-
 function placeMarker(location) {
   if(newMarker.length > 0) {
     removeMarker();

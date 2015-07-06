@@ -1,5 +1,4 @@
 Rails.application.configure do
-
   # Rails.application.env_config["devise.mapping"] = Devise.mappings[:user] # If using Devise
   # Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
 
