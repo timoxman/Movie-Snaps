@@ -13,7 +13,7 @@ Capybara.current_driver = :poltergeist
 Capybara.default_wait_time = 25
 options = {js_errors: false}
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, options)
+  Capybara::Poltergeist::Driver.new(app, timeout: 25)
 end
 require 'support/database_cleaner'
 require 'support/omniauth'

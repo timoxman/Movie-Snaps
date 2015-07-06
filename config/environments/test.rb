@@ -1,5 +1,4 @@
 Rails.application.configure do
-  Capybara.default_wait_time = 15
   # Rails.application.env_config["devise.mapping"] = Devise.mappings[:user] # If using Devise
   # Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
 
