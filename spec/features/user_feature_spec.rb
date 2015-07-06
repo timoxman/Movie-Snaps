@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-feature 'A user wants to view another user\'s profile page' do
+feature 'User views another user\'s profile page' do
 
   before(:each) do
-    user = create_visit
+    create_visit
+    user = User.last
     visit "/users/#{user.id}"
   end
 
