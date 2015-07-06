@@ -15,7 +15,7 @@ feature 'User is accesses the site' do
     expect(page).not_to have_content 'No photos have been uploaded!'
   end
 
-  scenario 'and sees recently uploaded photos with movie name and caption' , js: true do
+  scenario 'and sees all uploaded photos' , js: true do
     create_visit
     photo = Photo.first
     expect(page).not_to have_content 'No photos have been uploaded!'
