@@ -5,45 +5,58 @@ var result;
 
 $(document).ready(function() {
 
-  loadMap();
-  autoCompleteGoogleMaps();
-  getMarkers();
+  if ($('#locations').length) {
 
-  $('#submitDestination').click(function(){
-    codeAddress();
-  });
+    $('#enterMovie').hide();
+    $('#confirm-marker').hide();
 
-  $('#add-marker').click(function(){
-    placeMarker(map.getCenter());
-  });
+    loadMap();
+    autoCompleteGoogleMaps();
+    getMarkers();
 
-  $('#confirm-marker').click(function(){
-    confirmLocation(newMarker[0]);
-  });
-});
+    $('#mapDestination').click(function(){
+      $('#enterMovie').show('slow');
+      $('#confirm-marker').show('slow');
+    });
 
-function loadMap() {
-  var browserSupportFlag =  new Boolean();
-  var initialLocation;
-  var myOptions2 = {
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+    $('#add-marker').click(function(){
+      if ($('#enterDestination').val()) {
+        $('#enterMovie').show('slow');
+        $('#confirm-marker').show('slow');
+      }
+    });
 
-  if(navigator.geolocation) {
-    map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
-    browserSupportFlag = true;
-    navigator.geolocation.getCurrentPosition(function(position) {
-      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-      map.setCenter(initialLocation);
+    $('#submitDestination').click(function(){
+      codeAddress();
+    });
+
+    $('#add-marker').click(function(){
+      placeMarker(map.getCenter());
+    });
+
+    $('#confirm-marker').click(function(){
+      confirmLocation(newMarker[0]);
     });
   }
-  // Browser doesn't support Geolocation
-  else {
+});
+
+
+function loadMap() {
+  var myOptions2 = {
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      draggableCursor: 'crosshair'
+  };
+  if(navigator.geolocation) {
+    map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      map.setCenter(initialLocation);
+    });
+  } else { // Browser doesn't support Geolocation
     var latlng = new google.maps.LatLng(51.517307, -0.073403);
     map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
     map.setCenter(latlng);
-    map.setOptions({ draggableCursor: 'crosshair' });
   }
   google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
@@ -119,7 +132,7 @@ function placeMarker(location) {
     map: map
   });
   var infowindow = new google.maps.InfoWindow({
-    content: 'This movie scene was shot here ',
+    content: 'Add your movie scene here ',
     maxWidth: 200
   });
   infowindow.open(map,marker);

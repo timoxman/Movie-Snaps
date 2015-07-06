@@ -1,0 +1,14 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<br>
+<h2>Dashboard of Delights<h2>
+<br>
+<h3>Total Visits by Date</h3>
+This graph shows how many people have visited different movie locations on different days.
+<%= line_chart @visits.group(:date_visited).count, discrete: true %>
+<br>
+<h3>Most Poular Movies</h3>
+This graph shows the most popular movies on the sites
+<%= bar_chart @movies.group(:name).count %>
+<br>
+
+

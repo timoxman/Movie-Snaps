@@ -1,0 +1,71 @@
+<section id="movieProfile">
+
+  <div id='title'><h2><%= @movie.name %></h2></div>
+
+  <div id='movie_img'></div>
+
+  <div id="scenes">
+    <% if @movie.scenes.any? %>
+      Scenes:
+      <ul class="scenes">
+        <% @movie.scenes.reverse.each do |scene| %>
+          <li class="scene">
+            <%= link_to scene.location.address, location_path(scene.location) %>
+            </br>
+            Scene photo:<%= image_tag scene.image_file_name %>
+            <div class="mapBox">
+              <div class="mapDestination" id="mapDestination-<%= scene.id %>">
+              </div>
+            </div>
+            <div class="longitude"><%= scene.location.longitude %></div>
+            <div class="latitude"><%= scene.location.latitude %></div>
+            </br>
+            <% if scene.visits.any? %>
+              Visitors:
+              <ul class="visits">
+                <% scene.visits.order('date_visited desc').each do |visit| %>
+                  <li class="visit">
+                    <%= image_tag visit.user.image %>
+                    <%= link_to visit.user.name, user_path(visit.user) %>
+                    <% if visit.date_visited %> visited on <%= visit.date_visited.strftime('%e %B %Y') %><% end %>
+                    <% if visit.description %> ("<%= visit.description %>")<% end %></br>
+                    <% if visit.photos.any? %>
+                      <ul class="photos">
+                        <% visit.photos.each do |photo| %>
+                          <li class="photo">
+                            <%= image_tag photo.image_file_name %>
+                            <%= photo.caption %>
+                            (Likes: <%= photo.likes.count %>)
+                            <% if photo.comments.any? %>
+                              <ul class="comments">
+                                <% photo.comments.order('created_at desc').each do |comment| %>
+                                  <li class="comment">
+                                    <%= image_tag comment.user.image %>
+                                    <%= link_to comment.user.name, user_path(comment.user) %>:
+                                    <%= comment.remark %>
+                                    (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
+                                  </li>
+                                <% end %>
+                              </ul>
+                            <% end %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    <% else %>
+                      No photos relating to this visit available
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              No visits relating to this scene available
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      No scenes for this movie available
+    <% end %>
+  </div>
+
+</section>

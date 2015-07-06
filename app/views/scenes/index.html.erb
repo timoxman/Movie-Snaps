@@ -1,7 +1,13 @@
 <h3>Was it one of these films?</h3>
 <br>
 <% @scenes.each do |scene| %>
-  <li><%= link_to scene.movie.name, new_location_scene_visit_path(@location, scene) %></li>
+  <li><%= link_to scene.movie.name, new_scene_visit_path(scene) %></li>
   <br>
 <% end %>
-If not <%= link_to "click here", new_location_scene_path(@location) %> to add a new movie
+If not add your movie here
+
+<form action='/movies' method='post'>
+  <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" name='name' onkeydown="acquireMovies()"/>
+  <input type='hidden' name='location' value='<%= @location.id %>'>
+  <input id='btnSubmit' type='submit' value='Add movie'>
+</form>

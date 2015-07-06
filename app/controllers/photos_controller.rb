@@ -4,9 +4,9 @@ class PhotosController < ApplicationController
   end
 
   def new
-    @location = Location.find(params[:location_id])
-    @scene = Scene.find(params[:scene_id])
     @visit = Visit.find(params[:visit_id])
+    @scene = Scene.find(@visit.scene_id)
+    @location = Location.find(@scene.location_id)
     @photo = Photo.new
   end
 

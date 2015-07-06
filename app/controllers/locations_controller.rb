@@ -13,7 +13,7 @@ class LocationsController < ApplicationController
     film = params[:film]
     movie = Movie.where("name = ?",film).first_or_create(name: film)
     scene = Scene.where("movie_id = ? AND location_id = ?",movie.id,location.id).first_or_create(movie_id: movie.id, location_id: location.id)
-    redirect_to new_location_scene_visit_path(location.id,scene.id)
+    redirect_to new_scene_visit_path(scene.id)
   end
 
   def create
@@ -26,6 +26,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+
   end
 
   def api

@@ -1,18 +1,150 @@
-Welcome to Movie Snaps
-<br>
-Click <%= link_to "here", '/locations' %> to upload your photos!
-<br>
-<% if @photos %>
-  Most recent uploads:
-  <br>
-  <% @photos.each do |p| %>
-    <img src='<%= p.image_file_name %>' height='200' width='200' %>
-    <br>
-    <%= p.caption %> <i>Uploaded on </i> <%= p.created_at %>
-    <br>
-    From the movie <%= p.visit.scene.movie.name %>
-    <br>
-  <% end %>
-<% else %>
-  No photos have been uploaded!
-<% end %>
+<section id="welcomeFeatured" class="clearfix">
+    <div class="welcomeSlider" id="welcomeSlider">
+      <div id="slides">
+          <article>
+            <a href="#" target="_blank">
+              <img src="#" style="display:none;">
+              <span style="display:none;">Iron Man</span>
+            </a>
+          </article>
+          <div class="slider-title">
+            Iron Man
+          </div>
+          <div id="slider-arrows">
+            <a href="#" id="prev-slider" class="prev"></a>
+            <a href="#" id="next-slider" class="next"></a>
+          </div>
+      </div> <!-- slides  -->
+    </div> <!-- welcomeSlider -->
+</section> <!-- welcomeFeatured -->
+
+<aside id="welcomeAside" class="clearfix">
+    <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
+        who love blah blah and more blah blah blah</h2> -->
+        <h2 class="welcomeMessage">“Adventure is out there!” Up (2009)</h2>
+        <h2 class="welcomeMessage">“The most beautiful thing in the world is, of course, the world itself.” Cast Away (2000)</h2>
+        <h2 class="welcomeMessage">“Remember, what happens in Vegas stays in Vegas. Except for herpes. That shit’ll come back with you.” The Hangover (2009)</h2>
+
+
+
+</aside><!-- welcomeAside  -->
+
+<section class="welcomeMainContent clearfix">
+  <header>
+    <h3 class="recent-title">Click <%= link_to "here", '/locations' %>
+      to upload your photos! or checkout our most recent uploads</h3>
+    <h3 class="recent-title">Click <%= link_to "here for Dashboard", dashboards_path() %>
+      to see stats on the site (not right place for link I know) </h3>
+  </header>
+
+  <% if @photos %>
+          <% @photos.each do |p| %>
+          <article>
+
+            <a class="box" href="#" title="<%= p.caption %>">
+              <h4><%= p.caption %></h4>
+              <figure>
+                <img src='<%= p.image_file_name %>' height='200' width='198' %>
+              </figure>
+              <!-- <% if current_user %>
+                <% liked = false %>
+                <% p.likes.each do |l| %>
+                  <% if current_user.id == l.user_id %>
+                    <% liked = true %>
+                    <% break %>
+                  <% end %>
+                <% end %>
+                <% if liked == false %>
+                  <%= link_to "♡", photo_likes_path(p), class: 'likes-link' %>
+                <% else %>
+                  ❤
+                <% end %>
+              <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>
+              <br>
+              <% end %> -->
+
+
+              <h6><i>Uploaded on </i> <%= p.created_at %></h6>
+
+              <p>From the movie <%= p.visit.scene.movie.name %></p>
+
+              </a>
+            </article>
+          <% end %>
+
+
+
+
+    <% else %>
+      No photos have been uploaded!
+    <% end %>
+
+</section> <!-- welcomeMainContent  -->
+
+
+
+<aside class="viewall">
+  <a href="/locations" class="button">View All Locations</a>
+</aside>
+
+
+<section class="welcomeMainContent clearfix">
+  <header class="line">
+    <h3 class="recent-title">More Movie-Snaps stuff</h3>
+  </header>
+
+          <article>
+
+            <a class="box" href="#" title="something">
+              <h4>New Users</h4>
+              <figure>
+                <img src='#' height='200' width='198' %>
+              </figure>
+              <h6><i>Uploaded on </i> </h6>
+
+              <p>Go to page from here</p>
+
+              </a>
+            </article>
+            <article>
+
+              <a class="box" href="#" title="something">
+                <h4>New Scenes</h4>
+                <figure>
+                  <img src='#' height='200' width='198' %>
+                </figure>
+                <h6><i>Uploaded on </i> </h6>
+
+                <p>Go to page from here</p>
+
+                </a>
+              </article>
+              <article>
+
+                <a class="box" href="#" title="something">
+                  <h4>New Movies</h4>
+                  <figure>
+                    <img src='#' height='200' width='198' %>
+                  </figure>
+                  <h6><i>Uploaded on </i> </h6>
+
+                  <p>Go to page from here</p>
+
+                  </a>
+                </article>
+                <article>
+
+                  <a class="box" href="#" title="something">
+                    <h4>Get in touch</h4>
+                    <figure>
+                      <img src='#' height='200' width='198' %>
+                    </figure>
+                    <h6><i>Uploaded on </i> </h6>
+
+                    <p>Go to page from here</p>
+
+                    </a>
+                  </article>
+
+
+</section> <!-- welcomeMainContent  -->
