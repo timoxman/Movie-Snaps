@@ -176,57 +176,57 @@ Scene.create([
                 {movie_id:43,location_id:51,image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Stills/Die%20Another%20Day%20-%20Big%20Ben%20-%20Screen%20Shot_zpsmrb7wxsr.jpg"}
     ])
 Visit.create([
-                {date_visited:"2015-07-03",scene_id:1,user_id:1, description: 'This was filmed here'},
-                {date_visited:"2014-06-01",scene_id:2,user_id:2},
-                {date_visited:"2009-01-23",scene_id:3,user_id:3},
-                {date_visited:"2004-03-23",scene_id:4,user_id:4},
-                {date_visited:"2015-07-03",scene_id:5,user_id:5},
-                {date_visited:"2014-06-01",scene_id:6,user_id:6},
-                {date_visited:"2004-03-23",scene_id:7,user_id:1},
-                {date_visited:"2009-01-23",scene_id:8,user_id:2},
-                {date_visited:"2004-03-23",scene_id:9,user_id:3},
-                {date_visited:"2014-06-01",scene_id:10,user_id:4},
-                {date_visited:"2015-07-03",scene_id:11,user_id:5},
-                {date_visited:"2014-06-01",scene_id:12,user_id:6},
-                {date_visited:"2004-03-23",scene_id:13,user_id:1},
-                {date_visited:"2009-01-23",scene_id:14,user_id:2},
-                {date_visited:"2004-03-23",scene_id:15,user_id:3},
-                {date_visited:"2015-07-03",scene_id:16,user_id:4},
-                {date_visited:"2004-03-23",scene_id:17,user_id:5},
-                {date_visited:"2009-01-23",scene_id:18,user_id:6},
-                {date_visited:"2015-07-03",scene_id:19,user_id:1},
-                {date_visited:"2014-06-01",scene_id:20,user_id:2},
-                {date_visited:"2004-03-23",scene_id:21,user_id:3},
-                {date_visited:"2009-01-23",scene_id:22,user_id:4},
-                {date_visited:"2015-07-03",scene_id:23,user_id:5},
-                {date_visited:"2004-03-23",scene_id:24,user_id:6},
-                {date_visited:"2015-07-03",scene_id:25,user_id:1},
-                {date_visited:"2009-01-23",scene_id:26,user_id:2},
-                {date_visited:"2014-06-01",scene_id:27,user_id:3},
-                {date_visited:"2004-03-23",scene_id:28,user_id:4},
-                {date_visited:"2014-06-01",scene_id:29,user_id:5},
-                {date_visited:"2015-07-03",scene_id:30,user_id:6},
-                {date_visited:"2013-09-09",scene_id:31,user_id:1},
-                {date_visited:"2009-09-01",scene_id:32,user_id:2},
-                {date_visited:"2015-07-03",scene_id:33,user_id:3},
-                {date_visited:"2009-09-01",scene_id:34,user_id:4},
-                {date_visited:"2009-09-01",scene_id:35,user_id:5},
-                {date_visited:"2013-09-09",scene_id:36,user_id:6},
-                {date_visited:"2015-07-03",scene_id:37,user_id:1},
-                {date_visited:"2014-12-25",scene_id:38,user_id:2},
-                {date_visited:"2013-09-09",scene_id:39,user_id:3},
-                {date_visited:"2015-07-03",scene_id:40,user_id:4},
-                {date_visited:"2014-12-25",scene_id:41,user_id:5},
-                {date_visited:"2014-12-25",scene_id:42,user_id:6},
-                {date_visited:"2013-09-09",scene_id:43,user_id:1},
-                {date_visited:"2015-07-03",scene_id:44,user_id:2},
-                {date_visited:"2014-12-25",scene_id:45,user_id:3},
-                {date_visited:"2015-07-03",scene_id:46,user_id:4},
-                {date_visited:"2014-12-25",scene_id:47,user_id:5},
-                {date_visited:"2014-12-25",scene_id:48,user_id:6},
-                {date_visited:"2009-09-01",scene_id:49,user_id:1},
-                {date_visited:"2009-09-01",scene_id:50,user_id:2},
-                {date_visited:"2014-12-25",scene_id:51,user_id:3}
+                {date_visited:"2015-07-03",scene_id:1,user_id:1, description:1},
+                {date_visited:"2014-06-01",scene_id:2,user_id:2, description:2},
+                {date_visited:"2009-01-23",scene_id:3,user_id:3, description:3},
+                {date_visited:"2004-03-23",scene_id:4,user_id:4, description:4},
+                {date_visited:"2015-07-03",scene_id:5,user_id:5, description:5},
+                {date_visited:"2014-06-01",scene_id:6,user_id:6, description:6},
+                {date_visited:"2004-03-23",scene_id:7,user_id:1, description:7},
+                {date_visited:"2009-01-23",scene_id:8,user_id:2, description:8},
+                {date_visited:"2004-03-23",scene_id:9,user_id:3, description:9},
+                {date_visited:"2014-06-01",scene_id:10,user_id:4, description:10},
+                {date_visited:"2015-07-03",scene_id:11,user_id:5, description:11},
+                {date_visited:"2014-06-01",scene_id:12,user_id:6, description:12},
+                {date_visited:"2004-03-23",scene_id:13,user_id:1, description:13},
+                {date_visited:"2009-01-23",scene_id:14,user_id:2, description:14},
+                {date_visited:"2004-03-23",scene_id:15,user_id:3, description:15},
+                {date_visited:"2015-07-03",scene_id:16,user_id:4, description:16},
+                {date_visited:"2004-03-23",scene_id:17,user_id:5, description:17},
+                {date_visited:"2009-01-23",scene_id:18,user_id:6, description:18},
+                {date_visited:"2015-07-03",scene_id:19,user_id:1, description:19},
+                {date_visited:"2014-06-01",scene_id:20,user_id:2, description:20},
+                {date_visited:"2004-03-23",scene_id:21,user_id:3, description:21},
+                {date_visited:"2009-01-23",scene_id:22,user_id:4, description:22},
+                {date_visited:"2015-07-03",scene_id:23,user_id:5, description:23},
+                {date_visited:"2004-03-23",scene_id:24,user_id:6, description:24},
+                {date_visited:"2015-07-03",scene_id:25,user_id:1, description:25},
+                {date_visited:"2009-01-23",scene_id:26,user_id:2, description:26},
+                {date_visited:"2014-06-01",scene_id:27,user_id:3, description:27},
+                {date_visited:"2004-03-23",scene_id:28,user_id:4, description:28},
+                {date_visited:"2014-06-01",scene_id:29,user_id:5, description:29},
+                {date_visited:"2015-07-03",scene_id:30,user_id:6, description:30},
+                {date_visited:"2013-09-09",scene_id:31,user_id:1, description:31},
+                {date_visited:"2009-09-01",scene_id:32,user_id:2, description:32},
+                {date_visited:"2015-07-03",scene_id:33,user_id:3, description:33},
+                {date_visited:"2009-09-01",scene_id:34,user_id:4, description:34},
+                {date_visited:"2009-09-01",scene_id:35,user_id:5, description:35},
+                {date_visited:"2013-09-09",scene_id:36,user_id:6, description:36},
+                {date_visited:"2015-07-03",scene_id:37,user_id:1, description:37},
+                {date_visited:"2014-12-25",scene_id:38,user_id:2, description:38},
+                {date_visited:"2013-09-09",scene_id:39,user_id:3, description:39},
+                {date_visited:"2015-07-03",scene_id:40,user_id:4, description:40},
+                {date_visited:"2014-12-25",scene_id:41,user_id:5, description:41},
+                {date_visited:"2014-12-25",scene_id:42,user_id:6, description:42},
+                {date_visited:"2013-09-09",scene_id:43,user_id:1, description:43},
+                {date_visited:"2015-07-03",scene_id:44,user_id:2, description:44},
+                {date_visited:"2014-12-25",scene_id:45,user_id:3, description:45},
+                {date_visited:"2015-07-03",scene_id:46,user_id:4, description:46},
+                {date_visited:"2014-12-25",scene_id:47,user_id:5, description:47},
+                {date_visited:"2014-12-25",scene_id:48,user_id:6, description:48},
+                {date_visited:"2009-09-01",scene_id:49,user_id:1, description:49},
+                {date_visited:"2009-09-01",scene_id:50,user_id:2, description:50},
+                {date_visited:"2014-12-25",scene_id:51,user_id:3, description:51}
     ])
 
 Photo.create([
@@ -260,51 +260,14 @@ Photo.create([
 # Photo table:
 # id | caption | created_at | updated_at | visit_id | image_file_name | image_content_type | image_file_size | image_updated_at
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Movie:
 # id | imdbID | name
-
-
-
-
-
 
 # # Location:
 # # id | name | description | latitude | longitude | address | created_at | updated_at | user_id
 
-
-
-
-
-
 # Scenes:
 # id | movie_id | location_id | image_file_name | image_content_type | image_file_size | image_updated_at
-
-# The Da Vinci Code
-#   The Pyramid, Louvre, Paris
-#     Robert Langdon is summoned to the murder scene
-
-
-
-
-
-
 
 # Visit:
 # id | description | date_visited | scene_id | user_id

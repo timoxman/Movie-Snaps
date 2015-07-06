@@ -62,6 +62,7 @@ group :test do
   gem 'shoulda'
   #allow testing of Javascript (Capybara's default web driver hiccups)
   gem 'poltergeist'
+  # clears up the test database after each 'it' and 'scenario'
   gem 'database_cleaner'
   # for testing photo uploading
   gem 'factory_girl_rails'
