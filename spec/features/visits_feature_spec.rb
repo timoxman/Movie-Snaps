@@ -33,12 +33,11 @@ feature 'A user wants to visit a film location' do
   end
 
   context 'visits can be added' do
-    before do
+
       let!(:ub){Movie.create(name:'Uncle Buck')}
       let!(:lfs){Location.create(address:'Lewisham Fire Station')}
       let!(:s1){Scene.create(location_id: lfs.id)}
       Visit.create(description: 'On a nice sunny day I visited Lewisham Fire Station')
-    end
 
     scenario 'display locations (V02)' do
       visit '/visits'
@@ -50,7 +49,7 @@ feature 'A user wants to visit a film location' do
 
   context 'creating visits ' do
 
-    let!(:lfs){location.create(address:'Lewisham Fire Station')}
+    let!(:lfs){Location.create(address:'Lewisham Fire Station')}
     let!(:v1){Visit.create(description:'On a nice sunny day I visited Lewisham Fire Station')}
 
 
