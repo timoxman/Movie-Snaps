@@ -6,9 +6,8 @@ describe Photo do
   it { is_expected.to have_many :likes }
 
   it 'expects an image to be uploaded as a jpg, jpeg or png' do
-  	image = File.new("#{Rails.root}/spec/models/somepic.jpg")
-    expect(FactoryGirl.build(:pin, image: image)).to be_valid
-
+    attach_file('project[project_file]', File.join(Rails.root, '/spec/somepic.jpg'))
+    
 
 
   	# Photo.create(image_file_name:"somedoc.doc")
