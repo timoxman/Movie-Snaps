@@ -70,8 +70,6 @@ group :test do
   gem 'database_cleaner'
   # for testing photo uploading
   gem 'factory_girl_rails'
-  # for time validations in database tests
-  gem 'validates_timeliness', '~> 3.0'
 end
 
 group :development, :test do
@@ -85,5 +83,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  # for time validations in database tests
+  gem 'validates_timeliness', '~> 3.0'
 end
 
