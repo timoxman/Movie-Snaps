@@ -70,8 +70,6 @@ group :test do
   gem 'database_cleaner'
   # for testing photo uploading
   gem 'factory_girl_rails'
-  # for testing photo uploading
-  gem 'paperclip'
   # for time validations in database tests
   gem 'validates_timeliness', '~> 3.0'
 end
