@@ -12,6 +12,7 @@ feature 'A user wants to visit a film location' do
   end
 
   context 'visits can be added' do
+
     before do
       create_visit
     end

@@ -14,17 +14,24 @@ class VisitsController < ApplicationController
     @current_visits = Visit.where("scene_id = ?", params[:scene_id]).all
     @visit = Visit.new
     @movie = @scene.movie.name
+    @photo = Photo.new
     # raise params[:scene_id]
   end
 
   def create
+    # byebug
     @visit = Visit.create(visit_params.merge({user:current_user}).merge({scene_id: params[:scene_id]}))
-    redirect_to new_visit_photo_path(@visit)
+    @photo = Photo.create(photo_params.merge({visit_id: @visit.id}))
+    redirect_to root_path
   end
 
   # define which params we are going to allow us to pass to controller, without this security flaw.
   def visit_params
-    params.require(:visit).permit(:description, :date_visited )
+    params.require(:visit).permit![:visit]
+  end
+
+  def photo_params
+    params.require(:visit).permit![:photo]
   end
 
 end
