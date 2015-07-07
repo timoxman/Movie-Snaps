@@ -1,44 +1,48 @@
 <section id="locationPage">
 
-  <h1>All Locations</h1>
+  <h1>All Locations,<span class="colorb"> Enter yours below</span></h1>
 
-  <header id="destination">
-    <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
-    <button id="submitDestination">Visit</button>
-    <button id="add-marker">Place Marker</button>
-    <br><br>
-    <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>
-    <button id="confirm-marker">Confirm Location</button>
-  </header>
+  <section id="leftcol">
 
-  <div id='locations'></div>
+      <div class="mapBox">
+        <div id="mapDestination">
+      </div>
 
-
+    </div>
+    <br>
+      <div id='notify'>
+      </div>
 
 
+      <header id="destination">
+        <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
+        <button id="submitDestination">Visit</button>
+        <button id="add-marker">Place Marker</button>
+        <br><br>
+        <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>
+        <button id="confirm-marker">Confirm Location</button>
+      </header>
 
-  <div class="mapBox">
-    <div id="mapDestination">
-  </div>
+      <div id='locations'></div>
+  </section><!-- left column -->
 
-</div>
-<br>
-  <div id='notify'>
-  </div>
-  <% if @locations.any? %>
-    <h2>Current Locations</h2>
-    <div id="loclist">
-        <ul>
-          <% @locations.each do |location| %>
 
-              <li><%= link_to location.address, location_scenes_path(location) %></li>
+<aside id="sideright">
+    <% if @locations.any? %>
+      <h2>Current Locations</h2>
+      <div id="loclist">
+          <ul>
+            <% @locations.each do |location| %>
 
-            <% end %>
+                <li><%= link_to location.address, location_scenes_path(location) %></li>
 
-        </ul>
-    </div>    
-  <% else %>
-    <h1>No locations yet</h1>
-  <% end %>
+              <% end %>
+
+          </ul>
+      </div>
+    <% else %>
+      <h1>No locations yet</h1>
+    <% end %>
+</aside> <!-- sideright  -->    
 
 </section>
