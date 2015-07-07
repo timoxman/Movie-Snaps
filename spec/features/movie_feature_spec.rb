@@ -2,7 +2,7 @@ require 'rails_helper'
 
 def fill_autocomplete(field, options = {})
   fill_in field, with: options[:with]
-  sleep 5
+  sleep 8
   page.execute_script %Q{ $('##{field}').trigger('keydown') }
   selector = %Q{ul.ui-autocomplete li.ui-menu-item a:contains("#{options[:select]}")}
   page.execute_script %Q{ $('#{selector}').trigger('mouseenter').click() }
@@ -15,7 +15,7 @@ feature 'A user wants to add a movie' do
     click_link 'here'
   end
 
-  scenario 'but cannot enter a movie before a location', js: true do
+  scenario 'but cannot enter a movie before a location', js: true, :controller => true do
     expect(page).not_to have_button 'Confirm Location'
   end
 
