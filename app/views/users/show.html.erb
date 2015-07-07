@@ -35,7 +35,8 @@
                   <li class="photo">
                     <%= image_tag photo.image_file_name %>
                     <%= photo.caption %>
-                    (Likes: <%= photo.likes.count %>)
+                    ❤ <%= photo.likes.count %>
+                    <%= render partial: "partials/commentform", locals: {photo: photo} %>
                     <% if photo.comments.any? %>
                       <ul class="comments">
                         <% photo.comments.order('created_at desc').each do |comment| %>
