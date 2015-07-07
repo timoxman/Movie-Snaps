@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-  var photos;
-
   $('.likes-link').on('click', function(event){
     event.preventDefault();
     $(this).fadeOut(1000);
@@ -12,16 +10,8 @@ $(document).ready(function() {
     });
   });
 
-  var url = '/welcome/api'
-  $.getJSON(url, function (data) {
-    photos = data
+  $('.carousel').carousel({
+    interval: 2000
   })
-    .done(function() {
 
-    });
-
-  $('#slides').on('click', function() {
-    $('#slides').append("<img src=" + photos[0].image_file_name + "/>")
-  });
 });
-

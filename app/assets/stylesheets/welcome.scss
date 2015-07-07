@@ -210,7 +210,7 @@ aside#welcomeAside {
 			}
 
 			div.box {
-				width: 198px;
+				width: 230px;
 				display: inline;
 				float: left;
 				position: relative;
@@ -332,3 +332,7 @@ aside.viewall {
 
 	}//button
 }//aside.viewall
+
+.carousel-caption{
+    background: rgba(0,0,0,0.5);
+}
