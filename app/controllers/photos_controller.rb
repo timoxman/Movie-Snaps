@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
     @visit = Visit.find(params[:visit_id])
     @scene = Scene.find(@visit.scene_id)
     @location = Location.find(@scene.location_id)
-    @photo = Photo.new
+    @photo = Photo.new(photo_params)
   end
 
   def create
