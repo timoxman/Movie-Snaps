@@ -57,6 +57,7 @@ gem 'omniauth-facebook'
 gem 'jquery-ui-rails'
 #Allows you to produce charts and graphs on your apps.
 gem "chartkick"
+gem 'aws-sdk', '<2.0'
 
 
 
