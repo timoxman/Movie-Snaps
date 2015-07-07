@@ -7,11 +7,7 @@ Rails.application.routes.draw do
   # get ''
   root 'welcome#index'
   get 'locations/api' => 'locations#api'
-
-  get 'users/movies_api/:id' => 'users#movies_api'
-  post 'users/movies_api/:id' => 'users#movies_api'
-  get 'users/locations_api/:id' => 'users#locations_api'
-  post 'users/locations_api/:id' => 'users#locations_api'
+  get 'movies/api' => 'movies#api'
 
   # resources :movies
   # resources :users
