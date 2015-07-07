@@ -53,3 +53,22 @@ feature 'User views another user\'s profile page' do
   end
 
 end
+
+feature 'User views the user index page' do
+
+  before do
+    create_visit
+    visit '/users'
+  end
+
+  scenario 'enters a user in database and have it autocompleted', js: true do
+    fill_autocomplete('enterUser', with: 'John Doe')
+    expect(page).to have_selector('ul.ui-autocomplete li.ui-menu-item')
+  end
+
+  scenario 'enters a user not in database and not have it autocompleted', js: true do
+    fill_autocomplete('enterUser', with: 'Roger Sprocket')
+    expect(page).not_to have_selector('ul.ui-autocomplete li.ui-menu-item')
+  end
+
+end

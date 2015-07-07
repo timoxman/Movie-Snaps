@@ -20,3 +20,11 @@ def create_visit
   Photo.create(caption:"Outside Le Louvre!",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Da%20Vinci%20Code%20-%20The%20Pyramid%20Louvre%20-%20Fan%20Photo_zpsgixesmtr.jpg",visit_id: visit.id)
   visit '/'
 end
+
+def fill_autocomplete(field, options = {})
+  fill_in field, with: options[:with]
+  sleep 5
+  page.execute_script %Q{ $('##{field}').trigger('keydown') }
+  selector = %Q{ul.ui-autocomplete li.ui-menu-item a:contains("#{options[:select]}")}
+  page.execute_script %Q{ $('#{selector}').trigger('mouseenter').click() }
+end
