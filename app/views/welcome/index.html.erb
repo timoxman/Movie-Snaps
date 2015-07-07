@@ -36,37 +36,60 @@
   </header>
 
   <% if @photos %>
+
           <% @photos.each do |p| %>
           <article>
 
-            <a class="box" href="#" title="<%= p.caption %>">
+            <div class="box"  title="<%= p.caption %>">
+
               <h4><%= p.caption %></h4>
               <figure>
-                <img src='<%= p.image_file_name %>' height='200' width='198' %>
+                <a href="#">
+                  <img src='<%= p.image_file_name %>' height='200' width='198' %>
+                </a>
               </figure>
-              <!-- <% if current_user %>
-                <% liked = false %>
-                <% p.likes.each do |l| %>
-                  <% if current_user.id == l.user_id %>
-                    <% liked = true %>
-                    <% break %>
-                  <% end %>
-                <% end %>
-                <% if liked == false %>
-                  <%= link_to "♡", photo_likes_path(p), class: 'likes-link' %>
-                <% else %>
-                  ❤
-                <% end %>
-              <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>
-              <br>
-              <% end %> -->
+
+
+
 
 
               <h6><i>Uploaded on </i> <%= p.created_at %></h6>
 
+              <div class="likes">
+                <% if current_user %>
+                  <% liked = false %>
+                  <% p.likes.each do |l| %>
+                    <% if current_user.id == l.user_id %>
+                      <% liked = true %>
+                      <% break %>
+                    <% end %>
+                  <% end %>
+                  <% if liked == false %>
+
+                  <%= link_to "♡", photo_likes_path(p), class: 'likes-link' %>
+
+                  <!-- <i class="fa fa-heart-o"></i>   -->
+
+                  <% else %>
+
+                  <i class="fa fa-user"> <%= link_to current_user.name, user_path(current_user.id) %>
+                  </i> <i class="fa fa-heart"></i>
+
+
+
+                  <% end %>
+
+                  <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>
+
+                <% end %>
+              </div>
+
+
               <p>From the movie <%= p.visit.scene.movie.name %></p>
 
-              </a>
+
+
+            </div>
             </article>
           <% end %>
 
@@ -93,7 +116,7 @@
 
           <article>
 
-            <a class="box" href="#" title="something">
+            <div class="box" href="#" title="something">
               <h4>New Users</h4>
               <figure>
                 <img src='#' height='200' width='198' %>
@@ -102,11 +125,11 @@
 
               <p>Go to page from here</p>
 
-              </a>
+            </div>
             </article>
             <article>
 
-              <a class="box" href="#" title="something">
+              <div class="box" href="#" title="something">
                 <h4>New Scenes</h4>
                 <figure>
                   <img src='#' height='200' width='198' %>
@@ -115,11 +138,11 @@
 
                 <p>Go to page from here</p>
 
-                </a>
+              </div>
               </article>
               <article>
 
-                <a class="box" href="#" title="something">
+                <div class="box" href="#" title="something">
                   <h4>New Movies</h4>
                   <figure>
                     <img src='#' height='200' width='198' %>
@@ -128,11 +151,11 @@
 
                   <p>Go to page from here</p>
 
-                  </a>
+                </div>
                 </article>
                 <article>
 
-                  <a class="box" href="#" title="something">
+                  <div class="box" href="#" title="something">
                     <h4>Get in touch</h4>
                     <figure>
                       <img src='#' height='200' width='198' %>
@@ -141,7 +164,7 @@
 
                     <p>Go to page from here</p>
 
-                    </a>
+                  </div>
                   </article>
 
 

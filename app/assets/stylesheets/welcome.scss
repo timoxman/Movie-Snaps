@@ -46,7 +46,7 @@ img {
 #welcomeFeatured {
 
   padding-top: 20px;
-  background: url(sliderbg.png) top center no-repeat;
+  /*background: url(sliderbg.png) top center no-repeat;*/
   padding: 0 20px 0 20px;
   margin: 0 auto;
   width: 960px;
@@ -57,7 +57,7 @@ img {
       position: relative;
       z-index: 1;
       margin: 0 auto;
-      width: 960px;
+      width: 100%;
       border-bottom: 1px solid #777c82;
         #slides {
             width: 960px;
@@ -73,7 +73,7 @@ img {
               padding: 0;
             }//article
             .slider-title {
-              width: 920px;
+              width: 95%;
               padding: 15px 20px 10px 20px;
               background: #000;
               color: #fff;
@@ -128,8 +128,8 @@ img {
 } //welcomeFeatured
 
 aside#welcomeAside {
-		margin-left: 26px;
-		margin-right: 26px;
+		margin-left: 5%;
+		margin-right: 5%;
 		padding-left: -5px;
 		text-indent: 5px;
 		margin-top: 20px;
@@ -171,8 +171,25 @@ aside#welcomeAside {
 
 	article {
 			max-height: 368px;
-			a.box:hover {
 
+			div.box:hover {
+
+				.likes {
+					color: #e5e5e5;
+					i.fa.fa-user {
+						color:white;
+						a {
+							color:white;
+						}
+					}
+
+					.likes_count {
+						color: white;
+					}
+				.likes-link {
+					color: #e5e5e5;
+				}
+				}
 				p	{
 					color:#fff;
 				}
@@ -190,7 +207,7 @@ aside#welcomeAside {
 				}
 			}
 
-			a.box {
+			div.box {
 				width: 198px;
 				display: inline;
 				float: left;
@@ -202,11 +219,35 @@ aside#welcomeAside {
 				min-height: 280px;
 				text-decoration: none;
 				background: #000;
+				position: relative;
+				color: #506b80;
 				figure {
 					img	{
 						border:1px solid #333;
 					}
 				}//figure
+
+
+				.likes {
+					margin: 0;
+					padding:0;
+					font-size: 14px;
+					i.fa.fa-user {
+						color: rgb(53,52,52);
+						:hover {
+							color: #fff;
+						}
+						a {
+							color: #506b80;
+							font-weight: bold;
+							:hover {
+								color:#fff;
+							}
+
+						}
+					}
+				}
+
 
 				h4	{
 					font-size: 14px;
@@ -234,6 +275,7 @@ aside#welcomeAside {
 				}
 
 			}//a.box
+
 	}//article
 
 	h3.recent-title {

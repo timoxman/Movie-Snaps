@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $('.likes-link').on('click', function(event){
-    event.preventDefault();
+
     $(this).hide(1000);
     var likeCount = $(this).next('.likes_count');
 

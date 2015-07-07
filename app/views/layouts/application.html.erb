@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>MovieSnaps</title>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -18,16 +19,16 @@
           <!-- navigation goes here  -->
           <nav id="nav">
               <ul id="navigation">
-                <li><a href="#"><span class="subtitle">Get in touch</span>
+                <li><a href=""><span class="subtitle">Get in touch</span>
                   <br/>
                   Contact</a></li>
                 <li><a href="#"><span class="subtitle">New Users</span>
                   <br/>
                   Users</a></li>
-                <li><a href="#"><span class="subtitle">More Locations</span>
+                <li><a href="/locations"><span class="subtitle">More Locations</span>
                   <br/>
                   Locations</a></li>
-                <li><a href="#"><span class="subtitle">Start</span>
+                <li><a href="/#"><span class="subtitle">Start</span>
                   <br/>
                   Home</a></li>
               </ul>
