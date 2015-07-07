@@ -6,5 +6,4 @@ script:
   - bundle exec bin/rake db:create
   - bundle exec bin/rake db:migrate
   - bundle exec rspec spec
-  - coverage run --Movie-Snaps setup.py test
 after_success: coveralls
