@@ -131,16 +131,8 @@ function placeMarker(location) {
     animation: google.maps.Animation.DROP,
     map: map
   });
-  var infowindow = new google.maps.InfoWindow({
-    content: 'Add your movie scene here ',
-    maxWidth: 200
-  });
-  infowindow.open(map,marker);
   newMarker.push(marker)
   getAddress();
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-  });
   google.maps.event.addListener(marker, 'mouseover', function() {
     this.setAnimation(google.maps.Animation.BOUNCE);
   });

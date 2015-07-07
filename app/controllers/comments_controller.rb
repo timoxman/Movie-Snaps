@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.create(comment_params)
     @comment.photo_id = photo.id
     @comment.save
-    redirect_to root_path
+    redirect_to (:back)
   end
 
   def comment_params
