@@ -1,8 +1,22 @@
-<center><div class="fadein">
-  <% @popular.each do |p| %>
-    <img src="<%= p.image_file_name %>" height='350' width='500'>
-  <% end %>
-</div></center>
+<div id='number' style='display:none'>1</div>
+<section id="welcomeFeatured" class="clearfix">
+    <div class="welcomeSlider" id="welcomeSlider">
+      <div id="slides">
+          <article>
+            <a href="#" target="_blank">
+              <center><img src="#" width='900'></center>
+            </a>
+          </article>
+          <div class="slider-title">
+            Title
+          </div>
+          <div id="slider-arrows">
+            <a href="#" id="prev-slider" class="prev"></a>
+            <a href="#" id="next-slider" class="next"></a>
+          </div>
+      </div> <!-- slides  -->
+    </div> <!-- welcomeSlider -->
+</section> <!-- welcomeFeatured -->
 
 <aside id="welcomeAside" class="clearfix">
   <header>
@@ -84,65 +98,3 @@
 <aside class="viewall">
   <a href="/locations" class="button">View All Locations</a>
 </aside>
-
-
-<section class="welcomeMainContent clearfix">
-  <header class="line">
-    <h3 class="recent-title">More Movie-Snaps stuff</h3>
-  </header>
-
-          <article>
-
-            <div class="box" href="#" title="something">
-              <h4>New Users</h4>
-              <figure>
-                <img src='#' height='200' width='198' %>
-              </figure>
-              <h6><i>Uploaded on </i> </h6>
-
-              <p>Go to page from here</p>
-
-            </div>
-            </article>
-            <article>
-
-              <div class="box" href="#" title="something">
-                <h4>New Scenes</h4>
-                <figure>
-                  <img src='#' height='200' width='198' %>
-                </figure>
-                <h6><i>Uploaded on </i> </h6>
-
-                <p>Go to page from here</p>
-
-              </div>
-              </article>
-              <article>
-
-                <div class="box" href="#" title="something">
-                  <h4>New Movies</h4>
-                  <figure>
-                    <img src='#' height='200' width='198' %>
-                  </figure>
-                  <h6><i>Uploaded on </i> </h6>
-
-                  <p>Go to page from here</p>
-
-                </div>
-                </article>
-                <article>
-
-                  <div class="box" href="#" title="something">
-                    <h4>Get in touch</h4>
-                    <figure>
-                      <img src='#' height='200' width='198' %>
-                    </figure>
-                    <h6><i>Uploaded on </i> </h6>
-
-                    <p>Go to page from here</p>
-
-                  </div>
-                  </article>
-
-
-</section> <!-- welcomeMainContent  -->

@@ -62,6 +62,8 @@ img {
         #slides {
             width: 960px;
             height: 459px;
+            max-width:100%;
+            max-height:100%;
             position: relative;
             background-image:url(slider.png);
             background-position: 0% 0%;
@@ -330,6 +332,3 @@ aside.viewall {
 
 	}//button
 }//aside.viewall
-
-.fadein { position:relative; height:332px; width:500px; }
-.fadein img { position:absolute; left:0; top:0; }
