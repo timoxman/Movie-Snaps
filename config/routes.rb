@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'locations/api' => 'locations#api'
   get 'movies/api' => 'movies#api'
+  get 'users/api' => 'users#api'
 
   # resources :movies
   # resources :users
