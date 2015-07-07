@@ -1,4 +1,4 @@
-
+<section id="locationPage">
 
   <h1>All Locations</h1>
 
@@ -20,17 +20,25 @@
   <div class="mapBox">
     <div id="mapDestination">
   </div>
+
 </div>
 <br>
   <div id='notify'>
   </div>
   <% if @locations.any? %>
-    <h1>Current Locations</h1>
-    <% @locations.each do |location| %>
-      <li><%= link_to location.address, location_scenes_path(location) %></li>
-      <br>
-    <% end %>
+    <h2>Current Locations</h2>
+    <div id="loclist">
+        <ul>
+          <% @locations.each do |location| %>
+
+              <li><%= link_to location.address, location_scenes_path(location) %></li>
+
+            <% end %>
+
+        </ul>
+    </div>    
   <% else %>
     <h1>No locations yet</h1>
   <% end %>
-  
+
+</section>

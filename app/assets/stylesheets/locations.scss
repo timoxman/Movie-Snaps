@@ -1,20 +1,80 @@
+
+#locationPage {
+  margin: 2em 3em;
+  #loclist {
+    border: 1px solid #000;
+  }
+  li {
+    list-style: none;
+    padding: 10px 0;
+    a:hover {
+      background-color: rgb(240, 242, 243);
+      padding: 5px;
+    }
+  }
+}
+
+h1 {
+  padding-bottom: 1em;
+  border-bottom: 1px dotted #777c82;
+  font-size: 26px;
+  font-weight: normal;
+  color: #1b1b1b;
+
+}
+
 #destination {
-  width: 45%;
+  width: 60%;
   margin: 3em auto 2em;
   padding: 3em;
-  border: 1px solid #000;
+  border: 1px solid #010101;
+  box-shadow: 0px 0px 5px rgba(252, 253, 253, .5);
+  #enterDestination {
+    height: 30px;
+    padding: 5px;
+    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #edeef0;
+    border-bottom-color: #cacdd1;
+    border-right-color: #d0d3d8;
+    margin-right: 15px;
+    font-size: 14px;
+    color: rgb(80, 107, 145);
+  }
+  button#submitDestination {
+    width: 60px;
+    color: rgb(80, 107, 128);
+    vertical-align: middle;
+    height: 30px;
+    font-size: 13px;
+    text-align: center;
+    padding: 0.3em;
+    cursor: pointer;
+  }
+  button#add-marker {
+    width: 100px;
+    color: #506b80;
+    vertical-align: middle;
+    height: 30px;
+    font-size: 13px;
+    text-align: center;
+    padding: 0.3em;
+    cursor: pointer;
+  }
 }
 
 .mapBox {
-    float: left;
-    margin-left: 50px;
-    text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 1px;
+  border: 1px solid #A0A2A3;
+  box-shadow: 0px 1px 3px rgba(0,0,0,.5);
+
 }
 
 #mapDestination {
-    width: 900px;
+
     height: 500px;
-    border: 2px solid black;
+
 }
 
 #locationProfile {
@@ -24,10 +84,4 @@
   img {
     width: 10%;
   }
-}
-
-#mapDestination {
-    width: 900px;
-    height: 500px;
-    border: 2px solid black;
 }
