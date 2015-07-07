@@ -70,15 +70,6 @@
 
                   <%= link_to "♡", photo_likes_path(p), class: 'likes-link' %>
 
-                  <!-- <i class="fa fa-heart-o"></i>   -->
-
-                  <% else %>
-
-                  <i class="fa fa-user"> <%= link_to current_user.name, user_path(current_user.id) %>
-                  </i> <i class="fa fa-heart"></i>
-
-
-
                   <% end %>
 
                   <span class='likes_count'> <%= p.likes.count %> </span> <%= 'like'.pluralize p.likes.count %>

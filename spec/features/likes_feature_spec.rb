@@ -8,14 +8,14 @@ feature 'A user on the homepage' do
       create_visit
     end
 
-    xscenario 'can like a photo', js: true do
+    scenario 'can like a photo', js: true do
       visit '/'
       click_link '♡'
       expect(page).to have_content '1 like'
       expect(Like.count).to eq 1
     end
 
-    xscenario 'can only like a photo once', js: true do
+    scenario 'can only like a photo once', js: true do
       visit '/'
       click_link '♡'
       expect(page).not_to have_link '♡'
@@ -31,8 +31,8 @@ feature 'A user on the homepage' do
       click_link 'Sign out'
     end
 
-    xscenario 'cannot like a photo', js: true do
-      expect(page).not_to have_link 'Like'
+    scenario 'cannot like a photo', js: true do
+      expect(page).not_to have_link '♡'
     end
 
   end
