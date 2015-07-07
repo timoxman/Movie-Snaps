@@ -6,9 +6,9 @@
 
   <div id="visits">
     <% if @visits.any? %>
-      <ul>
+      <ul class="visits">
         <% @visits.each do |visit| %>
-          <li>
+          <li class="visit">
             <% if visit.date_visited %>
               Visited on <%= visit.date_visited.strftime('%e %B %Y') %>
               </br>
@@ -30,24 +30,24 @@
             <%= image_tag visit.scene.image_file_name %>
             </br>
             <% if visit.photos.any? %>
-              <ul>
+              <ul class="photos">
                 User photos: <% visit.photos.each do |photo| %>
-                  <li>
+                  <li class="photo">
                     <%= image_tag photo.image_file_name %>
                     <%= photo.caption %>
                     (Likes: <%= photo.likes.count %>)
                     <% if photo.comments.any? %>
-                      <ul>
+                      <ul class="comments">
                         <% photo.comments.order('created_at desc').each do |comment| %>
-                          <%= image_tag comment.user.image %>
-                          <%= link_to comment.user.name, user_path(comment.user) %>:
-                          <%= comment.remark %>
-                          (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
-                          </br>
+                          <li class="comment">
+                            <%= image_tag comment.user.image %>
+                            <%= link_to comment.user.name, user_path(comment.user) %>:
+                            <%= comment.remark %>
+                            (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
+                          </li>
                         <% end %>
                       </ul>
                     <% end %>
-                    </br>
                   </li>
                 <% end %>
               </ul>
@@ -58,7 +58,6 @@
             <div class="longitude"><%= visit.scene.location.longitude %></div>
             <div class="latitude"><%= visit.scene.location.latitude %></div>
           </li>
-          </br>
         <% end %>
       </ul>
     <% else %>
