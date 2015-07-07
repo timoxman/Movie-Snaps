@@ -9,4 +9,8 @@ $(document).ready(function() {
       likeCount.text(response.new_like_count);
     });
   });
+
+  $('.fadein img:gt(0)').hide();
+  setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 3000);
+
 });

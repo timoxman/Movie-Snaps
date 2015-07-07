@@ -1,22 +1,8 @@
-<section id="welcomeFeatured" class="clearfix">
-    <div class="welcomeSlider" id="welcomeSlider">
-      <div id="slides">
-          <article>
-            <a href="#" target="_blank">
-              <img src="#" style="display:none;">
-              <span style="display:none;">Iron Man</span>
-            </a>
-          </article>
-          <div class="slider-title">
-            Iron Man
-          </div>
-          <div id="slider-arrows">
-            <a href="#" id="prev-slider" class="prev"></a>
-            <a href="#" id="next-slider" class="next"></a>
-          </div>
-      </div> <!-- slides  -->
-    </div> <!-- welcomeSlider -->
-</section> <!-- welcomeFeatured -->
+<center><div class="fadein">
+  <% @popular.each do |p| %>
+    <img src="<%= p.image_file_name %>" height='350' width='500'>
+  <% end %>
+</div></center>
 
 <aside id="welcomeAside" class="clearfix">
   <header>
