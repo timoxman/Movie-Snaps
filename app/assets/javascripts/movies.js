@@ -23,6 +23,12 @@ $(document).ready(function() {
     $(this).next('.comment-form').slideToggle(1000);
   })
 
+  $("#noResultsMsg").hide();
+
+  $('#select-movie').click(function(){
+    selectMovie();
+  });
+
 });
 
 function movieExtractTitle(movieTitleYear){
@@ -46,8 +52,8 @@ function getPoster(movieTitle, movieYear) {
 
 function loadMap(latitude, longitude, mapDivId) {
   var myOptions2 = {
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
   var latlng = new google.maps.LatLng(latitude, longitude);
@@ -69,5 +75,45 @@ function placeMarker(location) {
   });
   google.maps.event.addListener(marker, 'mouseout', function() {
     this.setAnimation(null);
+  });
+}
+
+function acquireMovies() {
+  $("#noResultsMsg").fadeOut(500);
+  var url = '/movies/api'
+  var movieValue = document.getElementById("enterMovie").value
+  $.getJSON(url, function (data) {
+    var movieArray = data;
+    var availableMovies = [];
+
+    if(movieArray) {
+      movieArray.forEach(function(movie) {
+        availableMovies.push(movie['name']);
+      });
+
+      $("#enterMovie").autocomplete({
+        source: availableMovies
+      });
+    }
+  })
+}
+
+function selectMovie() {
+  var url = '/movies/api'
+  var movieValue = document.getElementById('enterMovie').value
+  $.getJSON(url, function (data) {
+    var movieArray = data;
+    var matches = []
+    if(movieArray) {
+      movieArray.forEach(function(movie) {
+        if(movie['name'] === movieValue) {
+          window.open('/movies/' + movie['id'],'_self')
+          matches.push('1');
+        };
+      });
+    }
+    if(matches.length === 0) {
+      $("#noResultsMsg").fadeIn(500);
+    }
   });
 }

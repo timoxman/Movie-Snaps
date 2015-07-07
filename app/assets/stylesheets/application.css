@@ -13,10 +13,11 @@
  *= require_tree .
  *= require_self
  */
-
+ 
 
 body {
-  background: #717679;
+  /*background: #717679;*/
+  background: url(page-bg.jpg) repeat 6.1% top;
   margin: 0;
   padding:0;
   font-family: 'Lucida Grande', Arial, Helvetica, sans-serif;
@@ -65,7 +66,7 @@ body {
   padding: 0;
   background:#333 url(header.png) no-repeat 0px 0px;
   border-bottom: 3px solid #333;
-  width: 1012px;
+  width: 100%;
   min-height: 90px;
   margin-bottom: 1em;
 
@@ -192,7 +193,7 @@ ul#navigation li a:hover {
   background: #101010;
   /* border-top: 1px solid #fff; */
   overflow: auto;
-  box-shadow: 0px -3px 7px rgba(255,255,255,.90);
+  box-shadow: 0px -1px 0px rgba(255,255,255,.90);
 }
 
 #fwrap {
