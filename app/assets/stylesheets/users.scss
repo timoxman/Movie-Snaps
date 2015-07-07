@@ -1,11 +1,28 @@
 #userProfile {
-  width: 980px;
-  margin: 0 auto;
-  padding: 1em;
+  margin: 2em 3em;
+  h1 {
+    padding-bottom: 1em;
+    border-bottom: 1px dotted #777c82;
+    font-size: 26px;
+    font-weight: normal;
+    color: #1b1b1b;
+  }
   img {
     width: 10%;
+    outline: none;
+    border: none;
   }
-}
+  #visits {
+    ul.visits {
+      list-style: none;
+      margin-top: 2em;
+      li {
+        margin-bottom: 3em;
+      }//li
+    }//ul
+  }
+
+}//userProfile
 
 
 .mapDestination {

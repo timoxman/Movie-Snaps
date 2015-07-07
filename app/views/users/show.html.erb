@@ -1,6 +1,6 @@
 <section id="userProfile">
 
-  <h2>User page of <%= @user.name %></h2>
+  <h1>User page of <%= @user.name %></h1>
 
   <%= image_tag @user.image, :id => 'user_img', :title => @user.name %>
 
@@ -8,7 +8,7 @@
     <% if @visits.any? %>
       <ul class="visits">
         <% @visits.each do |visit| %>
-          <li class="visit">
+          <li class="pervisit">
             <% if visit.date_visited %>
               Visited on <%= visit.date_visited.strftime('%e %B %Y') %>
               </br>
