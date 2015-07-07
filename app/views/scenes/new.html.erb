@@ -1,7 +1,7 @@
-Add your movie for <div id='location'><%= @location.address %></div>
+Add your scene for <div id='location'><%= @scene.movie_id.name %></div>
 
-<form action='/movies' method='post'>
+<form action='/scenes' method='post'>
   <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" name='name' onkeydown="acquireMovies()"/>
   <input type='hidden' name='location' value='<%= @location.id %>'>
-  <input id='btnSubmit' type='submit' value='Add movie'>
+  <input id='btnSubmit' type='submit' value='Add scene'>
 </form>
