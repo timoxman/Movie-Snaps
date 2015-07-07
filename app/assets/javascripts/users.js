@@ -17,6 +17,10 @@ $(document).ready(function() {
     loadMap(latitude, longitude, mapDivId);
   });
 
+  $('#select-user').click(function(){
+    selectUser();
+  });
+
 });
 
 function movieExtractTitle(movieTitleYear){
@@ -64,5 +68,45 @@ function placeMarker(location) {
   });
   google.maps.event.addListener(marker, 'mouseout', function() {
     this.setAnimation(null);
+  });
+}
+
+function acquireUsers() {
+  $("#noResultsMsg").fadeOut(500);
+  var url = '/users/api'
+  var userValue = document.getElementById("enterUser").value
+  $.getJSON(url, function (data) {
+    var userArray = data;
+    var availableUsers = [];
+
+    if(userArray) {
+      userArray.forEach(function(user) {
+        availableUsers.push(user['name']);
+      });
+
+      $("#enterUser").autocomplete({
+        source: availableUsers
+      });
+    }
+  })
+}
+
+function selectUser() {
+  var url = '/users/api'
+  var userValue = document.getElementById('enterUser').value
+  $.getJSON(url, function (data) {
+    var userArray = data;
+    var matches = []
+    if(userArray) {
+      userArray.forEach(function(user) {
+        if(user['name'] === userValue) {
+          window.open('/users/' + user['id'],'_self')
+          matches.push('1');
+        };
+      });
+    }
+    if(matches.length === 0) {
+      $("#noResultsMsg").fadeIn(500);
+    }
   });
 }

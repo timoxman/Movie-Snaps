@@ -5,4 +5,12 @@ class UsersController < ApplicationController
     @visits = Visit.where("user_id = ?", @user.id)
   end
 
+  def index
+  end
+
+  def api
+    @users = User.all
+    render json: @users.to_json
+  end
+
 end
