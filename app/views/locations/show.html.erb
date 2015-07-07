@@ -19,9 +19,9 @@
   <div id="scenes">
     <% if @location.scenes.any? %>
       Scenes:
-      <ul>
+      <ul class="scenes">
         <% @location.scenes.reverse.each do |scene| %>
-          <li>
+          <li class="scene">
             Movie: <%= link_to scene.movie.name, movie_path(scene.movie) %></br>
             Movie poster:
             <div class="moviePosterBox">
@@ -30,31 +30,33 @@
             Scene photo:<%= image_tag scene.image_file_name %>
             <% if scene.visits.any? %>
               Visitors:
-              <ul>
+              <ul class="visits">
                 <% scene.visits.order('date_visited desc').each do |visit| %>
-                  <li>
+                  <li class="visit">
                     <%= image_tag visit.user.image %>
                     <%= link_to visit.user.name, user_path(visit.user) %>
                     <% if visit.date_visited %> visited on <%= visit.date_visited.strftime('%e %B %Y') %><% end %>
                     <% if visit.description %> ("<%= visit.description %>")<% end %></br>
                     <% if visit.photos.any? %>
-                      <ul>
+                      <ul class="photos">
                         <% visit.photos.each do |photo| %>
-                          <%= image_tag photo.image_file_name %>
-                          <%= photo.caption %>
-                          (Likes: <%= photo.likes.count %>)
-                          <% if photo.comments.any? %>
-                            <ul>
-                              <% photo.comments.order('created_at desc').each do |comment| %>
-                                <%= image_tag comment.user.image %>
-                                <%= link_to comment.user.name, user_path(comment.user) %>:
-                                <%= comment.remark %>
-                                (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
-                                </br>
-                              <% end %>
-                            </ul>
-                          <% end %>
-                          </br>
+                          <li class="photo">
+                            <%= image_tag photo.image_file_name %>
+                            <%= photo.caption %>
+                            (Likes: <%= photo.likes.count %>)
+                            <% if photo.comments.any? %>
+                              <ul class="comments">
+                                <% photo.comments.order('created_at desc').each do |comment| %>
+                                  <li class="comment">
+                                    <%= image_tag comment.user.image %>
+                                    <%= link_to comment.user.name, user_path(comment.user) %>:
+                                    <%= comment.remark %>
+                                    (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
+                                  </li>
+                                <% end %>
+                              </ul>
+                            <% end %>
+                          </li>
                         <% end %>
                       </ul>
                     <% else %>

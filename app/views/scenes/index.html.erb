@@ -1,7 +1,7 @@
 <h3>Was it one of these films?</h3>
 <br>
 <% @scenes.each do |scene| %>
-  <li><%= link_to scene.movie.name, new_location_scene_visit_path(@location, scene) %></li>
+  <li><%= link_to scene.movie.name, new_scene_visit_path(scene) %></li>
   <br>
 <% end %>
 If not add your movie here
