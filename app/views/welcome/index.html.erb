@@ -19,6 +19,10 @@
 </section> <!-- welcomeFeatured -->
 
 <aside id="welcomeAside" class="clearfix">
+  <header>
+    <h3 class="recent-title">Click <%= link_to "here", '/locations' %>
+      to upload your photos! or checkout our most recent uploads</h3>
+  </header>
     <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
         who love blah blah and more blah blah blah</h2> -->
         <h2 class="welcomeMessage">“Adventure is out there!” Up (2009)</h2>
@@ -30,12 +34,6 @@
 </aside><!-- welcomeAside  -->
 
 <section class="welcomeMainContent clearfix">
-  <header>
-    <h3 class="recent-title">Click <%= link_to "here", '/locations' %>
-      to upload your photos! or checkout our most recent uploads</h3>
-    <h3 class="recent-title">Click <%= link_to "here for Dashboard", dashboards_path() %>
-      to see stats on the site (not right place for link I know) </h3>
-  </header>
 
   <% if @photos %>
 
