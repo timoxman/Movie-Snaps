@@ -37,6 +37,12 @@ $(document).ready(function() {
     $('#confirm-marker').click(function(){
       confirmLocation(newMarker[0]);
     });
+
+    $("#noResultsMsg").hide();
+
+    $('#selectDBLocation').click(function(){
+      selectDBLocation();
+    });
   }
 });
 
@@ -178,6 +184,47 @@ function acquireMovies() {
       $("#enterMovie").autocomplete({
         source: availableMovies
       });
+    }
+  });
+}
+
+function acquireDBLocations() {
+  $("#noResultsMsg").fadeOut(500);
+  var url = '/locations/api'
+  var locationDBValue = document.getElementById("enterDBLocation").value
+  $.getJSON(url, function (data) {
+    var DBlocationArray = data;
+    var availableDBLocations = [];
+
+    if(DBlocationArray) {
+      DBlocationArray.forEach(function(DBlocation) {
+        availableDBLocations.push(DBlocation['address']);
+      });
+
+      $("#enterDBLocation").autocomplete({
+        source: availableDBLocations
+      });
+    }
+  })
+}
+
+function selectDBLocation() {
+  var url = '/locations/api'
+  var DBlocationValue = document.getElementById('enterDBLocation').value
+  $.getJSON(url, function (data) {
+    var DBlocationArray = data;
+    var matches = []
+    if(DBlocationArray) {
+      DBlocationArray.forEach(function(DBlocation) {
+        if(DBlocation['address'] === DBlocationValue) {
+          console.log(DBlocation);
+          window.open('/locations/' + DBlocation['id'] + '/scenes','_self')
+          matches.push('1');
+        };
+      });
+    }
+    if(matches.length === 0) {
+      $("#noResultsMsg").fadeIn(500);
     }
   });
 }

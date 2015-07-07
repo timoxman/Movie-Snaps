@@ -8,7 +8,7 @@ feature 'A user on the homepage' do
       create_visit
     end
 
-    xscenario 'can comment on other users photo', js: true do
+    xscenario 'can comment on other user\'s photo', js: true do
       click_button 'Comment'
       fill_in 'comment_remark', with: 'Nice photo!'
       expect { click_button 'Submit' }.to change { Comment.count }.by 1
