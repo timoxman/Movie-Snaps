@@ -17,6 +17,29 @@ $(document).ready(function() {
     loadMap(latitude, longitude, mapDivId);
   });
 
+  $('.comment-form').hide();
+
+  $('.comment-link').click(function() {
+    $('.comment-link').show(1000);
+    $(this).hide(1000);
+    $('.comment-form').hide(1000);
+    $(this).next('.comment-form').slideToggle(1000);
+  })
+
+  $('#select-user').click(function(){
+    selectUser();
+  });
+
+  $('.likes-link').on('click', function(event){
+    event.preventDefault();
+    $(this).fadeOut(1000);
+    var likeCount = $(this).next('.likes_count');
+
+    $.post(this.href, function(response){
+      likeCount.text(response.new_like_count);
+    });
+  });
+
 });
 
 function movieExtractTitle(movieTitleYear){
@@ -64,5 +87,45 @@ function placeMarker(location) {
   });
   google.maps.event.addListener(marker, 'mouseout', function() {
     this.setAnimation(null);
+  });
+}
+
+function acquireUsers() {
+  $("#noResultsMsg").fadeOut(500);
+  var url = '/users/api'
+  var userValue = document.getElementById("enterUser").value
+  $.getJSON(url, function (data) {
+    var userArray = data;
+    var availableUsers = [];
+
+    if(userArray) {
+      userArray.forEach(function(user) {
+        availableUsers.push(user['name']);
+      });
+
+      $("#enterUser").autocomplete({
+        source: availableUsers
+      });
+    }
+  })
+}
+
+function selectUser() {
+  var url = '/users/api'
+  var userValue = document.getElementById('enterUser').value
+  $.getJSON(url, function (data) {
+    var userArray = data;
+    var matches = []
+    if(userArray) {
+      userArray.forEach(function(user) {
+        if(user['name'] === userValue) {
+          window.open('/users/' + user['id'],'_self')
+          matches.push('1');
+        };
+      });
+    }
+    if(matches.length === 0) {
+      $("#noResultsMsg").fadeIn(500);
+    }
   });
 }
