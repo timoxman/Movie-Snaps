@@ -2,6 +2,7 @@
 #locationPage {
   margin: 2em 3em;
   #loclist {
+    margin-left: 1em;
     ul {
       padding-left: 10px;
       li {
@@ -32,12 +33,16 @@
       border-bottom: 1px dotted #777c82;
       padding-bottom: 20px;
       margin-top: 3em;
+      margin-left: .5em;
+      width: 96%;
     }
   }//sideright
 }//locationPage
 
 h1 {
   padding-bottom: 1em;
+  margin-left: .5em;
+  width: 96%;
   border-bottom: 1px dotted #777c82;
   font-size: 26px;
   font-weight: normal;
@@ -97,7 +102,7 @@ h1 {
   button#add-marker:hover {
     border: 1px solid #777c82;
     background: -webkit-gradient(linear, left top, left bottom, from(#FDFDFD), to(#AEBDC9));
-    
+
     color: #333333;
     text-decoration: none;
   }//button add-marker
