@@ -1,13 +1,5 @@
 require 'rails_helper'
 
-def fill_autocomplete(field, options = {})
-  fill_in field, with: options[:with]
-  sleep 5
-  page.execute_script %Q{ $('##{field}').trigger('keydown') }
-  selector = %Q{ul.ui-autocomplete li.ui-menu-item a:contains("#{options[:select]}")}
-  page.execute_script %Q{ $('#{selector}').trigger('mouseenter').click() }
-end
-
 feature 'A user wants to add a movie' do
 
   before(:each) do
@@ -105,6 +97,25 @@ feature 'User views an individual movie page' do
 
   xscenario "displays correct number of photos" do
     expect(page.all('ul.comments li.comment').size).to eq(1)
+  end
+
+end
+
+feature 'User views the movie index page' do
+
+  before do
+    create_visit
+    visit '/movies'
+  end
+
+  scenario 'enters a movie in database and have it autocompleted', js: true do
+    fill_autocomplete('enterMovie', with: 'Da Vinci')
+    expect(page).to have_selector('ul.ui-autocomplete li.ui-menu-item')
+  end
+
+  scenario 'enters a movie not in database and not have it autocompleted', js: true do
+    fill_autocomplete('enterMovie', with: 'Drive')
+    expect(page).not_to have_selector('ul.ui-autocomplete li.ui-menu-item')
   end
 
 end

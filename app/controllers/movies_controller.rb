@@ -8,8 +8,16 @@ class MoviesController < ApplicationController
     redirect_to new_scene_visit_path(scene.id)
   end
 
+  def index
+  end
+
   def show
     @movie = Movie.find(params[:id])
+  end
+
+  def api
+    @movies = Movie.all
+    render json: @movies.to_json
   end
 
 end
