@@ -2,7 +2,7 @@
 
   <h1>User page of <%= @user.name %></h1>
 
-  <%= image_tag @user.image, :id => 'user_img', :title => @user.name %>
+  <%= image_tag @user.image.split("=")[0]<<"?type=large", :id => 'user_img', :title => @user.name %>
 
   <div id="visits">
     <% if @visits.any? %>
