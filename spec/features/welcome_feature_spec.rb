@@ -29,6 +29,3 @@ feature 'User visits the site' do
 
 end
 
-# scenario 'there is a project with an image' do
-#          expect(page).to have_xpath("//img[@alt='Rubber duck']")
-#        end
