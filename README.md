@@ -177,5 +177,3 @@ Links:
 -------
 
 [OMDb API](http://www.omdbapi.com/)
-
-[Github - OmniAuth: Overview](https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview)
