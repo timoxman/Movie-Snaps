@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
     lat = params[:posa]
     lng = params[:posf]
     address = params[:address]
-    location = Location.first_or_create(latitude: lat, longitude: lng, address: address, user_id: current_user.id)
+    location = Location.where("latitude = ? AND longitude = ? AND address = ?", lat,lng,address).first_or_create(latitude: lat, longitude: lng, address: address)
     film = params[:film]
     movie = Movie.where("name = ?",film).first_or_create(name: film)
     scene = Scene.where("movie_id = ? AND location_id = ?",movie.id,location.id).first_or_create(movie_id: movie.id, location_id: location.id)
@@ -20,6 +20,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    @comment = Comment.new
   end
 
   def api

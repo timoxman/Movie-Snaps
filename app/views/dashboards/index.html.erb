@@ -1,14 +1,25 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<br>
-<h2>Dashboard of Delights<h2>
-<br>
-<h3>Total Visits by Date</h3>
-This graph shows how many people have visited different movie locations on different days.
+<div class="dashboard clearfix">
+  <h2>Dashboard of Delights</h2>
+  <h3>Total Visits by Date</h3>
+  <p>This graph shows how many people have visited different movie locations on different days. </p>
+</div>
 <%= line_chart @visits.group(:date_visited).count, discrete: true %>
-<br>
-<h3>Most Poular Movies</h3>
-This graph shows the most popular movies on the sites
-<%= bar_chart @movies.group(:name).count %>
-<br>
 
+<div class="dashboard clearfix">
+  <h3>Most Popular Movies</h3>
+  <p>This graph shows the most popular movies on the sites, by showing the number of places visited.</p>
+</div>
+<%= bar_chart @scene_table_data %>
 
+<div class="dashboard clearfix">
+  <h3>Most Active Users</h3>
+  <p>This diagram shows the most active users on the site.</p>
+</div>
+<%= pie_chart @user_table_data %>
+
+<div class="dashboard clearfix">
+  <h3>Most Popular Locations</h3>
+  <p>This map shows the most visited locations by country.</p>
+</div>
+<%= geo_chart @location_table_data %>
