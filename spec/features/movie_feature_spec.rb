@@ -50,7 +50,7 @@ feature 'A user wants to add a movie' do
       fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
       click_button 'Select Location'
       fill_autocomplete('enterMovie', with: 'Shrek')
-      expect { click_button 'Add movie' }.to change { Movie.count }.by 1
+      expect { click_button 'Add Movie' }.to change { Movie.count }.by 1
     end
   end
 

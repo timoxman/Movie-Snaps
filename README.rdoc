@@ -3,6 +3,18 @@
 Coveralls
 {<img src="https://coveralls.io/repos/timoxman/Movie-Snaps/badge.svg?branch=master&service=github" alt="Coverage Status" />}[https://coveralls.io/github/timoxman/Movie-Snaps?branch=master]
 
+Travis
+{<img src="https://travis-ci.org/timoxman/Movie-Snaps.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/timoxman/Movie-Snaps]
+
+Waffle Board
+[https://waffle.io/timoxman/Movie-Snaps]
+
+User Stories
+[https://github.com/timoxman/Movie-Snaps/blob/master/User%20Stories.md]
+
+Features To Aim For
+[https://github.com/timoxman/Movie-Snaps/blob/master/features.md]
+
 Movie Snaps
 This is the final project at Makers of Andy, Daryl, Ashleigh, Stefan, Jennifer and Tim.
 
