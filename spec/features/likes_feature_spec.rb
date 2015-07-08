@@ -127,8 +127,8 @@ feature 'A user on the movies page' do
       create_visit
       visit '/'
       click_link 'Sign out'
-      m = Movie.first
-      visit "/movies/#{m.id}"
+      l = Location.first
+      visit "/users/#{l.id}"
     end
 
     scenario 'cannot like a photo', js: true do
