@@ -31,5 +31,20 @@ module MovieSnaps
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.precompile += [
+      'arrows.png',
+      'avatar.png',
+      'container-bg.png',
+      'header.png',
+      'listitemarrow.png',
+      'mboard-bg.png',
+      'page-bg.png',
+      'photo-zoom.png',
+      'slider.png',
+      'sliderbg.png',
+      'socialsprite.png',
+      'video.png',
+      'wrapper-bg.png'
+    ]
   end
 end
