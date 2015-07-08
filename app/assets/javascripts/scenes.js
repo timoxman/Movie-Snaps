@@ -1,14 +1,14 @@
-// $(document).ready(function() {
-//   console.log('hello')
-//   var formURL = '/movies';
-//   var form = $('<form action="' + formURL + '" method="post">' +
-//     '<input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>' +
-//     '<input id="btnSubmit" type="submit" value="Add movie" onclick="addMovie()">' + '</form>');
-//   console.log(form)
-//   $('#add-movie').append(form);
-//   form.submit()
+$(document).ready(function() {
 
-// });
+  $(".locations.show").ready(function() {
+    $(this).find('#longitude').hide();
+    $(this).find('#latitude').hide();
+    var longitude = $(this).find('#longitude').text();
+    var latitude = $(this).find('#latitude').text();
+    loadMapProfile(latitude, longitude);
+  });
+
+});
 
 function addMovie() {
   var film = $('#enterMovie').val()
@@ -36,5 +36,33 @@ function acquireMovies() {
         source: availableMovies
       });
     }
+  });
+}
+
+function loadMapProfile(latitude, longitude) {
+  var myOptions2 = {
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var latlng = new google.maps.LatLng(latitude, longitude);
+  map = new google.maps.Map(document.getElementById("mapDestination"), myOptions2);
+  map.setCenter(latlng);
+  map.setOptions({ draggableCursor: 'crosshair' });
+  placeMarkerProfile(map.getCenter());
+};
+
+function placeMarkerProfile(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    icon:'/images/clapper.png',
+    animation: google.maps.Animation.DROP,
+    map: map
+  });
+  google.maps.event.addListener(marker, 'mouseover', function() {
+    this.setAnimation(google.maps.Animation.BOUNCE);
+  });
+  google.maps.event.addListener(marker, 'mouseout', function() {
+    this.setAnimation(null);
   });
 }
