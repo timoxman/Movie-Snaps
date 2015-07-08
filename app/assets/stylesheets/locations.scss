@@ -29,13 +29,75 @@
     }//ul
   }//loclist
   #sideright {
+    overflow: auto;
     h2 {
       border-bottom: 1px dotted #777c82;
       padding-bottom: 20px;
       margin-top: 3em;
       margin-left: .5em;
       width: 96%;
-    }
+    }//h2
+    h3 {
+      padding-bottom: 10px;
+      margin-top: 3em;
+      margin-left: .5em;
+      width: 96%;
+    }//h3
+    #scenes {
+      overflow: auto;
+      ul {
+        article {
+          div.box {
+            margin-top: 20px;
+            float: left;
+            margin: 0;
+            text-decoration: none;
+            color: #506b80;
+            h3 {
+              padding-bottom: 5px;
+              margin-top: 1em;
+              margin-left: .5em;
+              width: 96%;
+            }
+
+          }//divbox
+
+        }//article
+
+      }//ul
+      h3 {
+        padding-bottom: 5px;
+        margin-top: 2em;
+        margin-left: .5em;
+        width: 96%;
+      }
+      ul {
+        list-style: none;
+        overflow: auto;
+        li  {
+          margin: 0;
+          li.photo {
+            img {
+              width: 80%;
+            }
+          }//photo
+
+        }//li
+        ul li.visit {
+            padding: 0;
+            margin: 0;
+            ul li.photo {
+              list-style: none;
+              .visitorimage {
+                width: 80%;
+                img {
+                  width: 100%;
+                }//img
+              }//visitorimage
+            }//photo
+        }//visit
+      }//ul
+    }//scenes
   }//sideright
 }//locationPage
 

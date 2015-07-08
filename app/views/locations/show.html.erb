@@ -1,48 +1,64 @@
+<section id="locationPage">
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "locations_show.js" %>
 <% end %>
-<div id='locationShow'></div>
-<section id="locationProfile">
 
-  <div id='title'>
-    <h2>
+<div id='locationShow'></div>
+
+    <h1>
       <%= @location.address %>
-    </h2>
-  </div>
+    </h1>
+<section id="leftcol">
   <div id="longitude"><%= @location.longitude %></div>
   <div id="latitude"><%= @location.latitude %></div>
 
   <div class="mapBox">
     <div id="mapDestination">
+    </div>
   </div>
+</section><!-- leftcol -->
+<aside id="sideright">
 
-  <div id="scenes">
     <% if @location.scenes.any? %>
-      Scenes:
-      <ul class="scenes">
+      <h2>Scenes:</h2>
+      <div id="scenes">
+        <h3>Movie poster:</h3>
+        <ul>
         <% @location.scenes.reverse.each do |scene| %>
-          <li class="scene">
-            Movie: <%= link_to scene.movie.name, movie_path(scene.movie) %></br>
-            Movie poster:
+          <li>
+            Movie: <%= link_to scene.movie.name, movie_path(scene.movie) %></li>
+
             <div class="moviePosterBox">
             </div>
-            <div class="movieTitleYear"><%= scene.movie.name %></div>
-            Scene photo:<%= image_tag scene.image_file_name %>
+            <article>
+              <div class="box">
+                <h3>Scene photo:</h3>
+                <%= image_tag scene.image_file_name %>
+              </div>
+            </article>
             <% if scene.visits.any? %>
-              Visitors:
-              <ul class="visits">
-                <% scene.visits.order('date_visited desc').each do |visit| %>
+              <article>
+                <div class="box">
+                  <h3>Visitors:</h3>
+                  <ul>
+                  <% scene.visits.order('date_visited desc').each do |visit| %>
                   <li class="visit">
-                    <%= image_tag visit.user.image %>
-                    <%= link_to visit.user.name, user_path(visit.user) %>
+                    <figure>
+                      <%= image_tag visit.user.image %>
+                    </figure>
+                      <h4><%= link_to visit.user.name, user_path(visit.user) %><h4>
+
                     <% if visit.date_visited %> visited on <%= visit.date_visited.strftime('%e %B %Y') %><% end %>
-                    <% if visit.description %> ("<%= visit.description %>")<% end %></br>
+                    <% if visit.description %> ("<%= visit.description %>")<% end %>
                     <% if visit.photos.any? %>
-                      <ul class="photos">
+                      <ul>
                         <% visit.photos.each do |photo| %>
                           <li class="photo">
-                            <%= image_tag photo.image_file_name %>
-                            <%= photo.caption %>
+                            <div class="visitorimage">
+                              <%= image_tag photo.image_file_name %>
+                              <%= photo.caption %>
+                            </div><!-- visitorimage -->
+
                             <% if current_user %>
                               <% liked = false %>
                                 <% photo.likes.each do |l| %>
@@ -60,15 +76,19 @@
                                 <span class='likes_count'> <%= photo.likes.count %> </span> <%= 'like'.pluralize photo.likes.count %>
                               <%= render partial: "partials/commentform", locals: {photo: photo} %>
                             <% end %>
+                      </div><!-- box -->
+                  </article>
                             <% if photo.comments.any? %>
-                              <ul class="comments">
+                              <ul>
                                 <% photo.comments.order('created_at desc').each do |comment| %>
-                                  <li class="comment">
+                                  <div class="comment">
+                                    <li class="comment">
                                     <%= image_tag comment.user.image %>
                                     <%= link_to comment.user.name, user_path(comment.user) %>:
                                     <%= comment.remark %>
                                     (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
                                   </li>
+                                </div><!-- comment -->
                                 <% end %>
                               </ul>
                             <% end %>
@@ -90,6 +110,6 @@
     <% else %>
       No scenes for this location available
     <% end %>
-  </div>
+</aside><!--sideright  -->
 
 </section>

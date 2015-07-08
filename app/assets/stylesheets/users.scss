@@ -16,11 +16,26 @@
     ul.visits {
       list-style: none;
       margin-top: 2em;
-      li {
+      li.pervisit {
         margin-bottom: 3em;
-      }//li
-    }//ul
-  }
+        div.userleft {
+          float:left;
+          width: 50%;
+        }//div.userleft
+        div.userright {
+          float:left;
+          width: 20%;
+        }//div.userright
+        div.movieposter {
+          clear:both;
+          padding-top: 25px;
+        }//div.movieposter
+      }//li.pervisit
+    }//ul.visits
+    div.movieInfo {
+      overflow: auto;
+    }//div.movieInfo
+  }//div#visits
 
 }//userProfile
 
