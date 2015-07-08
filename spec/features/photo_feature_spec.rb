@@ -1,21 +1,12 @@
 require 'rails_helper'
 
 feature 'Photos' do
-# log in -----
-# Click here to upload Photos ---
-# Click on location already on page
-# Click on movie
-# Fill out form to add visit
-# Submit and be redirected to IMAGE PAGE AHHHHHHHHHH!!!!
-# form filling in!
-# Submit
-# test that caption and movie name is on page
-# check date uploaded - by checking same in database as on page?
 
   before(:each) do
     create_visit
     click_link 'here'
-    click_link "Louvre Pyramid, 75001, Paris, France"
+    fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
+    click_button 'Select Location'
     click_link "The Da Vinci Code"
   end
 
