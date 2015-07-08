@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'locations/api' => 'locations#api'
   get 'movies/api' => 'movies#api'
   get 'users/api' => 'users#api'
+  get 'scenes/api' => 'scenes#api'
 
   # resources :movies
   # resources :users

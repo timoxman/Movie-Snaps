@@ -24,15 +24,3 @@
 <% end %>
 <div id='preview'></div>
 <br>
-<h3>Previous uploaded scenes at this location:</h3>
-<br>
-<!-- Not sure if this is working properly, or if the photos are lined up correctly, until more are uploaded -->
-<% count = 0 %>
-<% @current_visits.each do |visit| %>
-  <li><%= visit.description %> <%= visit.date_visited %></li>
-  <br>
-  <% if visit.photos.length > 0 %>
-
-  <% count += 1 %>
-  <% end %>
-<% end %>

@@ -24,7 +24,7 @@ feature 'User visits the site' do
 
   scenario 'and wants to begin uploading photos' do
     click_link 'here'
-    expect(current_path).to eq locations_path
+    expect(current_path).to eq new_scene_path
   end
 
 end
