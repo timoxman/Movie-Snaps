@@ -82,8 +82,8 @@ feature 'User views a location profile page' do
     expect(page).to have_selector("img[src*='http://bit.ly/1JBfXCZ']")
   end
 
-  scenario "displays user photo" do
-    expect(page).to have_selector("img[src*='http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Da%20Vinci%20Code%20-%20The%20Pyramid%20Louvre%20-%20Fan%20Photo_zpsgixesmtr.jpg']")
+  scenario "displays user photo", js: true do
+    expect(page).to have_xpath("//img[@src='http://moviesnaps.s3-us-west-2.amazonaws.com/photos/images/000/000/004/original/http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%2520Snaps/Fan%2520photos/Da%2520Vinci%2520Code%2520-%2520The%2520Pyramid%2520Louvre%2520-%2520Fan%2520Photo_zpsgixesmtr.jpg']")
   end
 
   scenario "displays a photo caption" do

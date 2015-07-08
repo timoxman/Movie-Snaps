@@ -19,7 +19,7 @@ feature 'Photos' do
     click_link "The Da Vinci Code"
   end
 
-  scenario 'User can add a photo through the  site', js: true do
+  scenario 'User can add a photo through the site', js: true do
     fill_in 'visit_visit_description', with: 'Ate a croissant'
     fill_in 'visit_photo_caption', with: 'Me, my croissant and Le Louvre'
     attach_file 'visit_photo_image', './public/images/bond.jpg'
