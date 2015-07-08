@@ -1,27 +1,56 @@
-<section id="welcomeFeatured" class="clearfix">
-    <div class="welcomeSlider" id="welcomeSlider">
-      <div id="slides">
-          <article>
-            <a href="#" target="_blank">
-              <img src="#" style="display:none;">
-              <span style="display:none;">Iron Man</span>
-            </a>
-          </article>
-          <div class="slider-title">
-            Iron Man
-          </div>
-          <div id="slider-arrows">
-            <a href="#" id="prev-slider" class="prev"></a>
-            <a href="#" id="next-slider" class="next"></a>
-          </div>
-      </div> <!-- slides  -->
-    </div> <!-- welcomeSlider -->
-</section> <!-- welcomeFeatured -->
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<div id="myCarousel" class="carousel slide">
+
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <% if @popular.length == 3 %>
+      <div class="active item">
+        <img class="first-slide" src='<%= @popular[0].image.url %>'>
+        <div class="container">
+          <div class="carousel-caption">
+            <h3><%= @popular[0].visit.scene.movie.name %></h3>
+            <h4><%= @popular[0].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
+          </div><!-- carousel-caption -->
+        </div><!-- container  -->
+      </div><!-- active item  -->
+
+      <div class="item">
+        <img class="second-slide" src='<%= @popular[1].image.url %>'>
+        <div class="container">
+            <div class="carousel-caption">
+              <h3><%= @popular[1].visit.scene.movie.name %></h3>
+              <h4><%= @popular[1].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
+            </div><!-- carousel-caption  -->
+        </div><!-- container  -->
+      </div><!-- item  -->
+
+      <div class="item">
+        <img class="third-slide" src='<%= @popular[2].image.url %>'>
+        <div class="container">
+            <div class="carousel-caption">
+              <h3><%= @popular[2].visit.scene.movie.name %></h3>
+              <h4><%= @popular[2].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
+            </div><!-- carousel-caption -->
+        </div><!-- container -->
+      </div><!-- item -->
+    <% end %>
+  </div><!-- carousel-inner -->
+
+  <!-- Carousel nav -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  <a>
+</div><!-- carousel slide  -->
 
 <aside id="welcomeAside" class="clearfix">
   <header>
-    <h3 class="recent-title">Click <%= link_to "here", new_scene_path %>
-      to upload your photos! or checkout our most recent uploads</h3>
+    <h3 class="recent-title">Click <%= link_to "here", new_scene_path %> to upload your photos! or checkout our most recent uploads</h3>
   </header>
     <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
         who love blah blah and more blah blah blah</h2> -->
@@ -29,12 +58,10 @@
         <h2 class="welcomeMessage">“The most beautiful thing in the world is, of course, the world itself.” Cast Away (2000)</h2>
         <h2 class="welcomeMessage">“Remember, what happens in Vegas stays in Vegas. Except for herpes. That shit’ll come back with you.” The Hangover (2009)</h2>
 
-
-
 </aside><!-- welcomeAside  -->
 
 <section class="welcomeMainContent clearfix">
-
+  <h2>Most recent uploads</h2>
   <% if @photos %>
 
           <% @photos.each do |p| %>
@@ -45,13 +72,9 @@
               <h4><%= p.caption %></h4>
               <figure>
                 <a href="#">
-                  <img src='<%= p.image_file_name %>' height='200' width='198' %>
+                  <img src='<%= p.image.url %>' height='200' width='198' %>
                 </a>
               </figure>
-
-
-
-
 
               <h6><i>Uploaded on </i> <%= p.created_at %></h6>
 
@@ -75,88 +98,14 @@
                 <% end %>
               </div>
 
-
               <p>From the movie <%= p.visit.scene.movie.name %></p>
-
-
 
             </div>
             </article>
           <% end %>
 
-
-
-
     <% else %>
       No photos have been uploaded!
     <% end %>
-
-</section> <!-- welcomeMainContent  -->
-
-
-
-<aside class="viewall">
-  <a href="/locations" class="button">View All Locations</a>
-</aside>
-
-
-<section class="welcomeMainContent clearfix">
-  <header class="line">
-    <h3 class="recent-title">More Movie-Snaps stuff</h3>
-  </header>
-
-          <article>
-
-            <div class="box" href="#" title="something">
-              <h4>New Users</h4>
-              <figure>
-                <img src='#' height='200' width='198' %>
-              </figure>
-              <h6><i>Uploaded on </i> </h6>
-
-              <p>Go to page from here</p>
-
-            </div>
-            </article>
-            <article>
-
-              <div class="box" href="#" title="something">
-                <h4>New Scenes</h4>
-                <figure>
-                  <img src='#' height='200' width='198' %>
-                </figure>
-                <h6><i>Uploaded on </i> </h6>
-
-                <p>Go to page from here</p>
-
-              </div>
-              </article>
-              <article>
-
-                <div class="box" href="#" title="something">
-                  <h4>New Movies</h4>
-                  <figure>
-                    <img src='#' height='200' width='198' %>
-                  </figure>
-                  <h6><i>Uploaded on </i> </h6>
-
-                  <p>Go to page from here</p>
-
-                </div>
-                </article>
-                <article>
-
-                  <div class="box" href="#" title="something">
-                    <h4>Get in touch</h4>
-                    <figure>
-                      <img src='#' height='200' width='198' %>
-                    </figure>
-                    <h6><i>Uploaded on </i> </h6>
-
-                    <p>Go to page from here</p>
-
-                  </div>
-                  </article>
-
 
 </section> <!-- welcomeMainContent  -->

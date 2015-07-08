@@ -36,8 +36,8 @@ feature 'User views another user\'s profile page' do
     expect(page).to have_selector("img[src*='http://bit.ly/1JBfXCZ']")
   end
 
-  scenario "displays user photo" do
-    expect(page).to have_selector("img[src*='http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Da%20Vinci%20Code%20-%20The%20Pyramid%20Louvre%20-%20Fan%20Photo_zpsgixesmtr.jpg']")
+  scenario "displays user photo", js: true do
+    expect(page).to have_xpath("//img[@alt='Da%252520vinci%252520code%252520%20%252520the%252520pyramid%252520louvre%252520%20%252520fan%252520photo%20zpsgixesmtr']")
   end
 
   scenario "displays correct number of visits" do

@@ -16,10 +16,10 @@ feature 'User visits the site' do
   end
 
   scenario 'and sees all uploaded photos' , js: true do
-    create_visit
-    photo = Photo.first
-    expect(page).not_to have_content 'No photos have been uploaded!'
-    expect(page).to have_content photo.caption
+      create_visit
+      photo = Photo.first
+      expect(page).not_to have_content 'No photos have been uploaded!'
+      expect(page).to have_content photo.caption
   end
 
   scenario 'and wants to begin uploading photos' do
@@ -28,3 +28,4 @@ feature 'User visits the site' do
   end
 
 end
+

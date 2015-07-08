@@ -9,4 +9,9 @@ $(document).ready(function() {
       likeCount.text(response.new_like_count);
     });
   });
+
+  $('.carousel').carousel({
+    interval: 3000
+  })
+
 });
