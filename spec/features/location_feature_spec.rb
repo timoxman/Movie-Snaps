@@ -12,7 +12,7 @@ feature 'A user wants to add the location for a film' do
     expect(page).to have_button 'Place Marker'
   end
 
-  scenario 'they enter address and the film to save it to the database', js: true do
+  xscenario 'they enter address and the film to save it to the database', js: true do
     fill_in 'enterDestination', with: 'Makers Academy, London'
     click_button 'Go!'
     sleep 1
@@ -22,14 +22,14 @@ feature 'A user wants to add the location for a film' do
   end
 
   scenario 'user must click on the map to create a marker', js: true do
-    visit '/locations'
+    visit new_scene_path
     expect(page).not_to have_button 'Submit Visit'
   end
 
   context 'locations have been added' do
     scenario 'display locations (L02)', js: true do
       Location.create(address: 'Louvre Pyramid, 75001, Paris, France')
-      visit '/locations'
+      visit new_scene_path
       fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
       click_button 'Select Location'
       expect(page).to have_content('Louvre Pyramid, 75001, Paris, France')
@@ -40,7 +40,7 @@ feature 'A user wants to add the location for a film' do
     let!(:ginza){Location.create(address:'Ginza, Chuo, Tokyo 104-0061, Japan')}
 
     scenario 'lets a user view movies associated with a location (L04)', js: true do
-      visit '/locations'
+      visit new_scene_path
       fill_in 'enterDBLocation', with: 'Ginza, Chuo, Tokyo 104-0061, Japan'
       click_button 'Select Location'
       expect(page).to have_content 'Was it one of these films?'
@@ -54,7 +54,7 @@ feature 'User views the location index page' do
 
   before do
     create_visit
-    visit '/locations'
+    visit new_scene_path
   end
 
   scenario 'enters a location in database and have it autocompleted', js: true do
