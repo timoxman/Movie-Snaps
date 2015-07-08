@@ -14,50 +14,67 @@ feature 'A user wants to add the location for a film' do
 
   scenario 'they enter address and the film to save it to the database', js: true do
     fill_in 'enterDestination', with: 'Makers Academy, London'
-    click_button 'Visit'
+    click_button 'Go!'
     sleep 1
     click_button 'Place Marker'
     fill_in 'enterMovie', with: 'Shrek'
-    expect { click_button 'Confirm Location' }.to change { Location.count }.by 1
+    expect { click_button 'Submit Visit' }.to change { Location.count }.by 1
   end
 
   scenario 'user must click on the map to create a marker', js: true do
     visit '/locations'
-    expect(page).not_to have_button 'Confirm Location'
-  end
-
-  context 'no locations have been added' do
-    scenario 'should display a prompt to add a location (L01)' do
-      visit '/locations'
-      expect(page).to have_content 'No locations yet'
-      expect(page).to have_button 'Place Marker'
-    end
+    expect(page).not_to have_button 'Submit Visit'
   end
 
   context 'locations have been added' do
-    before do
-      Location.create(latitude:0, longitude:0,address: 'Lewisham Fire Station')
-    end
-
-    scenario 'display locations (L02)' do
+    scenario 'display locations (L02)', js: true do
+      Location.create(address: 'Louvre Pyramid, 75001, Paris, France')
       visit '/locations'
-      expect(page).to have_content('Lewisham Fire Station')
-      expect(page).not_to have_content('No locations yet')
+      fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
+      click_button 'Select Location'
+      expect(page).to have_content('Louvre Pyramid, 75001, Paris, France')
     end
   end
 
-
   context 'viewing locations' do
+    let!(:ginza){Location.create(address:'Ginza, Chuo, Tokyo 104-0061, Japan')}
 
-    let!(:lfs){Location.create(latitude:0, longitude:0,address:'Lewisham Fire Station')}
-
-    scenario 'lets a user view movies associated with a location (L04)' do
-     visit '/locations'
-     click_link 'Lewisham Fire Station'
-     expect(page).to have_content 'Was it one of these films?'
-     expect(current_path).to eq "/locations/#{lfs.id}/scenes"
+    scenario 'lets a user view movies associated with a location (L04)', js: true do
+      visit '/locations'
+      fill_in 'enterDBLocation', with: 'Ginza, Chuo, Tokyo 104-0061, Japan'
+      click_button 'Select Location'
+      expect(page).to have_content 'Was it one of these films?'
+      expect(current_path).to eq "/locations/#{ginza.id}/scenes"
     end
+  end
 
+end
+
+feature 'User views the location index page' do
+
+  before do
+    create_visit
+    visit '/locations'
+  end
+
+<<<<<<< HEAD
+    let!(:lfs){Location.create(latitude:0, longitude:0,address:'Lewisham Fire Station')}
+=======
+  scenario 'enters a location in database and have it autocompleted', js: true do
+    fill_autocomplete('enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France')
+    expect(page).to have_selector('ul.ui-autocomplete li.ui-menu-item')
+  end
+>>>>>>> df66069bdf18b9d05f1e39a559f984903372874e
+
+  scenario 'enters a location not in database and not have it autocompleted', js: true do
+    fill_autocomplete('enterDBLocation', with: 'Wollaton Hall & Deer Park, Nottingham NG8 2AE')
+    expect(page).not_to have_selector('ul.ui-autocomplete li.ui-menu-item')
+  end
+
+  scenario 'enters a location not in database and sees error message', js: true do
+    fill_autocomplete('enterDBLocation', with: 'Wollaton Hall & Deer Park, Nottingham NG8 2AE')
+    click_button 'Select Location'
+    expect(page).to have_content('Location not yet in database')
   end
 
 end
@@ -106,7 +123,7 @@ feature 'User views a location profile page' do
     expect(page.all('ul.photos li.photo').size).to eq(1)
   end
 
-  xscenario "displays correct number of photos" do
+  xscenario "displays correct number of comments" do
     expect(page.all('ul.comments li.comment').size).to eq(1)
   end
 

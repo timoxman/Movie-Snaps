@@ -41,7 +41,7 @@
                       <ul class="photos">
                         <% visit.photos.each do |photo| %>
                           <li class="photo">
-                            <%= image_tag photo.image.url %>
+                            <%= image_tag photo.image_file_name %>
                             <%= photo.caption %>
                             <% if current_user %>
                               <% liked = false %>
