@@ -91,7 +91,7 @@ feature 'User views a location profile page' do
   end
 
   scenario "displays user photo", js: true do
-    expect(page).to have_xpath("//img[@src='http://moviesnaps.s3-us-west-2.amazonaws.com/photos/images/000/000/004/original/http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%2520Snaps/Fan%2520photos/Da%2520Vinci%2520Code%2520-%2520The%2520Pyramid%2520Louvre%2520-%2520Fan%2520Photo_zpsgixesmtr.jpg']")
+    expect(page).to have_xpath("//img[@alt='Da%252520vinci%252520code%252520%20%252520the%252520pyramid%252520louvre%252520%20%252520fan%252520photo%20zpsgixesmtr']")
   end
 
   scenario "displays a photo caption" do

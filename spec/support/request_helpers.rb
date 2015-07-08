@@ -17,7 +17,7 @@ def create_visit
   location = Location.create(user_id: user.id,name:"", description:"Da Vinci Code", latitude:48.860000000000000000,longitude:2.341111100000034600,address:"Louvre Pyramid, 75001, Paris, France")
   scene = Scene.create(movie_id: movie.id,location_id: location.id, image_file_name:"http://bit.ly/1JBfXCZ")
   visit = Visit.create(date_visited:"Fri, 03 Jul 1066",scene_id: scene.id,user_id: user.id, description: 'This was filmed here')
-  Photo.create(caption:"Outside Le Louvre!",image_file_name:"http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Da%20Vinci%20Code%20-%20The%20Pyramid%20Louvre%20-%20Fan%20Photo_zpsgixesmtr.jpg",visit_id: visit.id)
+  Photo.create(caption:"Outside Le Louvre!",image_file_name:"Da%2520vinci%2520code%2520 %2520the%2520pyramid%2520louvre%2520 %2520fan%2520photo zpsgixesmtr",visit_id: visit.id)
   visit '/'
 end
 
