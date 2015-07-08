@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
 
 body {
   /*background: #717679;*/
@@ -67,8 +67,8 @@ body {
   background:#333 url(header.png) no-repeat 0px 0px;
   border-bottom: 3px solid #333;
   width: 100%;
-  min-height: 90px;
-  margin-bottom: 1em;
+  min-height: 93px;
+  /*margin-bottom: 1em;*/
 
 }
 
