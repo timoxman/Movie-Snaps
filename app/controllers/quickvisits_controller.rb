@@ -1,0 +1,2 @@
+class QuickvisitsController < ApplicationController
+end
