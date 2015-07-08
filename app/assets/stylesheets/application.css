@@ -68,6 +68,7 @@ body {
   border-bottom: 3px solid #333;
   width: 100%;
   min-height: 93px;
+  max-height: 93px;
   /*margin-bottom: 1em;*/
 
 }
@@ -130,7 +131,7 @@ ul#navigation li {
 
 ul#navigation li:hover {
   background-color:#506b80;
-  height: 89px;
+  height: 90px;
   transition: all .3s ease-in-out;
 }
 
@@ -320,7 +321,7 @@ address {
   border: 1px solid #fff;
   padding: .5em 2.5em;
   line-height: 1em;
-  width: 75%;
+  width: 55%;
   transition: background-color .5s ease;
   margin-left: 20px;
   padding-bottom: .2em;
