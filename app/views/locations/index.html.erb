@@ -1,3 +1,4 @@
+
 <section id="locationPage">
 
   <h1>All Locations,<span class="colorb"> Enter yours below</span></h1>
@@ -16,33 +17,20 @@
 
       <header id="destination">
         <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
-        <button id="submitDestination">Visit</button>
+        <button id="submitDestination">Go!</button>
         <button id="add-marker">Place Marker</button>
         <br><br>
         <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>
-        <button id="confirm-marker">Confirm Location</button>
+        <button id="confirm-marker">Submit Visit</button>
       </header>
 
       <div id='locations'></div>
   </section><!-- left column -->
 
 
-<aside id="sideright">
-    <% if @locations.any? %>
-      <h2>Current Locations</h2>
-      <div id="loclist">
-          <ul>
-            <% @locations.each do |location| %>
-
-                <li><%= link_to location.address, location_scenes_path(location) %></li>
-
-              <% end %>
-
-          </ul>
-      </div>
-    <% else %>
-      <h1>No locations yet</h1>
-    <% end %>
-</aside> <!-- sideright  -->    
 
 </section>
+
+<h1>Search for locations that have already been visited</h1>
+<input id="enterDBLocation" placeholder="Enter a location" type="text" size="40" onkeydown="acquireDBLocations()"/>
+<div><button id="selectDBLocation">Select Location</button><span class id="noResultsMsg">Location not yet in database</span></div>
