@@ -6,8 +6,8 @@ index.html.erb
 </form>
 {{sausage.name}}
 
-
 <div ng-controller="quickVisitCtrl">
+
   <%= simple_form_for @location do |f| %>
     <%= f.input :name, label: 'The name of your location', ng: { model: "location.name"} %>
     <%= f.input :description, placeholder: 'fill description of location here' %>

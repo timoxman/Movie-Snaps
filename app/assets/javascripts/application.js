@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require jquery-ui
 //= require angular
+//= require angular-resource
