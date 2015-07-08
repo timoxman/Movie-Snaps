@@ -38,9 +38,32 @@ class DashboardsController < ApplicationController
         @user_table_data.push(new_item)
       end
     end
+
+    regex = %r!, ([a-zA-Z ]+)$!
+    @locations = Location.all
+    @location_table_data =[]
+    @locations.each do | location |
+      country = location.address[(location.address =~ regex )+2..-1]
+      country = 'United Kingdom' if country == 'UK'
+      location_found = false
+      @location_table_data.each_with_index do |item, i|
+        if item[0] == country
+          @location_table_data[i][1] +=1
+          location_found = true
+        end
+      end
+      if !location_found
+        new_item =[]
+        new_item[0] = country
+        new_item[1] = 1
+        @location_table_data.push(new_item)
+      end
+    end
+     p @location_table_data
+    #@location_table_data = [["United Kingdom",44],["USA",23],["Brazil",22]]
   end
 
-  @location_table_data = [['Chad',400],['France',600]]
+
 
 
 end
