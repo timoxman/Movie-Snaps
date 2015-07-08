@@ -58,8 +58,9 @@ gem 'jquery-ui-rails'
 #Allows you to produce charts and graphs on your apps.
 gem "chartkick"
 gem 'aws-sdk', '<2.0'
-
-
+#add angualr for the quick view page
+gem 'angularjs-rails'
+gem 'simple_form_angular'
 
 group :test do
   gem 'rspec-rails'

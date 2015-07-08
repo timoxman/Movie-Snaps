@@ -59,7 +59,6 @@ class DashboardsController < ApplicationController
         @location_table_data.push(new_item)
       end
     end
-     p @location_table_data
     #@location_table_data = [["United Kingdom",44],["USA",23],["Brazil",22]]
   end
 

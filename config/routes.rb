@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # end
 
 get 'dashboards' => 'dashboards#index'
+get 'quickvisits' => 'quickvisits#index'
 resources :users
 
 resources :locations do

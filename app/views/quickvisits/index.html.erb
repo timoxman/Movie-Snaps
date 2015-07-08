@@ -1,10 +1,16 @@
-This form is not used
+index.html.erb
 
+
+<div ng-controller="quickVisitCtrl">
 <%= simple_form_for @location do |f| %>
-  <%= f.input :name, label: 'The name of your location' %>
+  <%= f.input :name, label: 'The name of your location', ng: { model: "location.name"} %>
   <%= f.input :description, placeholder: 'fill description of location here' %>
   <%= f.input :latitude %>
   <%= f.input :longitude %>
   <%= f.input :address, hint: 'this will be auto populated from the map'%>
   <%= f.button :submit %>
 <% end %>
+
+{{location.name}}
+
+</div>
