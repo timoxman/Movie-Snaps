@@ -17,8 +17,4 @@ feature 'User clicks on a previously added location' do
     expect(page).to have_content 'Tell us something about your visit'
   end
 
-  scenario 'and can add a new scene' do
-    visit 'scenes/new'
-  end
-
 end
