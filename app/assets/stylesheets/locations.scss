@@ -135,7 +135,37 @@ h1 {
     font-size: 14px;
     color: #506b91;
     background-color: #f9f9f9;
+
   }//destination
+  #enterMovie {
+    height: 30px;
+    padding: 5px;
+    /* box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1); */
+    /* border: 1px solid #edeef0; */
+    border-bottom-color: #C2C6CB;
+    border-right-color: #AEB2B7;
+    margin-right: 15px;
+    font-size: 14px;
+    color: #506b91;
+    background-color: #f9f9f9;
+  }//#enterMovie
+  #confirm-marker {
+    width: 100px;
+    color: #333;
+    vertical-align: middle;
+    height: 36px;
+    font-size: 13px;
+    text-align: center;
+    padding: 0.5em;
+    cursor: pointer;
+    border: 1px solid #777c82;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+    /* font-weight: bold; */
+    /* padding: 10px 20px; */
+    text-align: center;
+    border-radius: 3px;
+
+  }//confirm-marker
   button#submitDestination:hover {
     border: 1px solid #777c82;
     background: -webkit-gradient(linear, left top, left bottom, from(#FDFDFD), to(#AEBDC9));
