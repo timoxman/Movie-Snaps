@@ -48,7 +48,7 @@ feature 'User views another user\'s profile page' do
     expect(page.all('ul.photos li.photo').size).to eq(1)
   end
 
-  xscenario "displays correct number of photos" do
+  xscenario "displays correct number of comments" do
     expect(page.all('ul.comments li.comment').size).to eq(1)
   end
 
@@ -69,6 +69,12 @@ feature 'User views the user index page' do
   scenario 'enters a user not in database and not have it autocompleted', js: true do
     fill_autocomplete('enterUser', with: 'Roger Sprocket')
     expect(page).not_to have_selector('ul.ui-autocomplete li.ui-menu-item')
+  end
+
+  scenario 'enters a user not in database and sees error message', js: true do
+    fill_autocomplete('enterUser', with: 'Roger Sprocket')
+    click_button 'Select User'
+    expect(page).to have_content('User not in database')
   end
 
 end

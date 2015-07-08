@@ -1,13 +1,25 @@
-<h3>Was it one of these films?</h3>
-<br>
-<% @scenes.each do |scene| %>
-  <li><%= link_to scene.movie.name, new_scene_visit_path(scene) %></li>
-  <br>
-<% end %>
-If not add your movie here
+<section id="sceneProfile">
 
-<form action='/movies' method='post'>
-  <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" name='name' onkeydown="acquireMovies()"/>
-  <input type='hidden' name='location' value='<%= @location.id %>'>
-  <input id='btnSubmit' type='submit' value='Add movie'>
-</form>
+  <h2><%= @location.address %></h2>
+  <div id="longitude"><%= @location.longitude %></div>
+  <div id="latitude"><%= @location.latitude %></div>
+
+  <div class="mapBox">
+    <div id="mapDestination">
+  </div>
+
+  <h3>Was it one of these films?</h3>
+  <br>
+  <% @scenes.each do |scene| %>
+    <li><%= link_to scene.movie.name, new_scene_visit_path(scene) %></li>
+    <br>
+  <% end %>
+
+  If not add your movie here:
+  <form action='/movies' method='post'>
+    <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" name='name' onkeydown="acquireMovies()"/>
+    <input type='hidden' name='location' value='<%= @location.id %>'>
+    <input id='btnSubmit' type='submit' value='Add movie'>
+  </form>
+
+</section>
