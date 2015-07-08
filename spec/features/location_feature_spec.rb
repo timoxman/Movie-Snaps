@@ -62,11 +62,6 @@ feature 'User views the location index page' do
     expect(page).to have_selector('ul.ui-autocomplete li.ui-menu-item')
   end
 
-  scenario 'enters a location not in database and not have it autocompleted', js: true do
-    fill_autocomplete('enterDBLocation', with: 'Wollaton Hall & Deer Park, Nottingham NG8 2AE')
-    expect(page).not_to have_selector('ul.ui-autocomplete li.ui-menu-item')
-  end
-
   scenario 'enters a location not in database and sees error message', js: true do
     fill_autocomplete('enterDBLocation', with: 'Wollaton Hall & Deer Park, Nottingham NG8 2AE')
     click_button 'Select Location'

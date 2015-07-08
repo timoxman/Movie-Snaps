@@ -2,6 +2,11 @@
 
 [![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.png)](https://coveralls.io/r/timoxman/Movie-Snaps)
 
+Waffle Board
+[https://waffle.io/timoxman/Movie-Snaps]
+
+Features To Aim For
+[https://github.com/timoxman/Movie-Snaps/blob/master/features.md]
 
 Movie-Snaps
 ===================

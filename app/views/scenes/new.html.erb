@@ -1,7 +1,6 @@
-Add your movie for <div id='location'><%= @location.address %></div>
+Add your scene for <div id='location'><%= @scene %></div>
 
-<form action='/movies' method='post'>
-  <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" name='name' onkeydown="acquireMovies()"/>
-  <input type='hidden' name='location' value='<%= @location.id %>'>
-  <input id='btnSubmit' type='submit' value='Add movie'>
-</form>
+<%= simple_form_for @scene, html: {multipart: true} do |f| %>
+  <%= f.input :image_file_name, label: 'Upload image' %>
+  <%= f.button :submit %>
+<% end %>

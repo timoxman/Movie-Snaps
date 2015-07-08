@@ -25,6 +25,7 @@ feature 'A user wants to visit a film location' do
   end
 
 
+
   context 'creating visits', js: true do
     let!(:louvre){Location.create(address:'Louvre Pyramid, 75001, Paris, France')}
     Visit.create(description:'On a nice sunny day I visited the Louvre')
