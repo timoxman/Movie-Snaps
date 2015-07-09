@@ -5,6 +5,8 @@ feature 'User views another user\'s profile page' do
   before(:each) do
     create_visit
     user = User.last
+    photo = Photo.last
+    Comment.create(remark: 'Nice photo!', photo_id: photo.id, user_id: user.id)
     visit "/users/#{user.id}"
   end
 
@@ -48,7 +50,7 @@ feature 'User views another user\'s profile page' do
     expect(page.all('ul.photos li.photo').size).to eq(1)
   end
 
-  xscenario "displays correct number of comments" do
+  scenario "displays correct number of comments", js: true do
     expect(page.all('ul.comments li.comment').size).to eq(1)
   end
 

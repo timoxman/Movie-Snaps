@@ -6,9 +6,6 @@ class VisitsController < ApplicationController
   end
 
   def new
-    if params[:scene_id] == 0
-      raise "You must first select a movie and location"
-    end
     @scene = Scene.find(params[:scene_id])
     @location = Location.find(@scene.location_id)
     @current_visits = Visit.where("scene_id = ?", params[:scene_id]).all
