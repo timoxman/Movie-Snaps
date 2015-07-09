@@ -1,0 +1,28 @@
+/* line 1, /Users/darylwatson/Desktop/projects/Movie-Snaps/app/assets/stylesheets/movies.scss */
+#movieProfile {
+  width: 980px;
+  margin: 0 auto;
+  padding: 1em;
+}
+/* line 5, /Users/darylwatson/Desktop/projects/Movie-Snaps/app/assets/stylesheets/movies.scss */
+#movieProfile img {
+  width: 10%;
+}
+
+/* line 10, /Users/darylwatson/Desktop/projects/Movie-Snaps/app/assets/stylesheets/movies.scss */
+.mapDestination {
+  width: 140px;
+  height: 140px;
+  border: 2px solid black;
+}
+
+/* line 16, /Users/darylwatson/Desktop/projects/Movie-Snaps/app/assets/stylesheets/movies.scss */
+#scenes ul li ul li {
+  margin-bottom: 0px;
+  margin-left: 200px;
+}
+
+/* line 21, /Users/darylwatson/Desktop/projects/Movie-Snaps/app/assets/stylesheets/movies.scss */
+#scenes ul li {
+  margin-bottom: 50px;
+}
