@@ -3,28 +3,28 @@
 <div class="form-group">
   <div class="row">
     <div class="col-md-6"><br>
-      <h3><%= @location.address %></h3>
+      <center><h3><%= @location.address %></h3>
       <br>
       <%= form_for [@scene, @visit] do |f| %>
         <%= f.fields_for :visit do |v| %>
           <%= v.label 'Tell us something about your visit:' %>
           <%= v.text_field :description %>
           <br><br>
-          <%= v.label 'Date visited' %>
-          <%= v.date_select :date_visited %>
+          <%= v.label 'Date visited:' %>
+          <%= v.date_select :date_visited, order: [:day, :month, :year] %>
           <br>
         <% end %>
         <br>
         <%= f.fields_for :photo, html: {multipart: true} do |builder| %>
-          <%= builder.label 'Add your caption' %>
+          <%= builder.label 'Add your caption...' %>
           <%= builder.text_field :caption %>
           <br><br>
-          <%= builder.label 'Upload image' %>
+          <%= builder.label 'Upload your image:' %>
           <%= builder.file_field :image %>
         <% end %>
         <br><br>
         <%= f.button :Submit %>
-      <% end %>
+      <% end %></center>
     </div>
     <div class="col-md-6">
       <div id='preview'></div>
