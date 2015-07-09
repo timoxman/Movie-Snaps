@@ -59,7 +59,9 @@ gem 'jquery-ui-rails'
 gem "chartkick"
 gem 'aws-sdk', '<2.0'
 
-
+group :production do
+  gem 'rails_12factor'
+end
 
 group :test do
   gem 'rspec-rails'

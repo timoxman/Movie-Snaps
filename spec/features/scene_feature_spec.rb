@@ -4,7 +4,7 @@ feature 'User clicks on a previously added location' do
 
   before(:each) do
     create_visit
-    visit locations_path
+    visit new_scene_path
     fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
     click_button 'Select Location'
   end

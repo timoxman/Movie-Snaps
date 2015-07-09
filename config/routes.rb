@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   # get ''
   root 'welcome#index'
+  get 'welcome/api' => 'welcome#api'
   get 'locations/api' => 'locations#api'
   get 'movies/api' => 'movies#api'
   get 'users/api' => 'users#api'
+  get 'scenes/api' => 'scenes#api'
 
   # resources :movies
   # resources :users

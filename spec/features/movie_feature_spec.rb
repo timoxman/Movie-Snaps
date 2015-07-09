@@ -20,7 +20,7 @@ feature 'A user wants to add a movie' do
   end
 
   context 'when entering a new location' do
-    scenario 'can enter a new movie and be saved', js: true do
+    xscenario 'can enter a new movie and be saved', js: true do
       fill_in 'enterDestination', with: 'Makers Academy, London'
       click_button 'Go!'
       click_button 'Place Marker'
@@ -28,7 +28,7 @@ feature 'A user wants to add a movie' do
       expect { click_button 'Submit Visit' }.to change { Movie.count }.by 1
     end
 
-    scenario 'can enter a duplicate movie, and it will not be saved' do
+    xscenario 'can enter a duplicate movie, and it will not be saved', js: true do
       fill_in 'enterDestination', with: 'Makers Academy, London'
       click_button 'Go!'
       click_button 'Place Marker'
@@ -74,8 +74,8 @@ feature 'User views an individual movie page' do
     expect(page).to have_selector("img[src*='http://bit.ly/1JBfXCZ']")
   end
 
-  scenario "has fan photo" do
-    expect(page).to have_selector("img[src*='http://i284.photobucket.com/albums/ll37/ashleigh_louise1/Movie%20Snaps/Fan%20photos/Da%20Vinci%20Code%20-%20The%20Pyramid%20Louvre%20-%20Fan%20Photo_zpsgixesmtr.jpg']")
+  scenario "has fan photo", js: true do
+    expect(page).to have_selector("img[src*='http://moviesnaps.s3-us-west-2.amazonaws.com/photos/images/000/000/005/original/Da%252520vinci%252520code%252520%20%252520the%252520pyramid%252520louvre%252520%20%252520fan%252520photo%20zpsgixesmtr']")
   end
 
   scenario "has a caption" do

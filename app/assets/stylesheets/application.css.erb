@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
- 
+
 
 body {
   /*background: #717679;*/
-  background: url(page-bg.jpg) repeat 6.1% top;
+  background: url(<%= asset_path('page-bg.jpg') %>) repeat 6.1% top;
   margin: 0;
   padding:0;
   font-family: 'Lucida Grande', Arial, Helvetica, sans-serif;
@@ -40,7 +40,7 @@ body {
  #wrapper {
    margin: 0;
    padding: 0;
-   background: url(wrapper-bg.png) center repeat-y;
+   background: url(<%= asset_path('wrapper-bg.png') %>) center repeat-y;
    position: relative;
    width: 100%;
  }
@@ -54,27 +54,40 @@ body {
  }
 
  #container {
-   background: #d6d9dd url(container-bg.png) 0 90px no-repeat;
+   background: #d6d9dd url(<%= asset_path('container-bg.png') %>) 0 90px no-repeat;
    margin: 0 auto;
    width: 1012px;
    position: relative;
 
  }
 
+ #logo {
+   background: url(filmlogo1.png) no-repeat;
+   position: absolute;
+   left: 0;
+   width: 250px;
+   top:0;
+   width: 250px;
+   height: 96px;
+
+
+ }
+
 #topnav {
   margin: 0;
   padding: 0;
-  background:#333 url(header.png) no-repeat 0px 0px;
+  background:#333 url(<%= asset_path('header.png') %>) no-repeat 0px 0px;
   border-bottom: 3px solid #333;
   width: 100%;
-  min-height: 90px;
-  margin-bottom: 1em;
+  min-height: 93px;
+  max-height: 93px;
+  /*margin-bottom: 1em;*/
 
 }
 
 #signInOut {
   position: absolute;
-  right: 7.5%;
+  right: 6%;
   top: 17px;
   line-height: 22px;
   text-align: center;
@@ -111,7 +124,7 @@ nav {
 ul#navigation {
   text-transform: uppercase;
 
-  width: 70%;
+  width: 79%;
   margin-top: 1px;
 
   margin-bottom: 0;
@@ -130,7 +143,7 @@ ul#navigation li {
 
 ul#navigation li:hover {
   background-color:#506b80;
-  height: 89px;
+  height: 90px;
   transition: all .3s ease-in-out;
 }
 
@@ -205,7 +218,7 @@ ul#navigation li a:hover {
 .column {
   float:left;
   border-right: 1px solid #fff;
-  width: 24.9%;
+  width: 24.2%;
   height: 150px;
 }
 
@@ -246,14 +259,14 @@ p.con {
 
 
 .stayconnected li a.footfacebook {
-  background: url(socialsprite.png) no-repeat 0 0;
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat 0 0;
   left:40px;
   top: 65px;
   transition: ease-in-out;
 }
 
 .stayconnected li a.footfacebook:hover {
-  background: url(socialsprite.png) no-repeat 0 -40px;
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat 0 -40px;
   left:40px;
   top: 65px;
   transition: ease-in-out;
@@ -268,14 +281,14 @@ p.con {
 }
 
 .stayconnected li a.foottwitter {
-  background: url(socialsprite.png) no-repeat -40px 0;
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat -40px 0;
   left:95px;
   top: 65px;
   transition: ease-in-out;
 }
 
 .stayconnected li a.foottwitter:hover {
-  background: url(socialsprite.png) no-repeat -40px -40px;
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat -40px -40px;
   left:95px;
   top: 65px;
   transition: ease-in-out;
@@ -289,14 +302,14 @@ p.con {
 
 
 .stayconnected li a.footyoutube {
-  background: url(socialsprite.png) no-repeat -80px 0;
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat -80px 0;
   left:150px;
   top: 65px;
   transition: ease-in-out;
 }
 
 .stayconnected li a.footyoutube:hover {
-  background: url(socialsprite.png) no-repeat -80px -40px;
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat -80px -40px;
   left:150px;
   top: 65px;
   transition: ease-in-out;
@@ -320,9 +333,10 @@ address {
   border: 1px solid #fff;
   padding: .5em 2.5em;
   line-height: 1em;
-  width: 50%;
+  width: 55%;
   transition: background-color .5s ease;
   margin-left: 20px;
+  padding-bottom: .2em;
 }
 
 /*.lock {

@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+  if ($('#locations').length) {
+    $('#selectDBLocation').click(function(){
+      selectDBLocation();
+    });
+  }
+
   if ($('#locationShow').length) {
     $(".locations.show").ready(function() {
       $(this).find('#longitude').hide();
@@ -36,7 +42,48 @@ $(document).ready(function() {
       });
     });
   }
+
 });
+
+function acquireDBLocations() {
+  $("#noResultsMsg").fadeOut(500);
+  var url = '/locations/api'
+  var locationDBValue = document.getElementById("enterDBLocation").value
+  $.getJSON(url, function (data) {
+    var DBlocationArray = data;
+    var availableDBLocations = [];
+
+    if(DBlocationArray) {
+      DBlocationArray.forEach(function(DBlocation) {
+        availableDBLocations.push(DBlocation['address']);
+      });
+
+      $("#enterDBLocation").autocomplete({
+        source: availableDBLocations
+      });
+    }
+  })
+}
+
+function selectDBLocation() {
+  var url = '/locations/api'
+  var DBlocationValue = document.getElementById('enterDBLocation').value
+  $.getJSON(url, function (data) {
+    var DBlocationArray = data;
+    var matches = []
+    if(DBlocationArray) {
+      DBlocationArray.forEach(function(DBlocation) {
+        if(DBlocation['address'] === DBlocationValue) {
+          window.open('/locations/' + DBlocation['id'],'_self')
+          matches.push('1');
+        };
+      });
+    }
+    if(matches.length === 0) {
+      $("#noResultsMsg").fadeIn(500);
+    }
+  });
+}
 
 function loadMapProfile(latitude, longitude) {
   var myOptions2 = {

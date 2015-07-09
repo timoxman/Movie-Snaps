@@ -1,5 +1,5 @@
 <% content_for :javascript_includes do %>
-  <%= javascript_include_tag "locations_show.js" %>
+  <%= javascript_include_tag "locations.js" %>
 <% end %>
 <div id='locationShow'></div>
 <section id="locationProfile">
@@ -41,7 +41,7 @@
                       <ul class="photos">
                         <% visit.photos.each do |photo| %>
                           <li class="photo">
-                            <%= image_tag photo.image_file_name %>
+                            <%= image_tag photo.image.url %>
                             <%= photo.caption %>
                             <% if current_user %>
                               <% liked = false %>

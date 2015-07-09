@@ -47,7 +47,7 @@ feature 'On the movie page' do
       visit "/movies/#{m.id}"
     end
 
-    scenario 'can comment on other users photo', js: true do
+    scenario 'can comment on other user\'s photo', js: true do
       click_button 'Comment'
       fill_in 'comment_remark', with: 'Nice photo!'
       expect { click_button 'Submit' }.to change { Comment.count }.by 1
@@ -86,7 +86,7 @@ feature 'On the location page' do
       visit "/locations/#{l.id}"
     end
 
-    scenario 'can comment on other users photo', js: true do
+    scenario 'can comment on other user\'s photo', js: true do
       click_button 'Comment'
       fill_in 'comment_remark', with: 'Nice photo!'
       expect { click_button 'Submit' }.to change { Comment.count }.by 1

@@ -46,7 +46,7 @@ img {
 #welcomeFeatured {
 
   padding-top: 20px;
-  /*background: url(sliderbg.png) top center no-repeat;*/
+  /*background: url(<%= asset_path('sliderbg.png') %>) top center no-repeat;*/
   padding: 0 20px 0 20px;
   margin: 0 auto;
   width: 960px;
@@ -62,8 +62,10 @@ img {
         #slides {
             width: 960px;
             height: 459px;
+            max-width:100%;
+            max-height:100%;
             position: relative;
-            background-image:url(slider.png);
+            background-image:url(<%= asset_path('slider.png') %>);
             background-position: 0% 0%;
             margin: 0;
             padding: 0;
@@ -98,7 +100,7 @@ img {
                 }
 
                 .prev {
-                  background: url(arrows.png) -10px -15px no-repeat;
+                  background: url(<%= asset_path('arrows.png') %>) -10px -15px no-repeat;
                 }
 
                 #next-slider {
@@ -113,7 +115,7 @@ img {
                 }
 
                 .next {
-                  background: url(arrows.png) -102px -15px no-repeat;
+                  background: url(<%= asset_path('arrows.png') %>) -102px -15px no-repeat;
                 }
 
             }// slider-arrows
@@ -133,7 +135,7 @@ aside#welcomeAside {
 		padding-left: -5px;
 		text-indent: 5px;
 		margin-top: 20px;
-		border-bottom: 1px dotted #777c82;
+		/*border-bottom: 1px dotted #777c82;*/
 		padding-bottom: 20px;
 		h2{
       font-size: 24px;
@@ -159,6 +161,14 @@ aside#welcomeAside {
 
 }//aside
 .welcomeMainContent	{
+	h2 {
+		border-bottom: 1px dotted #777c82;
+		border-bottom: 1px dotted #777c82;
+	  margin-bottom: 30px;
+	  width: 96%;
+	  padding-bottom: 10px;
+	}
+
 	width: 960px;
 
 	margin-left: 30px;
@@ -208,7 +218,7 @@ aside#welcomeAside {
 			}
 
 			div.box {
-				width: 198px;
+				width: 230px;
 				display: inline;
 				float: left;
 				position: relative;
@@ -330,3 +340,113 @@ aside.viewall {
 
 	}//button
 }//aside.viewall
+
+#myCarousel.carousel.slide {
+				height: 500px;
+
+
+				div.carousel-inner {
+						position: relative;
+						width: 100%;
+						overflow: hidden;
+						div.item {
+								height: 500px;
+								background-color: #777;
+								.container {
+									width: 100%;
+									.carousel-caption {
+											right: 20%;
+											left: 20%;
+											padding-bottom: 30px;
+											position: absolute;
+											bottom:20px;
+											padding-top: 20px;
+											color:#fff;
+											text-align: center;
+											text-shadow: 0 1px 2px rgba(0,0,0,.6);
+											width: 100%;
+											background: rgba(0,0,0,.3);
+											position: absolute;
+											left: 0;
+											bottom: 0;
+											height: 135px;
+											transition: all .5s ease-in-out;
+											h1 {
+												font-size: 36px;
+												margin-top: 20px;
+												margin-bottom: 10px;
+											}
+									}//carousel-caption
+								}//container
+								img {
+									position: absolute;
+									top:0;
+									left:0;
+									min-width: 100%;
+									height: 500px;
+									line-height: 1;
+								}//img
+
+						}//div.item
+				}//div.carousel-inner
+				a.left .carousel-control {
+					background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+					background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+					background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)));
+					background-image: linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+					background-repeat: repeat-x;
+					position: absolute;
+				  top: 0;
+				  bottom: 0;
+				  left: 0;
+				  width: 15%;
+				  font-size: 20px;
+				  color: #fff;
+				  text-align: center;
+				  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+				  filter: alpha(opacity=50);
+				  opacity: .5;
+					span.glyphicon.glyphicon-chevron-left {
+							margin-left: -15px;
+							width:30px;
+							height: 30px;
+							margin-top: -15px;
+							font-size:30px;
+							left:50%;
+					}//span.glyphicon.glyphicon-chevron-left
+				}//a.left .carousel-control
+				a.right.carousel-control {
+					// right: 0;
+				  // left: auto;
+				  // background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+				  // background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+				  // background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));
+				  // background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+				  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+				  // background-repeat: repeat-x;
+					// position: absolute;
+				  // top: 0;
+				  // bottom: 0;
+					//
+				  // width: 15%;
+				  // font-size: 20px;
+				  // color: #fff;
+				  // text-align: center;
+				  // text-shadow: 0 1px 2px rgba(0,0,0,.6);
+				  // cursor: pointer;
+				  // opacity: .5;
+					span.glyphicon.glyphicon-chevron-right {
+						width: 30px;
+						height: 30px;
+						margin-top: -15px;
+						font-size: 30px;
+						right: 50%;
+						position: absolute;
+					  top: 50%;
+					  z-index: 5;
+					  display: inline-block;
+					}//span.glyphicon-chevron-right
+				}//a.right.carousel-control
+
+}//#myCarousel.carousel

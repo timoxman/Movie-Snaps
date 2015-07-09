@@ -1,7 +1,25 @@
-Add your movie for <div id='location'><%= @location.address %></div>
+<h1>Add your scene</h1>
 
-<form action='/movies' method='post'>
-  <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" name='name' onkeydown="acquireMovies()"/>
-  <input type='hidden' name='location' value='<%= @location.id %>'>
-  <input id='btnSubmit' type='submit' value='Add movie'>
-</form>
+<div id="sceneNew"></div>
+
+<header id="destination">
+  <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
+  <button id="submitDestination">Go!</button>
+  <button id="add-marker">Place Marker</button>
+  <br><br>
+  <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>
+  <br><br>
+  <button id="confirm-marker">Submit Visit</button>
+</header>
+
+<div class="mapBox">
+  <div id="mapDestination">
+  </div>
+</div>
+<br>
+
+<h1>Search for locations that have already been visited</h1>
+<header id="destination">
+<input id="enterDBLocation" placeholder="Enter a location" type="text" size="40" onkeydown="acquireDBLocations()"/>
+<button id="selectDBLocation">Select Location</button><span class id="noResultsMsg">Location not yet in database</span>
+</header>
