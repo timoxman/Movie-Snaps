@@ -48,7 +48,8 @@ feature 'User views another user\'s profile page' do
     expect(page.all('ul.photos li.photo').size).to eq(1)
   end
 
-  xscenario "displays correct number of comments" do
+  scenario "displays correct number of comments", js: true do
+    byebug
     expect(page.all('ul.comments li.comment').size).to eq(1)
   end
 
