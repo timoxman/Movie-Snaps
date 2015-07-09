@@ -3,6 +3,8 @@
 <div class="form-group">
   <div class="row">
     <div class="col-md-6"><br>
+      <div id="movie_name"><h1><%= @movie %></h1></div>
+      <div id='movie_img'></div>
       <center><h3><%= @location.address %></h3>
       <br>
       <%= form_for [@scene, @visit] do |f| %>
