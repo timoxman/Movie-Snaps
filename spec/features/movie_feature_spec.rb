@@ -32,7 +32,7 @@ feature 'A user wants to add a movie' do
       fill_in 'enterDestination', with: 'Makers Academy, London'
       click_button 'Go!'
       click_button 'Place Marker'
-      fill_in('enterMovie', with: 'The Da Vinci Code')
+      fill_in('enterMovie', with: 'The Da Vinci Code (2006)')
       expect { click_button 'Submit Visit' }.to change { Movie.count }.by 0
     end
   end
@@ -41,7 +41,7 @@ feature 'A user wants to add a movie' do
     scenario 'can add a new movie', js: true do
       fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
       click_button 'Select Location'
-      fill_autocomplete('enterMovie', with: 'Shrek')
+      fill_autocomplete('enterMovie', with: 'Drive')
       expect { click_button 'Add movie' }.to change { Movie.count }.by 1
     end
   end
@@ -56,7 +56,7 @@ feature 'User views an individual movie page' do
     visit "/movies/#{movie.id}"
   end
 
-  scenario "can click on movie and see the movie page" do
+  scenario "can click on movie and see the movie page", js: true do
     click_link 'Louvre Pyramid, 75001, Paris, France'
     click_link 'The Da Vinci Code (2006)'
     expect(page).to have_content("The Da Vinci Code (2006)")
