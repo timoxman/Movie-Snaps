@@ -1,47 +1,113 @@
 #userProfile {
-  margin: 2em 3em;
+  float: center;
+  text-align: center;
+  margin: 0;
+  width: 95%;
+
   h1 {
     padding-bottom: 1em;
     border-bottom: 1px dotted #777c82;
-    font-size: 26px;
+    font-size: 40px;
     font-weight: normal;
     color: #1b1b1b;
   }
+  h2 {
+    font-size: 30px;
+  }
   img {
-    width: 10%;
     outline: none;
     border: none;
   }
-  #visits {
-    ul.visits {
-      list-style: none;
-      margin-top: 2em;
-      li.pervisit {
-        margin-bottom: 3em;
-        div.userleft {
-          float:left;
-          width: 50%;
-        }//div.userleft
-        div.userright {
-          float:left;
-          width: 20%;
-        }//div.userright
-        div.movieposter {
-          clear:both;
-          padding-top: 25px;
-        }//div.movieposter
-      }//li.pervisit
-    }//ul.visits
-    div.movieInfo {
-      overflow: auto;
-    }//div.movieInfo
-  }//div#visits
+  #user_img {
+    width: 200px;
+    border-radius: 100%
+  }
+  #user_img_commenter {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%
+  }
+  #mapBox {
+    width: 200px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .scene_img {
+    width: 200px;
+    position: relative;
+    bottom: 15px;
+  }
+  li.visit {
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 100px;
+    border-style: solid;
+    border-width: 5px;
+  }
+  .photo-like-comment {
+    height: 250px;
+    width: 85%;
+    margin: 0;
+    float: right;
+    margin-right: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #E0E0F8;
+    border-width: 2px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    background-color: white;
+  }
+  .photo {
+    float: right;
+    width: 75%;
+    margin-top: 25px;
+    background-color: white;
+  }
+  .comments {
+    height: 250px;
+    width: 80%;
+    margin: 0;
+    float: right;
+    margin-top: 40px;
+    margin-right: 20px;
+    text-align: left;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #E0E0F8;
+    border-width: 2px;
+  }
+  .maps-and-pictures {
+    float: left;
+    width: 25%;
+    margin-top: 40px;
+  }
+  #moviePosterBoxStyle {
+  }
+  .likes_count {
+    padding-top: 200px;
+  }
+  .photos {
+  }
+  .user_scene_photo {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .movie_title {
+    font-size: 30px;
+  }
+  .visits {
+    margin: 0 auto;
+  }
 
 }//userProfile
 
 
 .mapDestination {
-    width: 140px;
-    height: 140px;
+    width: 200px;
+    height: 200px;
     border: 2px solid black;
 }
