@@ -1,18 +1,13 @@
 $(document).ready(function() {
 
-  $("#noResultsMsg").hide();
+  var movieTitleYear = $('#title').text();
+  var movieTitle = movieExtractTitle(movieTitleYear);
+  var movieYear = movieExtractYear(movieTitleYear);
+  getPoster(movieTitle, movieYear);
 
-  $('#visits').children('ul').children('li').each(function(index) {
-    $(this).find('.movieTitleYear').hide();
+  $('#scenes').children('ul').children('li').each(function(index) {
     $(this).find('.longitude').hide();
     $(this).find('.latitude').hide();
-
-    var movieTitleYear = $(this).find('.movieTitleYear').text();
-    console.log(movieTitleYear)
-    var movieTitle = movieExtractTitle(movieTitleYear);
-    var movieYear = movieExtractYear(movieTitleYear);
-    getPoster(movieTitle, movieYear, index);
-
     var longitude = $(this).find('.longitude').text();
     var latitude = $(this).find('.latitude').text();
     var mapDivId = $(this).find('.mapDestination').attr('id');
@@ -28,10 +23,6 @@ $(document).ready(function() {
     $(this).next('.comment-form').slideToggle(1000);
   })
 
-  $('#select-user').click(function(){
-    selectUser();
-  });
-
   $('.likes-link').on('click', function(event){
     event.preventDefault();
     $(this).fadeOut(1000);
@@ -42,6 +33,12 @@ $(document).ready(function() {
     });
   });
 
+  $("#noResultsMsg").hide();
+
+  $('#select-movie').click(function(){
+    selectMovie();
+  });
+
 });
 
 function movieExtractTitle(movieTitleYear){
@@ -49,26 +46,24 @@ function movieExtractTitle(movieTitleYear){
 }
 
 function movieExtractYear(movieTitleYear){
-  return movieTitleYear.replace(/([0-9a-zA-Z ()]*)([0-9]{4})\)$/, '$2');
+  return movieTitleYear.replace(/([0-9a-zA-Z ()\D]*)([0-9]{4})\)$/, '$2');
 }
 
-function getPoster(movieTitle, movieYear, index) {
+function getPoster(movieTitle, movieYear) {
   var url = 'https://www.omdbapi.com/?t=' + movieTitle + '&y=' + movieYear;
   var poster;
   $.getJSON(url, function(data) {
-    poster = '<img src=' + data['Poster'] + '/>';
+    poster = '<img src="' + data['Poster'] + '" title="' + movieTitle + movieYear + '"/>';
   })
   .done(function() {
-    var listItem = $('#visits').children('ul').children('li').children('div').children('span.movie_img')[index];
-    console.log(listItem)
-    $(listItem).html(poster);
+    $('#movie_img').html(poster);
   })
 }
 
 function loadMap(latitude, longitude, mapDivId) {
   var myOptions2 = {
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
   var latlng = new google.maps.LatLng(latitude, longitude);
@@ -93,36 +88,36 @@ function placeMarker(location) {
   });
 }
 
-function acquireUsers() {
+function acquireMovies() {
   $("#noResultsMsg").fadeOut(500);
-  var url = '/users/api'
-  var userValue = document.getElementById("enterUser").value
+  var url = '/movies/api'
+  var movieValue = document.getElementById("enterMovie").value
   $.getJSON(url, function (data) {
-    var userArray = data;
-    var availableUsers = [];
+    var movieArray = data;
+    var availableMovies = [];
 
-    if(userArray) {
-      userArray.forEach(function(user) {
-        availableUsers.push(user['name']);
+    if(movieArray) {
+      movieArray.forEach(function(movie) {
+        availableMovies.push(movie['name']);
       });
 
-      $("#enterUser").autocomplete({
-        source: availableUsers
+      $("#enterMovie").autocomplete({
+        source: availableMovies
       });
     }
   })
 }
 
-function selectUser() {
-  var url = '/users/api'
-  var userValue = document.getElementById('enterUser').value
+function selectMovie() {
+  var url = '/movies/api'
+  var movieValue = document.getElementById('enterMovie').value
   $.getJSON(url, function (data) {
-    var userArray = data;
+    var movieArray = data;
     var matches = []
-    if(userArray) {
-      userArray.forEach(function(user) {
-        if(user['name'] === userValue) {
-          window.open('/users/' + user['id'],'_self')
+    if(movieArray) {
+      movieArray.forEach(function(movie) {
+        if(movie['name'] === movieValue) {
+          window.open('/movies/' + movie['id'],'_self')
           matches.push('1');
         };
       });
