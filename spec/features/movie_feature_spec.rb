@@ -75,7 +75,7 @@ feature 'User views an individual movie page' do
   end
 
   scenario "has fan photo", js: true do
-    expect(page).to have_selector("img[src*='http://moviesnaps.s3-us-west-2.amazonaws.com/photos/images/000/000/005/original/Da%252520vinci%252520code%252520%20%252520the%252520pyramid%252520louvre%252520%20%252520fan%252520photo%20zpsgixesmtr']")
+    expect(page).to have_css('ul.photos')
   end
 
   scenario "has a caption" do
