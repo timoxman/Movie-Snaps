@@ -1,14 +1,24 @@
 // Place all the styles related to the visits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.col-md-6 {
-  #preview {
-    padding-left:40px;
-    padding-top:7em;
-      img {
-        width:75%;
-        border-radius:50%;
-      }//img
-  }//preview
-}//col6
+#newvisit {
+  .form-group {
+      .row {
+        margin: 0;
+          .col-md-6 {
+            width: 90%;
+            #preview {
+              padding-left:40px;
+              padding-top:7em;
+                img {
+                  width:75%;
+                  border-radius:50%;
+                }//img
+            }//preview
+            #movie_name h1 {
+              margin-left: 30px;
+            }//movie-name
+          }//col6
+      }//row
+  }//form-group
+}//newvisit

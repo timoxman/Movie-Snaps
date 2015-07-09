@@ -27,19 +27,22 @@ div {
 
   #selectDBLocation {
     width: 120px;
-    color: #333;
-    vertical-align: middle;
-    height: 36px;
-    font-size: 13px;
-    text-align: center;
-    padding: 0.5em;
-    cursor: pointer;
-    border: 1px solid #777c82;
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
-    /* font-weight: bold; */
-    /* padding: 10px 20px; */
-    text-align: center;
-    border-radius: 3px;
+  color: #333;
+  vertical-align: middle;
+  height: 36px;
+  font-size: 13px;
+  text-align: center;
+  padding: 0.5em;
+  cursor: pointer;
+  border: 1px solid #777c82;
+  /* background: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#2e6da4)); */
+  /* font-weight: bold; */
+  /* padding: 10px 20px; */
+  text-align: center;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
 
   }
 }//div

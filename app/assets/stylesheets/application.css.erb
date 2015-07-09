@@ -20,9 +20,14 @@ body {
   background: url(<%= asset_path('page-bg.jpg') %>) repeat 6.1% top;
   margin: 0;
   padding:0;
-  font-family: 'Lucida Grande', Arial, Helvetica, sans-serif;
+
   color:#000;
   line-height: 1;
+  font-family: 'Julius Sans One', sans-serif !important;
+}
+
+container {
+  background-color: #E0F2F7;
 }
 
 .clearfix::after {
@@ -54,10 +59,11 @@ body {
  }
 
  #container {
-   background: #d6d9dd url(<%= asset_path('container-bg.png') %>) 0 90px no-repeat;
+   /*background: #d6d9dd url(<%= asset_path('container-bg.png') %>) 0 90px no-repeat;*/
    margin: 0 auto;
    width: 1012px;
    position: relative;
+   background-color: #E0F2F7;
 
  }
 
@@ -76,12 +82,13 @@ body {
 #topnav {
   margin: 0;
   padding: 0;
-  background:#333 url(<%= asset_path('header.png') %>) no-repeat 0px 0px;
-  border-bottom: 3px solid #333;
+  background: #333 url(/assets/header-898443367a776aa48adbd92e55290c9e36dd6bd75e02d024b9546b5a6ee654dc.png) no-repeat 0px 0px;
+  border-bottom: 3px solid #323031;
   width: 100%;
   min-height: 93px;
   max-height: 93px;
-  /*margin-bottom: 1em;*/
+  /* margin-bottom: 1em; */
+  /* background-color: #1C609C; */
 
 }
 
@@ -94,16 +101,18 @@ body {
   padding: 8px;
   border: 1px solid #F8f8f8;
   box-shadow: 0px 0px 1px rgba(255,255,255,.8);
-  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CCD0D6));
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#FFFFFF));
   font-size: 11px;
   /* margin: -3px 0 0 0; */
   font-weight: bold;
-  color: #333;
+  color: #1C609C;
   border-radius: 3px;
   text-decoration: none;
   cursor: pointer;
   transition: all .3s ease-in-out;
-
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
 }
 
 #signInOut:hover {
@@ -155,7 +164,7 @@ ul#navigation li a {
   display: block;
   padding: 15px 30px 15px 30px;
   text-decoration: none;
-  color:#bbb;
+  color: #FCFCFC;
   font-size: 14px;
   font-weight: bold;
 
@@ -169,7 +178,7 @@ ul#navigation li a:hover {
 .subtitle {
   font-weight: normal;
   font-size: 11px;
-  color:#777c82;
+  color: #D6E0EC;
   line-height: 16px;
   text-transform: none;
   text-shadow: none;
