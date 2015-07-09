@@ -1,26 +1,35 @@
-<h1><%= @movie %> </h1>
-<br>
-<h3><%= @location.address %></h3>
-<br>
-<%= form_for [@scene, @visit] do |f| %>
-  <%= f.fields_for :visit do |v| %>
-    <%= v.label 'Tell us something about your visit:' %>
-    <%= v.text_field :description %>
-    <br><br>
-    <%= v.label 'Date visited' %>
-    <%= v.date_select :date_visited %>
-    <br>
-  <% end %>
-  <br>
-  <%= f.fields_for :photo, html: {multipart: true} do |builder| %>
-    <%= builder.label 'Add your caption' %>
-    <%= builder.text_field :caption %>
-    <br><br>
-    <%= builder.label 'Upload image' %>
-    <%= builder.file_field :image %>
-  <% end %>
-  <br><br>
-  <%= f.button :Submit %>
-<% end %>
-<div id='preview'></div>
-<br>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<div class="form-group">
+  <div class="row">
+    <div class="col-md-6"><br>
+      <div id="movie_name"><h1><%= @movie %></h1></div>
+      <div id='movie_img'></div>
+      <center><h3><%= @location.address %></h3>
+      <br>
+      <%= form_for [@scene, @visit] do |f| %>
+        <%= f.fields_for :visit do |v| %>
+          <%= v.label 'Tell us something about your visit:' %>
+          <%= v.text_field :description %>
+          <br><br>
+          <%= v.label 'Date visited:' %>
+          <%= v.date_select :date_visited, order: [:day, :month, :year] %>
+          <br>
+        <% end %>
+        <br>
+        <%= f.fields_for :photo, html: {multipart: true} do |builder| %>
+          <%= builder.label 'Add your caption...' %>
+          <%= builder.text_field :caption %>
+          <br><br>
+          <%= builder.label 'Upload your image:' %>
+          <%= builder.file_field :image %>
+        <% end %>
+        <br><br>
+        <%= f.button :Submit %>
+      <% end %></center>
+    </div>
+    <div class="col-md-6">
+      <div id='preview'></div>
+    </div>
+  </div>
+</div>
