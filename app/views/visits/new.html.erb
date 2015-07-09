@@ -2,6 +2,7 @@
 <br>
 <h3><%= @location.address %></h3>
 <br>
+<div class="form-box">
 <%= form_for [@scene, @visit] do |f| %>
   <%= f.fields_for :visit do |v| %>
     <%= v.label 'Tell us something about your visit:' %>
@@ -22,5 +23,6 @@
   <br><br>
   <%= f.button :Submit %>
 <% end %>
+</div>
 <div id='preview'></div>
 <br>

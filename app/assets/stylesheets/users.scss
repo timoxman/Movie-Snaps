@@ -2,7 +2,7 @@
   float: center;
   text-align: center;
   margin: 0;
-  background-color: #90D8CB;
+  background-color: #E0F2F7;
   border-radius: 20px;
   padding-bottom: 50px;
   margin-bottom: 0px;
@@ -102,7 +102,8 @@
   .photos {
   }
   .user_scene_photo {
-    width: 70%;
+    max-width: 200px;
+    max-height: 200px;
   }
   .movie_title {
     font-size: 30px;
@@ -123,6 +124,5 @@
 .mapDestination {
     width: 200px;
     height: 200px;
-    border: 2px solid black;
     border-radius: 20px;
 }
