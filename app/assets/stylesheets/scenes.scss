@@ -1,3 +1,44 @@
 // Place all the styles related to the scenes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  margin-left: 30px;
+  margin-top: 1em;
+  width: 91%;
+}
+
+
+#enterDBLocation {
+  height: 30px;
+  padding: 5px;
+  /* box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1); */
+  /* border: 1px solid #edeef0; */
+  border-bottom-color: #C2C6CB;
+  border-right-color: #AEB2B7;
+  margin-right: 15px;
+  font-size: 14px;
+  color: #506b91;
+  background-color: #f9f9f9;
+
+}
+
+div {
+  
+  #selectDBLocation {
+    width: 120px;
+    color: #333;
+    vertical-align: middle;
+    height: 36px;
+    font-size: 13px;
+    text-align: center;
+    padding: 0.5em;
+    cursor: pointer;
+    border: 1px solid #777c82;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+    /* font-weight: bold; */
+    /* padding: 10px 20px; */
+    text-align: center;
+    border-radius: 3px;
+
+  }
+}//div
