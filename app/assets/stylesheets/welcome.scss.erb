@@ -46,7 +46,7 @@ img {
 #welcomeFeatured {
 
   padding-top: 20px;
-  /*background: url(sliderbg.png) top center no-repeat;*/
+  /*background: url(<%= asset_path('sliderbg.png') %>) top center no-repeat;*/
   padding: 0 20px 0 20px;
   margin: 0 auto;
   width: 960px;
@@ -65,7 +65,7 @@ img {
             max-width:100%;
             max-height:100%;
             position: relative;
-            background-image:url(slider.png);
+            background-image:url(<%= asset_path('slider.png') %>);
             background-position: 0% 0%;
             margin: 0;
             padding: 0;
@@ -100,7 +100,7 @@ img {
                 }
 
                 .prev {
-                  background: url(arrows.png) -10px -15px no-repeat;
+                  background: url(<%= asset_path('arrows.png') %>) -10px -15px no-repeat;
                 }
 
                 #next-slider {
@@ -115,7 +115,7 @@ img {
                 }
 
                 .next {
-                  background: url(arrows.png) -102px -15px no-repeat;
+                  background: url(<%= asset_path('arrows.png') %>) -102px -15px no-repeat;
                 }
 
             }// slider-arrows
