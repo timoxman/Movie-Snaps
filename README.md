@@ -5,7 +5,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.svg?branch=57-test-validations&service=github)](https://coveralls.io/github/timoxman/Movie-Snaps?branch=57-test-validations)
 
-[![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.svg?branch=development&service=github)](https://coveralls.io/github/timoxman/Movie-Snaps?branch=57-test-validations)
+[![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.svg?branch=development&service=github)](https://coveralls.io/github/timoxman/Movie-Snaps?branch=development)
 
 
 Movie-Snaps
