@@ -5,9 +5,9 @@
 <section id="locationProfile">
 
   <div id='title'>
-    <h2>
+    <h1>
       <%= @location.address %>
-    </h2>
+    </h1>
   </div>
   <div id="longitude"><%= @location.longitude %></div>
   <div id="latitude"><%= @location.latitude %></div>
@@ -18,7 +18,7 @@
 
   <div id="scenes">
     <% if @location.scenes.any? %>
-      Scenes:
+      <h1>Scenes:</h1>
       <ul class="scenes">
         <% @location.scenes.reverse.each do |scene| %>
           <li class="scene">
