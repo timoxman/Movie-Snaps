@@ -56,7 +56,7 @@ feature 'User views an individual movie page' do
     visit "/movies/#{movie.id}"
   end
 
-  scenario "can click on movie and see the movie page" do
+  scenario "can click on movie and see the movie page", js: true do
     click_link 'Louvre Pyramid, 75001, Paris, France'
     click_link 'The Da Vinci Code (2006)'
     expect(page).to have_content("The Da Vinci Code (2006)")
@@ -75,7 +75,7 @@ feature 'User views an individual movie page' do
   end
 
   scenario "has fan photo", js: true do
-    expect(page).to have_selector("img[src*='http://moviesnaps.s3-us-west-2.amazonaws.com/photos/images/000/000/005/original/Da%252520vinci%252520code%252520%20%252520the%252520pyramid%252520louvre%252520%20%252520fan%252520photo%20zpsgixesmtr']")
+    expect(page).to have_css('ul.photos')
   end
 
   scenario "has a caption" do
