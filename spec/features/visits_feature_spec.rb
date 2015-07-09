@@ -27,6 +27,7 @@ feature 'A user wants to visit a film location' do
     Visit.create(description:'On a nice sunny day I visited the Louvre')
 
     scenario 'lets a user create a visit (V04)' do
+      create_logged_in_user
       visit new_scene_path
       fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
       click_button 'Select Location'
