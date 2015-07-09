@@ -35,7 +35,6 @@
             </div><!-- carousel-caption -->
         </div><!-- container -->
       </div><!-- item -->
-
     <% end %>
   </div><!-- carousel-inner -->
 
@@ -51,16 +50,13 @@
 
 <aside id="welcomeAside" class="clearfix">
   <header>
-    <h3 class="recent-title"><%= link_to "Click here", '/locations' %>
-      to upload your photos! or checkout our most recent uploads</h3>
+    <h3 class="recent-title">Click <%= link_to "here", new_scene_path %> to upload your photos! or checkout our most recent uploads</h3>
   </header>
     <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
         who love blah blah and more blah blah blah</h2> -->
         <h2 class="welcomeMessage">“Adventure is out there!” Up (2009)</h2>
         <h2 class="welcomeMessage">“The most beautiful thing in the world is, of course, the world itself.” Cast Away (2000)</h2>
         <h2 class="welcomeMessage">“Remember, what happens in Vegas stays in Vegas. Except for herpes. That shit’ll come back with you.” The Hangover (2009)</h2>
-
-
 
 </aside><!-- welcomeAside  -->
 
@@ -79,10 +75,6 @@
                   <img src='<%= p.image.url %>' height='200' width='198' %>
                 </a>
               </figure>
-
-
-
-
 
               <h6><i>Uploaded on </i> <%= p.created_at %></h6>
 
@@ -106,17 +98,11 @@
                 <% end %>
               </div>
 
-
               <p>From the movie <%= p.visit.scene.movie.name %></p>
-
-
 
             </div>
             </article>
           <% end %>
-
-
-
 
     <% else %>
       No photos have been uploaded!

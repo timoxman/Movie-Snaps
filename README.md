@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/timoxman/Movie-Snaps.png)](https://travis-ci.org/timoxman/Movie-Snaps)
 
-[![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.png)](https://coveralls.io/r/timoxman/Movie-Snaps)
-
+[![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.svg?branch=57-test-validations&service=github)](https://coveralls.io/github/timoxman/Movie-Snaps?branch=57-test-validations)
 
 Movie-Snaps
 ===================
@@ -123,10 +122,13 @@ Things you may want to cover:
 * Configuration
     Rails should be installed via the cmd: gem install rails
     To get this application up and running, pull the repo from Github. Add a file called .env to your route directory. (This file is not in the github repo because it's in the gitignore file)
-    To this new file add two lines:
+    To this new file add five lines:
       FACEBOOK_APP_ID=
       FACEBOOK_APP_SECRET=
-      Complete the 2 lines with the app ID and App secret which are added in the slack channel. (no spaces between = and ID's)
+      S3_BUCKET_NAME=
+      AWS_ACCESS_KEY_ID=
+      AWS_SECRET_ACCESS_KEY=
+      Complete the 5 lines with the app ID and App secret which are added in the slack channel. (no spaces between = and ID's)
 
 * Database creation
     bin/rake db:create
@@ -177,5 +179,3 @@ Links:
 -------
 
 [OMDb API](http://www.omdbapi.com/)
-
-[Github - OmniAuth: Overview](https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview)
