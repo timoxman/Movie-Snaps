@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   if ($('#locations').length) {
+    $("#noResultsMsg").hide();
     $('#selectDBLocation').click(function(){
       selectDBLocation();
     });
