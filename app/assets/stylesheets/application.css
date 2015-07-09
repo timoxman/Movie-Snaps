@@ -18,6 +18,7 @@
 body {
   /*background: #717679;*/
   background: url(page-bg.jpg) repeat 6.1% top;
+
   margin: 0;
   padding:0;
   font-family: 'Lucida Grande', Arial, Helvetica, sans-serif;
@@ -61,6 +62,18 @@ body {
 
  }
 
+ #logo {
+   background: url(filmlogo1.png) no-repeat;
+   position: absolute;
+   left: 0;
+   width: 250px;
+   top:0;
+   width: 250px;
+   height: 96px;
+
+
+ }
+
 #topnav {
   margin: 0;
   padding: 0;
@@ -75,7 +88,7 @@ body {
 
 #signInOut {
   position: absolute;
-  right: 7.5%;
+  right: 6%;
   top: 17px;
   line-height: 22px;
   text-align: center;
@@ -112,7 +125,7 @@ nav {
 ul#navigation {
   text-transform: uppercase;
 
-  width: 70%;
+  width: 79%;
   margin-top: 1px;
 
   margin-bottom: 0;
