@@ -1,41 +1,56 @@
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<div id="myCarousel" class="carousel">
+
+<div id="myCarousel" class="carousel slide">
+
   <!-- Carousel items -->
-  <center><div class="carousel-inner">
+  <div class="carousel-inner">
     <% if @popular.length == 3 %>
       <div class="active item">
-        <img src='<%= @popular[0].image.url %>'>
-        <div class="carousel-caption">
-          <h3><%= @popular[0].visit.scene.movie.name %></h3>
-          <h4><%= @popular[0].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
-        </div>
-      </div>
+        <img class="first-slide" src='<%= @popular[0].image.url %>'>
+        <div class="container">
+          <div class="carousel-caption">
+            <h3><%= @popular[0].visit.scene.movie.name %></h3>
+            <h4><%= @popular[0].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
+          </div><!-- carousel-caption -->
+        </div><!-- container  -->
+      </div><!-- active item  -->
+
       <div class="item">
-        <img src='<%= @popular[1].image.url %>'>
-        <div class="carousel-caption">
-          <h3><%= @popular[1].visit.scene.movie.name %></h3>
-          <h4><%= @popular[1].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
-        </div>
-      </div>
+        <img class="second-slide" src='<%= @popular[1].image.url %>'>
+        <div class="container">
+            <div class="carousel-caption">
+              <h3><%= @popular[1].visit.scene.movie.name %></h3>
+              <h4><%= @popular[1].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
+            </div><!-- carousel-caption  -->
+        </div><!-- container  -->
+      </div><!-- item  -->
+
       <div class="item">
-        <img src='<%= @popular[2].image.url %>'>
-        <div class="carousel-caption">
-          <h3><%= @popular[2].visit.scene.movie.name %></h3>
-          <h4><%= @popular[2].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
-        </div>
-      </div>
+        <img class="third-slide" src='<%= @popular[2].image.url %>'>
+        <div class="container">
+            <div class="carousel-caption">
+              <h3><%= @popular[2].visit.scene.movie.name %></h3>
+              <h4><%= @popular[2].caption %> <i><%= @popular[0].visit.user.name %></h4></i>
+            </div><!-- carousel-caption -->
+        </div><!-- container -->
+      </div><!-- item -->
     <% end %>
-  </div></center>
+  </div><!-- carousel-inner -->
+
   <!-- Carousel nav -->
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  <a>
+</div><!-- carousel slide  -->
 
 <aside id="welcomeAside" class="clearfix">
   <header>
-    <h3 class="recent-title">Click <%= link_to "here", '/locations' %>
-      to upload your photos! or checkout our most recent uploads</h3>
+    <h3 class="recent-title">Click <%= link_to "here", new_scene_path %> to upload your photos! or checkout our most recent uploads</h3>
   </header>
     <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
         who love blah blah and more blah blah blah</h2> -->
@@ -43,12 +58,10 @@
         <h2 class="welcomeMessage">“The most beautiful thing in the world is, of course, the world itself.” Cast Away (2000)</h2>
         <h2 class="welcomeMessage">“Remember, what happens in Vegas stays in Vegas. Except for herpes. That shit’ll come back with you.” The Hangover (2009)</h2>
 
-
-
 </aside><!-- welcomeAside  -->
 
 <section class="welcomeMainContent clearfix">
-
+  <h2>Most recent uploads</h2>
   <% if @photos %>
 
           <% @photos.each do |p| %>
@@ -62,10 +75,6 @@
                   <img src='<%= p.image.url %>' height='200' width='198' %>
                 </a>
               </figure>
-
-
-
-
 
               <h6><i>Uploaded on </i> <%= p.created_at %></h6>
 
@@ -89,17 +98,11 @@
                 <% end %>
               </div>
 
-
               <p>From the movie <%= p.visit.scene.movie.name %></p>
-
-
 
             </div>
             </article>
           <% end %>
-
-
-
 
     <% else %>
       No photos have been uploaded!

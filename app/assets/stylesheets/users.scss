@@ -2,7 +2,20 @@
   float: center;
   text-align: center;
   margin: 0;
-  width: 95%;
+  background-color: #90D8CB;
+  border-radius: 20px;
+  padding-bottom: 50px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  margin-top: 10px;
+  font-family: 'Julius Sans One', sans-serif;
+
+  img {
+    outline: none;
+    border: none;
+    width: 200px;
+    border-radius: 20px; 
+  }
 
   h1 {
     padding-bottom: 1em;
@@ -13,10 +26,6 @@
   }
   h2 {
     font-size: 30px;
-  }
-  img {
-    outline: none;
-    border: none;
   }
   #user_img {
     width: 200px;
@@ -37,53 +46,53 @@
     position: relative;
     bottom: 15px;
   }
-  li.visit {
+  .visit {
     background-color: white;
     border-radius: 20px;
-    margin-top: 100px;
-    border-style: solid;
-    border-width: 5px;
+    margin-top: 50px;
+    overflow: auto;
+    margin-right: 20px;
+    padding-top: 10px;
   }
   .photo-like-comment {
-    height: 250px;
-    width: 85%;
-    margin: 0;
     float: right;
+    height: 250px;
+    margin: 0;
     margin-right: 20px;
+    margin-bottom: 50px;
     border-radius: 10px;
-    border-style: solid;
-    border-color: #E0E0F8;
-    border-width: 2px;
     padding-top: 20px;
     padding-left: 10px;
-    padding-bottom: 20px;
     background-color: white;
-  }
-  .photo {
-    float: right;
-    width: 75%;
-    margin-top: 25px;
-    background-color: white;
+    text-align: center;
   }
   .comments {
+    width: 90%;
     height: 250px;
-    width: 80%;
     margin: 0;
     float: right;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-right: 20px;
     text-align: left;
     overflow: hidden;
     overflow-y: scroll;
     border-radius: 10px;
-    border-style: solid;
-    border-color: #E0E0F8;
-    border-width: 2px;
+  }
+  .photo {
+    float: right;
+    width: 70%;
+    margin-top: 25px;
+    background-color: white;
+    margin-bottom: 10px;
   }
   .maps-and-pictures {
     float: left;
-    width: 25%;
+    width: 30%;
     margin-top: 40px;
+  }
+  .movie_img {
+    margin-left: 10px;
+    width: 40px;
   }
   #moviePosterBoxStyle {
   }
@@ -93,8 +102,7 @@
   .photos {
   }
   .user_scene_photo {
-    max-width: 100%;
-    max-height: 100%;
+    width: 70%;
   }
   .movie_title {
     font-size: 30px;
@@ -102,6 +110,12 @@
   .visits {
     margin: 0 auto;
   }
+  p {
+    width: 100px;
+    margin: 0px;
+  }
+
+
 
 }//userProfile
 
@@ -110,4 +124,5 @@
     width: 200px;
     height: 200px;
     border: 2px solid black;
+    border-radius: 20px;
 }

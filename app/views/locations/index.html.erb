@@ -1,35 +1,4 @@
-
-<section id="locationPage">
-
-  <h1>All Locations,<span class="colorb"> Enter yours below</span></h1>
-
-  <section id="leftcol">
-
-      <div class="mapBox">
-        <div id="mapDestination">
-      </div>
-
-    </div>
-    <br>
-      <div id='notify'>
-      </div>
-
-
-      <header id="destination">
-        <input id="enterDestination" type="text" size="40" onkeydown="if (event.keyCode == 13) document.getElementById('submitDestination').click()"></textbox>
-        <button id="submitDestination">Go!</button>
-        <button id="add-marker">Place Marker</button>
-        <br><br>
-        <input id="enterMovie" placeholder="Enter a movie" type="text" size="40" onkeydown="acquireMovies()"/>
-        <button id="confirm-marker">Submit Visit</button>
-      </header>
-
-      <div id='locations'></div>
-  </section><!-- left column -->
-
-
-
-</section>
+<div id='locations'></div>
 
 <h1>Search for locations that have already been visited</h1>
 <input id="enterDBLocation" placeholder="Enter a location" type="text" size="40" onkeydown="acquireDBLocations()"/>

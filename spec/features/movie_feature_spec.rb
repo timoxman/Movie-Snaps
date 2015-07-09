@@ -28,7 +28,7 @@ feature 'A user wants to add a movie' do
   end
 
   context 'when entering a new location' do
-    scenario 'can enter a new movie and be saved', js: true do
+    xscenario 'can enter a new movie and be saved', js: true do
       fill_in 'enterDestination', with: 'Makers Academy, London'
       click_button 'Go!'
       click_button 'Place Marker'
@@ -36,11 +36,11 @@ feature 'A user wants to add a movie' do
       expect { click_button 'Submit Visit' }.to change { Movie.count }.by 1
     end
 
-    scenario 'can enter a duplicate movie, and it will not be saved' do
+    xscenario 'can enter a duplicate movie, and it will not be saved', js: true do
       fill_in 'enterDestination', with: 'Makers Academy, London'
       click_button 'Go!'
       click_button 'Place Marker'
-      fill_in('enterMovie', with: 'The Da Vinci Code')
+      fill_in('enterMovie', with: 'The Da Vinci Code (2006)')
       expect { click_button 'Submit Visit' }.to change { Movie.count }.by 0
     end
   end

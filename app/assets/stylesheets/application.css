@@ -13,21 +13,15 @@
  *= require_tree .
  *= require_self
  */
- 
+
 
 body {
   /*background: #717679;*/
-  /*background: url(page-bg.jpg) repeat 6.1% top;*/
-  /*background: url(http://cache3.asset-cache.net/xc/474725492.jpg?v=2&c=IWSAsset&k=2&d=nsBoOGsHkJfd3CtdVeRt8xSL_QvrHZxClmLSYnEnQaPI9fLsjUdV4bNaaUbwwaqJ0) repeat 6.1% top;*/
   margin: 0;
   padding:0;
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster';
   color:#000;
   line-height: 1;
-}
-
-img {
-  height: 200px;
 }
 
 .clearfix::after {
@@ -45,7 +39,7 @@ img {
  #wrapper {
    margin: 0;
    padding: 0;
-   background: url(wrapper-bg.png) center repeat-y;
+   background-color: red;
    position: relative;
    width: 100%;
  }
@@ -72,8 +66,9 @@ img {
   background:#333 url(header.png) no-repeat 0px 0px;
   border-bottom: 3px solid #333;
   width: 100%;
-  min-height: 50px;
-  margin-bottom: 1em;
+  min-height: 93px;
+  max-height: 93px;
+  /*margin-bottom: 1em;*/
 
 }
 
@@ -135,6 +130,7 @@ ul#navigation li {
 
 ul#navigation li:hover {
   background-color:#506b80;
+  height: 90px;
   transition: all .3s ease-in-out;
 }
 
@@ -159,17 +155,11 @@ ul#navigation li a:hover {
 
 .subtitle {
   font-weight: normal;
-  font-size: 25px;
+  font-size: 11px;
   color:#777c82;
   line-height: 16px;
   text-transform: none;
   text-shadow: none;
-}
-
-.title {
-  font-size: 100px;
-  text-align: center;
-  color: white;
 }
 
 /*.foot {
@@ -179,15 +169,12 @@ ul#navigation li a:hover {
   display: block;
   margin-top: 1em;
 }
-
 .footer {
-
   color: #44484e;
   padding: 20px 30px;
   margin: 0;
   background: #d6d9dd;
 }
-
 .footer p {
   font-size: 11px;
   border-top: 1px dotted #777c82;
@@ -215,7 +202,7 @@ ul#navigation li a:hover {
 .column {
   float:left;
   border-right: 1px solid #fff;
-  width: 24.9%;
+  width: 24.2%;
   height: 150px;
 }
 
@@ -330,9 +317,10 @@ address {
   border: 1px solid #fff;
   padding: .5em 2.5em;
   line-height: 1em;
-  width: 50%;
+  width: 55%;
   transition: background-color .5s ease;
   margin-left: 20px;
+  padding-bottom: .2em;
 }
 
 /*.lock {

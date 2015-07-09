@@ -25,7 +25,6 @@
                 <div class="mapDestination" id="mapDestination-<%= visit.id %>"></div>
               </div>
               </br>
-              <%= image_tag visit.scene.image_file_name, :class => "scene_img" %>
               <span class="movie_img"></span>
             </div>
 
@@ -36,7 +35,7 @@
                   <li class="photo">
                     <div class="photo-like-comment">
                     <%= image_tag photo.image.url, :class => "user_scene_photo" %>
-                    <div><%= photo.caption %></div>
+                    <br><%= photo.caption %>
                     <% if current_user %>
                       <% liked = false %>
                         <% photo.likes.each do |l| %>
@@ -48,7 +47,7 @@
                         <% if liked == false %>
                           <%= link_to "♡", photo_likes_path(photo), class: 'likes-link' %>
                         <% end %>
-                        <div><span class='likes_count'> <%= photo.likes.count %> </span> <%= 'like'.pluralize photo.likes.count %></div>
+                        <br><span class='likes_count'> <%= photo.likes.count %> </span> <%= 'like'.pluralize photo.likes.count %><br>
                       <%= render partial: "partials/commentform", locals: {photo: photo} %>
                     <% end %>
                     </div>
