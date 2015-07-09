@@ -1,12 +1,6 @@
 [![Build Status](https://travis-ci.org/timoxman/Movie-Snaps.png)](https://travis-ci.org/timoxman/Movie-Snaps)
 
-[![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.png)](https://coveralls.io/timoxman/Movie-Snaps)
-[![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.png)](https://coveralls.io/r/timoxman/Movie-Snaps)
-
 [![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.svg?branch=57-test-validations&service=github)](https://coveralls.io/github/timoxman/Movie-Snaps?branch=57-test-validations)
-
-[![Coverage Status](https://coveralls.io/repos/timoxman/Movie-Snaps/badge.svg?branch=development&service=github)](https://coveralls.io/github/timoxman/Movie-Snaps?branch=57-test-validations)
-
 
 Movie-Snaps
 ===================
