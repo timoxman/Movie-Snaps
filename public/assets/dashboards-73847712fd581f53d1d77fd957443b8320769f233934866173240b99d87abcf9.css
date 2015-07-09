@@ -1,0 +1,7 @@
+/* line 4, /Users/darylwatson/Desktop/projects/Movie-Snaps/app/assets/stylesheets/dashboards.scss */
+div.dashboard {
+  margin: 0;
+  background-color: #fafafb;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}

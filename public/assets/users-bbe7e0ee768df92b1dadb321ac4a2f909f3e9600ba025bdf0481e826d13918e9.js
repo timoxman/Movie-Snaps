@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-  $("#noResultsMsg").hide();
-
   $('#visits').children('ul').children('li').each(function(index) {
     $(this).find('.movieTitleYear').hide();
     $(this).find('.longitude').hide();
