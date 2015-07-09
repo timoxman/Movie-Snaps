@@ -16,15 +16,22 @@ feature 'User visits the site' do
   end
 
   scenario 'and sees all uploaded photos' , js: true do
-      create_visit
-      photo = Photo.first
-      expect(page).not_to have_content 'No photos have been uploaded!'
-      expect(page).to have_content photo.caption
+    create_visit
+    photo = Photo.first
+    expect(page).not_to have_content 'No photos have been uploaded!'
+    expect(page).to have_content photo.caption
   end
 
-  scenario 'and wants to begin uploading photos' do
+  scenario 'and wants to create a new scene' do
+    create_visit
     click_link 'here'
     expect(current_path).to eq new_scene_path
+  end
+
+  scenario 'cannot create a new scene if not logged in' do
+    click_link 'here'
+    expect(page).to have_content 'Please sign in first'
+    expect(current_path).to eq root_path
   end
 
 end

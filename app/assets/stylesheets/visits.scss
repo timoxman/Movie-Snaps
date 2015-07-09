@@ -2,10 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.form-box {
-	position: relative;
-	left: 50px;
-	width: 75%;
-	background-color: white;
-}
+.col-md-6 {
+  #preview {
+    padding-left:40px;
+    padding-top:7em;
+      img {
+        width:75%;
+        border-radius:50%;
+      }//img
+  }//preview
+}//col6

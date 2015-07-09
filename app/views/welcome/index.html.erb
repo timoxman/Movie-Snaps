@@ -1,3 +1,9 @@
+<header>
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <center><h3><div class="alert alert-success" role="alert"><%= flash[:notice] %></div></h3></center>
+  <% end %>
+</header>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link href='http://fonts.googleapis.com/css?family=Philosopher|Montserrat+Alternates|Monoton|Cuprum|Molengo|Julius+Sans+One|Trocchi|Roboto|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
@@ -46,12 +52,12 @@
 
   <a class="right carousel-control" href="#myCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
-  <a>
+  </a>
 </div><!-- carousel slide  -->
 
 <aside id="welcomeAside" class="clearfix">
   <header>
-    <h3 class="recent-title"><%= link_to "Click here", new_scene_path %> to upload your photos! or checkout our most recent uploads</h3>
+    <h3 class="recent-title">Click <%= link_to "here", new_scene_path %> to upload your photos!</h3>
   </header>
     <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
         who love blah blah and more blah blah blah</h2> -->
