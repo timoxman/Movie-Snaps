@@ -6,6 +6,10 @@ class ScenesController < ApplicationController
   end
 
   def new
+    if !current_user
+      flash[:notice] = 'Please sign in first'
+      redirect_to '/'
+    end
   end
 
   def create
