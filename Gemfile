@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
+
 #Allows you to parse json within your Ruby code.
 gem 'json'
 #allow us to create a .env file to store environment variables outside of the bash profile
