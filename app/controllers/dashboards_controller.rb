@@ -53,7 +53,7 @@ class DashboardsController < ApplicationController
     @locations = Location.all
     @location_table_data =[]
     @locations.each do | location |
-      if !(location.address =~ regex )
+      if (location.address =~ regex )
         country = location.address[(location.address =~ regex )+2..-1]
         country = 'United Kingdom' if country == 'UK'
         location_found = false
@@ -62,7 +62,7 @@ class DashboardsController < ApplicationController
             @location_table_data[i][1] +=1
             location_found = true
           end
-      end
+        end
         @location_table_data.push([country,1]) if !location_found
       end
    end
