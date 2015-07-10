@@ -6,7 +6,6 @@
 </header>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link href='http://fonts.googleapis.com/css?family=Philosopher|Montserrat+Alternates|Monoton|Cuprum|Molengo|Julius+Sans+One|Trocchi|Roboto|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
 <div id="myCarousel" class="carousel slide">
 
@@ -14,7 +13,7 @@
   <div class="carousel-inner">
     <% if @popular.length == 3 %>
       <div class="active item">
-        <img class="first-slide" src='<%= @popular[0].image.url %>'>
+        <img class="first-slide" src='<%= @popular[0].image_file_name %>'>
         <div class="container">
           <div class="carousel-caption">
             <h3><%= @popular[0].visit.scene.movie.name %></h3>
@@ -24,7 +23,7 @@
       </div><!-- active item  -->
 
       <div class="item">
-        <img class="second-slide" src='<%= @popular[1].image.url %>'>
+        <img class="second-slide" src='<%= @popular[1].image_file_name %>'>
         <div class="container">
             <div class="carousel-caption">
               <h3><%= @popular[1].visit.scene.movie.name %></h3>
@@ -34,7 +33,7 @@
       </div><!-- item  -->
 
       <div class="item">
-        <img class="third-slide" src='<%= @popular[2].image.url %>'>
+        <img class="third-slide" src='<%= @popular[2].image_file_name %>'>
         <div class="container">
             <div class="carousel-caption">
               <h3><%= @popular[2].visit.scene.movie.name %></h3>
@@ -56,14 +55,16 @@
 </div><!-- carousel slide  -->
 
 <aside id="welcomeAside" class="clearfix">
-  <header>
-    <h3 class="recent-title">Click <%= link_to "here", new_scene_path %> to upload your photos!</h3>
-  </header>
-    <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
-        who love blah blah and more blah blah blah</h2> -->
-        <h2 class="welcomeMessage">“Adventure is out there!” Up (2009)</h2>
-        <h2 class="welcomeMessage">“The most beautiful thing in the world is, of course, the world itself.” Cast Away (2000)</h2>
-        <h2 class="welcomeMessage">“Remember, what happens in Vegas stays in Vegas. Except for herpes. That shit’ll come back with you.” The Hangover (2009)</h2>
+
+  <div style="width:45%;margin:0 auto; padding-top.5em;">
+    <header style="margin-bottom:20px;margin-left:-5px;">
+      <h2>What movie have you been in?</h2>
+    </header>
+        <div class="btn-group" >
+
+          <a href="<%= new_scene_path %>"><button style="padding:1em 5em; margin-left:20px;" type="button" class="btn btn-primary btn-lg" >Upload photos</button></a>
+        </div>
+  </div>
 
 </aside><!-- welcomeAside  -->
 
@@ -79,7 +80,7 @@
               <h4><%= p.caption %></h4>
               <figure>
                 <a href="#">
-                  <img src='<%= p.image.url %>' height='200' width='198' %>
+                  <img src='<%= p.image_file_name %>' height='200' width='198' %>
                 </a>
               </figure>
 
