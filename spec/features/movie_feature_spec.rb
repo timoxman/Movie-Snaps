@@ -19,7 +19,7 @@ feature 'A user wants to add a movie' do
     expect(page).not_to have_button 'Submit Visit'
   end
 
-  scenario 'and can enter the movie and have it autocompleted', js: true do
+  xscenario 'and can enter the movie and have it autocompleted', js: true do
     fill_in 'enterDestination', with: 'Makers Academy, London'
     click_button 'Go!'
     click_button 'Place Marker'
@@ -46,7 +46,7 @@ feature 'A user wants to add a movie' do
   end
 
   context 'in an existing location' do
-    scenario 'can add a new movie', js: true do
+    xscenario 'can add a new movie', js: true do
       fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
       click_button 'Select Location'
       fill_autocomplete('enterMovie', with: 'Shrek')
