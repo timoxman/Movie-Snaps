@@ -61,6 +61,9 @@ feature 'User views an individual movie page' do
   before do
     create_visit
     movie = Movie.last
+    photo = Photo.last
+    user = User.last
+    Comment.create(remark: 'Nice photo!', photo_id: photo.id, user_id: user.id)
     visit "/movies/#{movie.id}"
   end
 
@@ -106,7 +109,7 @@ feature 'User views an individual movie page' do
     expect(page.all('ul.photos li.photo').size).to eq(1)
   end
 
-  xscenario "displays correct number of comments" do
+  scenario "displays correct number of comments" do
     expect(page.all('ul.comments li.comment').size).to eq(1)
   end
 
