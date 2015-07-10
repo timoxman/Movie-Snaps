@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
-
 #Allows you to parse json within your Ruby code.
 gem 'json'
 #allow us to create a .env file to store environment variables outside of the bash profile
@@ -61,6 +59,9 @@ gem 'jquery-ui-rails'
 gem "chartkick"
 gem 'aws-sdk', '<2.0'
 
+# for time validations in database tests
+gem 'validates_timeliness', '~> 3.0'
+
 group :production do
   gem 'rails_12factor'
 end
@@ -84,8 +85,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  # for time validations in database tests
-  gem 'validates_timeliness', '~> 3.0'
   # for testing photo uploading
   gem 'factory_girl_rails'
 end
