@@ -2,7 +2,7 @@ class DashboardsController < ApplicationController
 
   def index
 #total visist by date
-    @visits = Visit.all
+    @visits = Visit.all.group(:date_visited).count.to_a.sort_by!{|k|k[0]}
 
 # Most popular Movies
     @scenes = Scene.includes(:movie)
