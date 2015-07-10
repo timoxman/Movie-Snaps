@@ -4,37 +4,38 @@
 
   <%= image_tag @user.image, :id => 'user_img', :title => @user.name %>
 
+  <h2><%= @user.name %>'s Visits:</h2>
   <div id="visits">
     <% if @visits.any? %>
       <ul class="visits">
         <% @visits.each do |visit| %>
           <li class="visit">
+            <%= link_to visit.scene.movie.name, movie_path(visit.scene.movie), :class => "movie_title" %>
+            </br>
+            Location: <%= link_to visit.scene.location.address, location_path(visit.scene.location) %></br>
             <% if visit.date_visited %>
               Visited on <%= visit.date_visited.strftime('%e %B %Y') %>
               </br>
             <% end %>
-            Location: <%= link_to visit.scene.location.address, location_path(visit.scene.location) %></br>
-            Movie: <%= link_to visit.scene.movie.name, movie_path(visit.scene.movie) %>
-            </br>
             Visit description: <%= visit.description %>
             </br>
-            <div class="mapBox">
-              <div class="mapDestination" id="mapDestination-<%= visit.id %>">
+
+            <div class="maps-and-pictures">
+              <div class="mapBox" id="mapBox">
+                <div class="mapDestination" id="mapDestination-<%= visit.id %>"></div>
               </div>
+              </br>
+              <span class="movie_img"></span>
             </div>
-            Movie poster:
-            <div class="moviePosterBox">
-            </div>
-            Scene photo:
-            </br>
-            <%= image_tag visit.scene.image_file_name %>
+
             </br>
             <% if visit.photos.any? %>
               <ul class="photos">
-                User photos: <% visit.photos.each do |photo| %>
+                <% visit.photos.each do |photo| %>
                   <li class="photo">
-                    <%= image_tag photo.image.url %>
-                    <%= photo.caption %>
+                    <div class="photo-like-comment">
+                    <%= image_tag photo.image.url, :class => "user_scene_photo" %>
+                    <br><%= photo.caption %>
                     <% if current_user %>
                       <% liked = false %>
                         <% photo.likes.each do |l| %>
@@ -44,19 +45,18 @@
                           <% end %>
                         <% end %>
                         <% if liked == false %>
-
-                        <%= link_to "♡", photo_likes_path(photo), class: 'likes-link' %>
-
+                          <%= link_to "♡", photo_likes_path(photo), class: 'likes-link' %>
                         <% end %>
-
-                        <span class='likes_count'> <%= photo.likes.count %> </span> <%= 'like'.pluralize photo.likes.count %>
+                        <br><span class='likes_count'> <%= photo.likes.count %> </span> <%= 'like'.pluralize photo.likes.count %><br>
                       <%= render partial: "partials/commentform", locals: {photo: photo} %>
                     <% end %>
+                    </div>
                     <% if photo.comments.any? %>
                       <ul class="comments">
+                        <div>Comments:</div>
                         <% photo.comments.order('created_at desc').each do |comment| %>
                           <li class="comment">
-                            <%= image_tag comment.user.image %>
+                            <%= image_tag comment.user.image, :id => "user_img_commenter" %>
                             <%= link_to comment.user.name, user_path(comment.user) %>:
                             <%= comment.remark %>
                             (<%= comment.created_at.strftime('%e %B %Y at %H:%M') %>)
@@ -65,14 +65,14 @@
                       </ul>
                     <% end %>
                   </li>
+                  <div class="movieTitleYear"><%= visit.scene.movie.name %></div>
+                  <div class="longitude"><%= visit.scene.location.longitude %></div>
+                  <div class="latitude"><%= visit.scene.location.latitude %></div>
                 <% end %>
               </ul>
             <% else %>
-              No photos relating to this visit available
+              <p>No photos relating to this visit available</p>
             <% end %>
-            <div class="movieTitleYear"><%= visit.scene.movie.name %></div>
-            <div class="longitude"><%= visit.scene.location.longitude %></div>
-            <div class="latitude"><%= visit.scene.location.latitude %></div>
           </li>
         <% end %>
       </ul>

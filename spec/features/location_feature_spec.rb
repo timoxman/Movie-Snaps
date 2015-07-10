@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature 'A user wants to add the location for a film' do
 
-  before(:each) do
+  before do
+    create_visit
     visit '/'
-    create_logged_in_user
-    click_link 'here'
+    click_link 'Upload photos'
   end
 
   scenario 'they have the option to enter a location address first' do
@@ -53,6 +53,7 @@ end
 feature 'User views the location index page' do
 
   before do
+    # byebug
     create_visit
     visit new_scene_path
   end
@@ -60,11 +61,6 @@ feature 'User views the location index page' do
   scenario 'enters a location in database and have it autocompleted', js: true do
     fill_autocomplete('enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France')
     expect(page).to have_selector('ul.ui-autocomplete li.ui-menu-item')
-  end
-
-  scenario 'enters a location not in database and not have it autocompleted', js: true do
-    fill_autocomplete('enterDBLocation', with: 'Wollaton Hall & Deer Park, Nottingham NG8 2AE')
-    expect(page).not_to have_selector('ul.ui-autocomplete li.ui-menu-item')
   end
 
   scenario 'enters a location not in database and sees error message', js: true do
@@ -80,6 +76,9 @@ feature 'User views a location profile page' do
   before do
     create_visit
     location = Location.last
+    photo = Photo.last
+    user = User.last
+    Comment.create(remark: 'Nice photo!', photo_id: photo.id, user_id: user.id)
     visit "/locations/#{location.id}"
   end
 
@@ -119,7 +118,7 @@ feature 'User views a location profile page' do
     expect(page.all('ul.photos li.photo').size).to eq(1)
   end
 
-  xscenario "displays correct number of comments" do
+  scenario "displays correct number of comments" do
     expect(page.all('ul.comments li.comment').size).to eq(1)
   end
 

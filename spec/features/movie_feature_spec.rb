@@ -1,10 +1,18 @@
 require 'rails_helper'
 
+def fill_autocomplete(field, options = {})
+  fill_in field, with: options[:with]
+  sleep 8
+  page.execute_script %Q{ $('##{field}').trigger('keydown') }
+  selector = %Q{ul.ui-autocomplete li.ui-menu-item a:contains("#{options[:select]}")}
+  page.execute_script %Q{ $('#{selector}').trigger('mouseenter').click() }
+end
+
 feature 'A user wants to add a movie' do
 
   before(:each) do
     create_visit
-    click_link 'here'
+    click_link 'Upload photos'
   end
 
   scenario 'but cannot enter a movie before a location', js: true do
@@ -41,8 +49,8 @@ feature 'A user wants to add a movie' do
     scenario 'can add a new movie', js: true do
       fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
       click_button 'Select Location'
-      fill_autocomplete('enterMovie', with: 'Drive')
-      expect { click_button 'Add movie' }.to change { Movie.count }.by 1
+      fill_autocomplete('enterMovie', with: 'Shrek')
+      expect { click_button 'Add Movie' }.to change { Movie.count }.by 1
     end
   end
 
@@ -53,6 +61,9 @@ feature 'User views an individual movie page' do
   before do
     create_visit
     movie = Movie.last
+    photo = Photo.last
+    user = User.last
+    Comment.create(remark: 'Nice photo!', photo_id: photo.id, user_id: user.id)
     visit "/movies/#{movie.id}"
   end
 
@@ -98,7 +109,7 @@ feature 'User views an individual movie page' do
     expect(page.all('ul.photos li.photo').size).to eq(1)
   end
 
-  xscenario "displays correct number of comments" do
+  scenario "displays correct number of comments" do
     expect(page.all('ul.comments li.comment').size).to eq(1)
   end
 

@@ -2,13 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.col-md-6 {
+.col-md-4 {
+    #movie_img {
+      img {
+        height:250px;
+        border-radius:20px;
+      }
+    }
   #preview {
     padding-left:40px;
     padding-top:7em;
       img {
-        width:75%;
-        border-radius:50%;
+        width:300px;
+        border-radius:20px;
+		position: relative;
+		right: 40px;
       }//img
   }//preview
-}//col6
+}//col4
