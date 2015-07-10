@@ -7,7 +7,7 @@ feature 'User visits the site' do
   end
 
   scenario 'and sees the welcome page' do
-    expect(page).to have_content 'Adventure is out there!'
+    expect(page).to have_content 'What movie have you been in?'
   end
 
   scenario 'sees a message if no photos have been uploaded' do

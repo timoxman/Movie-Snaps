@@ -43,7 +43,6 @@ feature 'A user on the users page' do
 
     scenario 'can like a photo', js: true do
       click_link '♡'
-      expect(page).to have_content '1 like'
       expect(Like.count).to eq 1
     end
     scenario 'can only like a photo once', js: true do
@@ -78,7 +77,6 @@ feature 'A user on the locations page' do
 
     scenario 'can like a photo', js: true do
       click_link '♡'
-      expect(page).to have_content '1 like'
       expect(Like.count).to eq 1
     end
     scenario 'can only like a photo once', js: true do
