@@ -37,7 +37,7 @@ feature 'A user wants to visit a film location' do
 
     scenario 'can create a visit and save it to the database', js: true do
       create_visit
-      click_link 'here'
+      click_link 'Upload photos'
       fill_in 'enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France'
       click_button 'Select Location'
       click_link "The Da Vinci Code"

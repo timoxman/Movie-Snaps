@@ -24,12 +24,12 @@ feature 'User visits the site' do
 
   scenario 'and wants to create a new scene' do
     create_visit
-    click_link 'here'
+    click_link 'Upload photos'
     expect(current_path).to eq new_scene_path
   end
 
   scenario 'cannot create a new scene if not logged in' do
-    click_link 'here'
+    click_link 'Upload photos'
     expect(page).to have_content 'Please sign in first'
     expect(current_path).to eq root_path
   end

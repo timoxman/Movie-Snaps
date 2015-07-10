@@ -59,8 +59,9 @@ function getPoster(movieTitle, movieYear, index) {
     poster = '<img src=' + data['Poster'] + '/>';
   })
   .done(function() {
-    var listItem = $('#visits').children('ul').children('li')[index];
-    $(listItem).append(poster);
+    var listItem = $('#visits').children('ul').children('li').children('div').children('span.movie_img')[index];
+    console.log(listItem)
+    $(listItem).html(poster);
   })
 }
 
