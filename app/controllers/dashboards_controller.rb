@@ -53,22 +53,19 @@ class DashboardsController < ApplicationController
     @locations = Location.all
     @location_table_data =[]
     @locations.each do | location |
-      country = location.address[(location.address =~ regex )+2..-1]
-      country = 'United Kingdom' if country == 'UK'
-      location_found = false
-      @location_table_data.each_with_index do |item, i|
-        if item[0] == country
-          @location_table_data[i][1] +=1
-          location_found = true
-        end
+      if !(location.address =~ regex )
+        country = location.address[(location.address =~ regex )+2..-1]
+        country = 'United Kingdom' if country == 'UK'
+        location_found = false
+        @location_table_data.each_with_index do |item, i|
+          if item[0] == country
+            @location_table_data[i][1] +=1
+            location_found = true
+          end
       end
-      if !location_found
-        new_item =[]
-        new_item[0] = country
-        new_item[1] = 1
-        @location_table_data.push(new_item)
+        @location_table_data.push([country,1]) if !location_found
       end
-    end
+   end
     #@location_table_data = [["United Kingdom",44],["USA",23],["Brazil",22]]
   end
 

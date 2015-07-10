@@ -10,6 +10,7 @@
   <%= csrf_meta_tags %>
   <%= yield :javascript_includes %>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  <link href='http://fonts.googleapis.com/css?family=Philosopher|Montserrat+Alternates|Monoton|Cuprum|Molengo|Julius+Sans+One|Trocchi|Roboto|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <section id="wrapper">
@@ -31,9 +32,6 @@
                 <li><a href="/locations"><span class="subtitle">More Locations</span>
                   <br/>
                   Locations</a></li>
-                <li><a href="/"><span class="subtitle">Start</span>
-                  <br/>
-                  Home</a></li>
               </ul>
           </nav>
         </header>
@@ -45,19 +43,13 @@
                 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
               <% end %>
         </div>
+        <a href="/"><div id="logo"></div></a>
 
       <%= yield %>
-      <!-- <footer class="foot clearfix">
-          <section class="footer">
-            <p>
-              footer information goes here
-            </p>
-          </section>
-      </footer> -->
       <footer id="mfooter">
           <div id="fwrap" class="clearfix">
-              <div class="column">
-                  <img id="firstimg" src="#" alt="logo" width="200" height="80">
+                <div class="column">
+                    <div class="footer-logo"></div>
               </div>
               <div class="column">
                   <div class="stayconnected">
@@ -78,16 +70,13 @@
               <div class="column">
                   <div class="stayconnected">
                         <address>Movie-Snaps<br/><br/>
-                                0800-911<br/><br/>
-                                Snoopy@movieSnaps.com
+                                020-3817-8870<br/><br/>
+                                admin@moviesnaps.com
                         </address>
                   </div>
               </div>
               <div class="column">
-                    <a href="mailto:moviesnaps.com" title="send us an email" class="mainlock">
-                        <div class="lock"></div>
-                        <p>Contact Us</p>
-                    </a>
+                <div class="footer-logo2"></div>
               </div>
           </div><!-- fwrap -->
           <div class="minfooter clearfix">

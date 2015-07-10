@@ -1,0 +1,445 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body {
+  margin: 0;
+  padding:0;
+  color:#000;
+  line-height: 1;
+  font-family: 'Julius Sans One', sans-serif !important;
+}
+
+container {
+  background-color: #E0F2F7;
+}
+
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+#wrapper {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+ .stretch {
+   position: absolute;
+   top:0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+ }
+
+ #container {
+   background: #E0F2F7;
+   margin: 0 auto;
+   width: 1012px;
+   position: relative;
+ }
+
+ #logo {
+   background: url(<%= asset_path('filmlogo1.png') %>) no-repeat;
+   position: absolute;
+   left: 0;
+   width: 200px;
+   top:0;
+   width: 250px;
+   height: 96px;
+
+
+ }
+
+.footer-logo {
+   background: url(<%= asset_path('filmlogo1.png') %>) no-repeat;
+   position: relative;
+   right: 25px;
+   top: 25px;
+   width: 200px;
+   width: 250px;
+   height: 96px;
+ }
+
+.footer-logo2 {
+   background: url(<%= asset_path('filmlogo1.png') %>) no-repeat;
+   position: relative;
+   top: 25px;
+   left: 17px;
+   width: 200px;
+   width: 250px;
+   height: 96px;
+ }
+
+#topnav {
+  position: relative;
+  background:#333 url(<%= asset_path('header.png') %>) no-repeat 0px 0px;
+  border-bottom: 3px solid #333;
+  width: 100%;
+  min-height: 93px;
+  max-height: 93px;
+  /*margin-bottom: 1em;*/
+
+}
+
+#signInOut {
+  position: absolute;
+  right: 1%;
+  top: 17px;
+  line-height: 22px;
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #F8f8f8;
+  box-shadow: 0px 0px 1px rgba(255,255,255,.8);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CCD0D6));
+  font-size: 11px;
+  /* margin: -3px 0 0 0; */
+  font-weight: bold;
+  color: #333;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+
+}
+
+#signInOut:hover {
+  border: 1px solid #FCFDFF;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#A4B6C4));
+  font-weight: bold;
+  color: #333333;
+  text-decoration: none;
+}
+
+nav {
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+ul#navigation {
+  text-transform: uppercase;
+
+  width: 79%;
+  margin-top: 1px;
+
+  margin-bottom: 0;
+  overflow: auto;
+  padding: 0;
+
+}
+
+ul#navigation li {
+  float:right;
+  display: inline;
+  margin: 0 0 0 1px;
+  line-height: 21px;
+  color: #fff;
+}
+
+ul#navigation li:hover {
+  background-color:#E0F2F7;
+  height: 90px;
+  transition: all .3s ease-in-out;
+}
+
+li:hover a span.subtitle {
+  color: #d5d5d5;
+}
+
+ul#navigation li a {
+  display: block;
+  padding: 15px 30px 15px 10px;
+  text-decoration: none;
+  color:#bbb;
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
+ul#navigation li a:hover {
+  color:#fff;
+  text-shadow: 1px .5px 0px rgba(0,0,0,.3);
+}
+
+.subtitle {
+  font-weight: normal;
+  font-size: 11px;
+  color:#777c82;
+  line-height: 16px;
+  text-transform: none;
+  text-shadow: none;
+}
+
+/*.foot {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1012px;
+  display: block;
+  margin-top: 1em;
+}
+.footer {
+  color: #44484e;
+  padding: 20px 30px;
+  margin: 0;
+  background: #d6d9dd;
+}
+.footer p {
+  font-size: 11px;
+  border-top: 1px dotted #777c82;
+  padding: 30px 0;
+  margin-bottom: 20px;
+  line-height: 21px;
+}*/
+
+
+#mfooter {
+  margin-top: 5em;
+  width: 100%;
+  background: #101010;
+  /* border-top: 1px solid #fff; */
+  overflow: auto;
+  box-shadow: 0px -1px 0px rgba(255,255,255,.90);
+}
+
+#fwrap {
+  width: 960px;
+  margin: 0 auto;
+  padding-left: .4em;
+}
+
+.column {
+  float:left;
+  border-right: 1px solid #fff;
+  width: 24.2%;
+  height: 150px;
+}
+
+.column #firstimg {
+  float: right;
+  margin-right: 15px;
+}
+
+.column img {
+    padding: 2em .3em;
+}
+
+.stayconnected {
+  padding: 2em 1em;
+  position: relative;
+}
+
+.column p {
+  color:#fff;
+  text-align: center;
+  padding-bottom: .5em;
+}
+
+p {
+  color:#4c4c4c;
+  font-size: 1em;
+  font-weight: normal;
+  text-align: left;
+}
+
+p.con {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1em;
+  margin-top: .1em;
+  font-size: 14px;
+}
+
+
+.stayconnected li a.footfacebook {
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat 0 0;
+  left:40px;
+  top: 65px;
+  transition: ease-in-out;
+}
+
+.stayconnected li a.footfacebook:hover {
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat 0 -40px;
+  left:40px;
+  top: 65px;
+  transition: ease-in-out;
+}
+
+
+
+.stayconnected ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.stayconnected li a.foottwitter {
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat -40px 0;
+  left:95px;
+  top: 65px;
+  transition: ease-in-out;
+}
+
+.stayconnected li a.foottwitter:hover {
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat -40px -40px;
+  left:95px;
+  top: 65px;
+  transition: ease-in-out;
+}
+
+.stayconnected li a {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+
+
+.stayconnected li a.footyoutube {
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat -80px 0;
+  left:150px;
+  top: 65px;
+  transition: ease-in-out;
+}
+
+.stayconnected li a.footyoutube:hover {
+  background: url(<%= asset_path('socialsprite.png') %>) no-repeat -80px -40px;
+  left:150px;
+  top: 65px;
+  transition: ease-in-out;
+}
+
+
+address {
+  color:#fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+.column:last-child {
+  border: none;
+}
+
+.mainlock {
+  margin-top: 2em;
+  margin-right: .5em;
+  float: left;
+  border: 1px solid #fff;
+  padding: .5em 2.5em;
+  line-height: 1em;
+  width: 55%;
+  transition: background-color .5s ease;
+  margin-left: 20px;
+  padding-bottom: .2em;
+}
+
+/*.lock {
+  height: 17px;
+  width: 15px;
+  background: url(inbox.png) no-repeat 0px 0px;
+  display: inline-block;
+}*/
+
+.mainlock p {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 5px;
+  padding-top: 8px;
+  padding-left: 5px;
+}
+
+
+.minfooter {
+  width: 100%;
+  display: block;
+  line-height: 30px;
+  border-top: 1px solid #fff;
+}
+
+.minifooter {
+  width: 920px;
+  display: block;
+  margin: 0 auto;
+  padding-left: .2em;
+  vertical-align: middle;
+  height: 30px;
+}
+
+.minifooter p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.minfoo {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 960px;
+}
+
+.minfoo p {
+  float: left;
+  vertical-align: middle;
+  color: #fff;
+}
+
+
+.ms {
+    float: right;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 12px;
+}
+
+/* This is just getting rid of all the 'bullet points' in our lists :) */
+li {
+  list-style-type: none;
+}
+
+body {
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+
+
+
+
+/* transitions */
+
+h3 a,#navigation li a, signInOut  {
+  transition: all .3s, background-color 200ms ease;
+  transition: all .3s, background-color 200ms ease;
+  -moz-transition: all .3s, background-color 200ms ease;
+  -webkit-transition: all .3s, background-color 200ms ease;
+  -o-transition: all .3s, background-color 200ms ease;
+}
+
+
+header,#topnav, article a, #main, .menu, nav, a, img,#welcomeFeatured,#welcomeAside,
+ welcomeMainContent, mfooter,.box, figure,.button {
+  transition: all .3s, background-color 200ms ease;
+  transition: all .3s, background-color 200ms ease;
+  -moz-transition: all .3s, background-color 200ms ease;
+  -webkit-transition: all .3s, background-color 200ms ease;
+  -o-transition: all .3s, background-color 200ms ease;
+}

@@ -1,3 +1,9 @@
+<header>
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <center><h3><div class="alert alert-success" role="alert"><%= flash[:notice] %></div></h3></center>
+  <% end %>
+</header>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -45,18 +51,20 @@
 
   <a class="right carousel-control" href="#myCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
-  <a>
+  </a>
 </div><!-- carousel slide  -->
 
 <aside id="welcomeAside" class="clearfix">
-  <header>
-    <h3 class="recent-title">Click <%= link_to "here", new_scene_path %> to upload your photos! or checkout our most recent uploads</h3>
-  </header>
-    <!-- <h2 class="welcomeMessage">Welcome to <span>Movie Snaps</span>, a User-friendly app built for people
-        who love blah blah and more blah blah blah</h2> -->
-        <h2 class="welcomeMessage">“Adventure is out there!” Up (2009)</h2>
-        <h2 class="welcomeMessage">“The most beautiful thing in the world is, of course, the world itself.” Cast Away (2000)</h2>
-        <h2 class="welcomeMessage">“Remember, what happens in Vegas stays in Vegas. Except for herpes. That shit’ll come back with you.” The Hangover (2009)</h2>
+
+  <div style="width:45%;margin:0 auto; padding-top.5em;">
+    <header style="margin-bottom:20px;margin-left:-5px;">
+      <h2>What movie have you been in?</h2>
+    </header>
+        <div class="btn-group" >
+
+          <a href="<%= new_scene_path %>"><button style="padding:1em 5em; margin-left:20px;" type="button" class="btn btn-primary btn-lg" >Upload photos</button></a>
+        </div>
+  </div>
 
 </aside><!-- welcomeAside  -->
 
