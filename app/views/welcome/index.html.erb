@@ -13,7 +13,7 @@
   <div class="carousel-inner">
     <% if @popular.length == 3 %>
       <div class="active item">
-        <img class="first-slide" src='<%= @popular[0].image_file_name %>'>
+        <img class="first-slide" src='<%= @popular[0].image.url %>'>
         <div class="container">
           <div class="carousel-caption">
             <h3><%= @popular[0].visit.scene.movie.name %></h3>
@@ -23,7 +23,7 @@
       </div><!-- active item  -->
 
       <div class="item">
-        <img class="second-slide" src='<%= @popular[1].image_file_name %>'>
+        <img class="second-slide" src='<%= @popular[1].image.url %>'>
         <div class="container">
             <div class="carousel-caption">
               <h3><%= @popular[1].visit.scene.movie.name %></h3>
@@ -33,7 +33,7 @@
       </div><!-- item  -->
 
       <div class="item">
-        <img class="third-slide" src='<%= @popular[2].image_file_name %>'>
+        <img class="third-slide" src='<%= @popular[2].image.url %>'>
         <div class="container">
             <div class="carousel-caption">
               <h3><%= @popular[2].visit.scene.movie.name %></h3>
@@ -80,7 +80,7 @@
               <h4><%= p.caption %></h4>
               <figure>
                 <a href="#">
-                  <img src='<%= p.image_file_name %>' height='200' width='198' %>
+                  <img src='<%= p.image.url %>' height='200' width='198' %>
                 </a>
               </figure>
 

@@ -5,7 +5,7 @@ feature 'A user wants to add the location for a film' do
   before do
     create_visit
     visit '/'
-    click_link 'here'
+    click_link 'Upload photos'
   end
 
   scenario 'they have the option to enter a location address first' do

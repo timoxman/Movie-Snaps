@@ -12,7 +12,7 @@ feature 'A user wants to add a movie' do
 
   before(:each) do
     create_visit
-    click_link 'here'
+    click_link 'Upload photos'
   end
 
   scenario 'but cannot enter a movie before a location', js: true do
