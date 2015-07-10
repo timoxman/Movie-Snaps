@@ -72,17 +72,18 @@ group :test do
   #allow testing of Javascript (Capybara's default web driver hiccups)
   gem 'poltergeist'
   gem 'database_cleaner'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.46.2'
 end
 
 group :development, :test do
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # for time validations in database tests
+  gem 'validates_timeliness', '~> 3.0'
+  # for testing photo uploading
+  gem 'factory_girl_rails'
 end

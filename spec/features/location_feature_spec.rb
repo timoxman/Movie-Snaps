@@ -5,7 +5,7 @@ feature 'A user wants to add the location for a film' do
   before do
     create_visit
     visit '/'
-    click_link 'here'
+    click_link 'Upload photos'
   end
 
   scenario 'they have the option to enter a location address first' do
@@ -61,11 +61,6 @@ feature 'User views the location index page' do
   scenario 'enters a location in database and have it autocompleted', js: true do
     fill_autocomplete('enterDBLocation', with: 'Louvre Pyramid, 75001, Paris, France')
     expect(page).to have_selector('ul.ui-autocomplete li.ui-menu-item')
-  end
-
-  scenario 'enters a location not in database and not have it autocompleted', js: true do
-    fill_autocomplete('enterDBLocation', with: 'Wollaton Hall & Deer Park, Nottingham NG8 2AE')
-    expect(page).not_to have_selector('ul.ui-autocomplete li.ui-menu-item')
   end
 
   scenario 'enters a location not in database and sees error message', js: true do

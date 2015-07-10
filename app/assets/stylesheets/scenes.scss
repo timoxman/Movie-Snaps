@@ -20,14 +20,13 @@ h1 {
   font-size: 14px;
   color: #506b91;
   background-color: #f9f9f9;
-
 }
 
 div {
 
   #selectDBLocation {
     width: 120px;
-    color: #333;
+    color: white;
     vertical-align: middle;
     height: 36px;
     font-size: 13px;
@@ -35,7 +34,7 @@ div {
     padding: 0.5em;
     cursor: pointer;
     border: 1px solid #777c82;
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+    background-color: #1C609C;
     /* font-weight: bold; */
     /* padding: 10px 20px; */
     text-align: center;
@@ -43,3 +42,4 @@ div {
 
   }
 }//div
+

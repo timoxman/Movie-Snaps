@@ -34,7 +34,7 @@ feature 'User views another user\'s profile page' do
     expect(page).to have_content('Outside Le Louvre!')
   end
 
-  scenario "displays scene photo" do
+  xscenario "displays scene photo", js: true do
     expect(page).to have_selector("img[src*='http://bit.ly/1JBfXCZ']")
   end
 

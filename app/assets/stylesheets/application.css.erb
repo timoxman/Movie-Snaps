@@ -16,13 +16,15 @@
 
 
 body {
-  /*background: #717679;*/
-  background: url(<%= asset_path('page-bg.jpg') %>) repeat 6.1% top;
   margin: 0;
   padding:0;
-  font-family: 'Lucida Grande', Arial, Helvetica, sans-serif;
   color:#000;
   line-height: 1;
+  font-family: 'Julius Sans One', sans-serif !important;
+}
+
+container {
+  background-color: #E0F2F7;
 }
 
 .clearfix::after {
@@ -36,14 +38,12 @@ body {
   height: 0;
 }
 
-
- #wrapper {
-   margin: 0;
-   padding: 0;
-   background: url(<%= asset_path('wrapper-bg.png') %>) center repeat-y;
-   position: relative;
-   width: 100%;
- }
+#wrapper {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
 
  .stretch {
    position: absolute;
@@ -54,18 +54,17 @@ body {
  }
 
  #container {
-   background: #d6d9dd url(<%= asset_path('container-bg.png') %>) 0 90px no-repeat;
+   background: #E0F2F7;
    margin: 0 auto;
    width: 1012px;
    position: relative;
-
  }
 
  #logo {
    background: url(<%= asset_path('filmlogo1.png') %>) no-repeat;
    position: absolute;
    left: 0;
-   width: 250px;
+   width: 200px;
    top:0;
    width: 250px;
    height: 96px;
@@ -73,9 +72,28 @@ body {
 
  }
 
+.footer-logo {
+   background: url(<%= asset_path('filmlogo1.png') %>) no-repeat;
+   position: relative;
+   right: 25px;
+   top: 25px;
+   width: 200px;
+   width: 250px;
+   height: 96px;
+ }
+
+.footer-logo2 {
+   background: url(<%= asset_path('filmlogo1.png') %>) no-repeat;
+   position: relative;
+   top: 25px;
+   left: 17px;
+   width: 200px;
+   width: 250px;
+   height: 96px;
+ }
+
 #topnav {
-  margin: 0;
-  padding: 0;
+  position: relative;
   background:#333 url(<%= asset_path('header.png') %>) no-repeat 0px 0px;
   border-bottom: 3px solid #333;
   width: 100%;
@@ -87,7 +105,7 @@ body {
 
 #signInOut {
   position: absolute;
-  right: 6%;
+  right: 1%;
   top: 17px;
   line-height: 22px;
   text-align: center;
@@ -142,7 +160,7 @@ ul#navigation li {
 }
 
 ul#navigation li:hover {
-  background-color:#506b80;
+  background-color:#E0F2F7;
   height: 90px;
   transition: all .3s ease-in-out;
 }
@@ -153,7 +171,7 @@ li:hover a span.subtitle {
 
 ul#navigation li a {
   display: block;
-  padding: 15px 30px 15px 30px;
+  padding: 15px 30px 15px 10px;
   text-decoration: none;
   color:#bbb;
   font-size: 14px;
@@ -182,15 +200,12 @@ ul#navigation li a:hover {
   display: block;
   margin-top: 1em;
 }
-
 .footer {
-
   color: #44484e;
   padding: 20px 30px;
   margin: 0;
   background: #d6d9dd;
 }
-
 .footer p {
   font-size: 11px;
   border-top: 1px dotted #777c82;
@@ -396,13 +411,14 @@ address {
     font-size: 12px;
 }
 
+/* This is just getting rid of all the 'bullet points' in our lists :) */
+li {
+  list-style-type: none;
+}
 
-
-
-
-
-
-
+body {
+  font-family: 'Julius Sans One', sans-serif;
+}
 
 
 
