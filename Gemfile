@@ -62,15 +62,12 @@ gem 'aws-sdk', '<2.0'
 #add angualr for the quick view page
 gem 'angularjs-rails'
 gem 'simple_form_angular'
-=======
-
 # for time validations in database tests
 gem 'validates_timeliness', '~> 3.0'
 
 group :production do
   gem 'rails_12factor'
 end
->>>>>>> 3cacd5afb5c5b29ea95c6e9cad823d0ca92119a0
 
 group :test do
   gem 'rspec-rails'
