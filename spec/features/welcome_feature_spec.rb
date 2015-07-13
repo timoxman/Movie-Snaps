@@ -7,7 +7,7 @@ feature 'User visits the site' do
   end
 
   scenario 'and sees the welcome page' do
-    expect(page).to have_content 'Adventure is out there!'
+    expect(page).to have_content 'What movie have you been in?'
   end
 
   scenario 'sees a message if no photos have been uploaded' do
@@ -22,9 +22,17 @@ feature 'User visits the site' do
     expect(page).to have_content photo.caption
   end
 
-  scenario 'and wants to begin uploading photos' do
-    click_link 'here'
-    expect(current_path).to eq locations_path
+  scenario 'and wants to create a new scene' do
+    create_visit
+    click_link 'Upload photos'
+    expect(current_path).to eq new_scene_path
+  end
+
+  scenario 'cannot create a new scene if not logged in' do
+    click_link 'Upload photos'
+    expect(page).to have_content 'Please sign in first'
+    expect(current_path).to eq root_path
   end
 
 end
+

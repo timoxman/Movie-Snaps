@@ -10,10 +10,10 @@ require 'spec_helper'
 
 require 'capybara/poltergeist'
 Capybara.current_driver = :poltergeist
-Capybara.default_wait_time = 5
+Capybara.default_wait_time = 25
 options = {js_errors: false}
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, options)
+  Capybara::Poltergeist::Driver.new(app, timeout: 25)
 end
 require 'support/database_cleaner'
 require 'support/omniauth'
@@ -61,4 +61,5 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
 end

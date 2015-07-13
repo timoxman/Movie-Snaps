@@ -4,11 +4,11 @@
   <h3>Total Visits by Date</h3>
   <p>This graph shows how many people have visited different movie locations on different days. </p>
 </div>
-<%= line_chart @visits.group(:date_visited).count, discrete: true %>
+<%= line_chart @visits, discrete: true %>
 
 <div class="dashboard clearfix">
   <h3>Most Popular Movies</h3>
-  <p>This graph shows the most popular movies on the sites, by showing the number of places visited.</p>
+  <p>This graph shows the 10 most popular movies on the site, showing the number of times a scenes from the movies have been visited.</p>
 </div>
 <%= bar_chart @scene_table_data %>
 

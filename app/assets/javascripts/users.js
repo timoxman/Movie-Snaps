@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  $("#noResultsMsg").hide();
+
   $('#visits').children('ul').children('li').each(function(index) {
     $(this).find('.movieTitleYear').hide();
     $(this).find('.longitude').hide();
@@ -57,8 +59,9 @@ function getPoster(movieTitle, movieYear, index) {
     poster = '<img src=' + data['Poster'] + '/>';
   })
   .done(function() {
-    var listItem = $('#visits').children('ul').children('li')[index];
-    $(listItem).append(poster);
+    var listItem = $('#visits').children('ul').children('li').children('div').children('span.movie_img')[index];
+    console.log(listItem)
+    $(listItem).html(poster);
   })
 }
 

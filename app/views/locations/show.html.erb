@@ -1,13 +1,11 @@
 <% content_for :javascript_includes do %>
-  <%= javascript_include_tag "locations_show.js" %>
+  <%= javascript_include_tag "locations.js" %>
 <% end %>
 <div id='locationShow'></div>
 <section id="locationProfile">
 
   <div id='title'>
-    <h2>
-      <%= @location.address %>
-    </h2>
+    <h2><%= @location.address %></h2>
   </div>
   <div id="longitude"><%= @location.longitude %></div>
   <div id="latitude"><%= @location.latitude %></div>

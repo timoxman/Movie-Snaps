@@ -43,7 +43,6 @@ feature 'A user on the users page' do
 
     scenario 'can like a photo', js: true do
       click_link '♡'
-      expect(page).to have_content '1 like'
       expect(Like.count).to eq 1
     end
     scenario 'can only like a photo once', js: true do
@@ -78,7 +77,6 @@ feature 'A user on the locations page' do
 
     scenario 'can like a photo', js: true do
       click_link '♡'
-      expect(page).to have_content '1 like'
       expect(Like.count).to eq 1
     end
     scenario 'can only like a photo once', js: true do
@@ -127,8 +125,8 @@ feature 'A user on the movies page' do
       create_visit
       visit '/'
       click_link 'Sign out'
-      m = Movie.first
-      visit "/movies/#{m.id}"
+      l = Location.first
+      visit "/users/#{l.id}"
     end
 
     scenario 'cannot like a photo', js: true do

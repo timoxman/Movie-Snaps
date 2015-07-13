@@ -58,9 +58,19 @@ gem 'jquery-ui-rails'
 #Allows you to produce charts and graphs on your apps.
 gem "chartkick"
 gem 'aws-sdk', '<2.0'
+<<<<<<< HEAD
 #add angualr for the quick view page
 gem 'angularjs-rails'
 gem 'simple_form_angular'
+=======
+
+# for time validations in database tests
+gem 'validates_timeliness', '~> 3.0'
+
+group :production do
+  gem 'rails_12factor'
+end
+>>>>>>> 3cacd5afb5c5b29ea95c6e9cad823d0ca92119a0
 
 group :test do
   gem 'rspec-rails'
@@ -71,17 +81,16 @@ group :test do
   #allow testing of Javascript (Capybara's default web driver hiccups)
   gem 'poltergeist'
   gem 'database_cleaner'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.46.2'
 end
 
 group :development, :test do
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # for testing photo uploading
+  gem 'factory_girl_rails'
 end

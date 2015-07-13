@@ -1,3 +1,22 @@
 // Place all the styles related to the visits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.col-md-4 {
+    #movie_img {
+      img {
+        height:250px;
+        border-radius:20px;
+      }
+    }
+  #preview {
+    padding-left:40px;
+    padding-top:7em;
+      img {
+        width:300px;
+        border-radius:20px;
+		position: relative;
+		right: 40px;
+      }//img
+  }//preview
+}//col4

@@ -1,8 +1,10 @@
 class DashboardsController < ApplicationController
 
   def index
-    @visits = Visit.all
+#total visist by date
+    @visits = Visit.all.group(:date_visited).count.to_a.sort_by!{|k|k[0]}
 
+# Most popular Movies
     @scenes = Scene.includes(:movie)
     @scene_table_data =[]
     @scenes.each do | scene |
@@ -21,6 +23,13 @@ class DashboardsController < ApplicationController
       end
     end
 
+    @scene_table_data.sort_by!{|k|k[1]}.reverse!
+
+    while @scene_table_data.length > 10
+        @scene_table_data.pop
+    end
+
+#Most active users
     @visits2 = Visit.includes(:user).all
     @user_table_data =[]
     @visits2.each do | visit |
@@ -39,24 +48,22 @@ class DashboardsController < ApplicationController
       end
     end
 
+#Most popular locations
     regex = %r!, ([a-zA-Z ]+)$!
     @locations = Location.all
     @location_table_data =[]
     @locations.each do | location |
-      country = location.address[(location.address =~ regex )+2..-1]
-      country = 'United Kingdom' if country == 'UK'
-      location_found = false
-      @location_table_data.each_with_index do |item, i|
-        if item[0] == country
-          @location_table_data[i][1] +=1
-          location_found = true
+      if (location.address =~ regex )
+        country = location.address[(location.address =~ regex )+2..-1]
+        country = 'United Kingdom' if country == 'UK'
+        location_found = false
+        @location_table_data.each_with_index do |item, i|
+          if item[0] == country
+            @location_table_data[i][1] +=1
+            location_found = true
+          end
         end
-      end
-      if !location_found
-        new_item =[]
-        new_item[0] = country
-        new_item[1] = 1
-        @location_table_data.push(new_item)
+        @location_table_data.push([country,1]) if !location_found
       end
     end
     #@location_table_data = [["United Kingdom",44],["USA",23],["Brazil",22]]

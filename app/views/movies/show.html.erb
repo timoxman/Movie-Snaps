@@ -25,7 +25,7 @@
               <ul class="visits">
                 <% scene.visits.order('date_visited desc').each do |visit| %>
                   <li class="visit">
-                    <%= image_tag visit.user.image %>
+                    <%= image_tag visit.user.image, :class => "user_img" %>
                     <%= link_to visit.user.name, user_path(visit.user) %>
                     <% if visit.date_visited %> visited on <%= visit.date_visited.strftime('%e %B %Y') %><% end %>
                     <% if visit.description %> ("<%= visit.description %>")<% end %></br>
@@ -33,7 +33,7 @@
                       <ul class="photos">
                         <% visit.photos.each do |photo| %>
                           <li class="photo">
-                            <%= image_tag photo.image_file_name %>
+                            <%= image_tag photo.image.url, :class => "user_scene_img" %>
                             <%= photo.caption %>
                             <% if current_user %>
                               <% liked = false %>
